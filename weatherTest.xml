@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module> 
-<ModulePrefs title="RevelDigital Weather Gadget" description="Local weather details with forecast" author="RevelDigital" background="transparent" deprecated="true">
+<ModulePrefs title="RevelDigital Weather Gadget" description="TESTING123" author="RevelDigital" background="transparent" deprecated="true">
   <Require feature="reveldigital" />
   <Require feature="jquery" />
   <Require feature="webfont" />
