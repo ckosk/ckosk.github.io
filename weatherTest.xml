@@ -248,6 +248,7 @@ div, span
   }
 
    function getConditions(location) {
+    console.log("Made it to getConditions");
     if (location == "" || location.indexOf("*|DEVICE.LOCATION.CITY|*") != -1) {
       location = "Fargo, ND";
     }
@@ -260,9 +261,9 @@ div, span
         if (data.success === false) {
           return;
         }
-        $(".fe_temp").text(parseInt(currentTemplate(data.response.ob.tempF)));
-        $(".fe_summary").text(currentTemplate(data.response.ob.weatherShort));
-        $(".fe_wind").text("Wind: " + parseInt(currentTemplate(data.response.ob.windSpeedMPH)) + " mph");
+        $(".fe_temp").text(parseInt(data.response.ob.tempF));
+        $(".fe_summary").text(data.response.ob.weatherShort);
+        $(".fe_wind").text("Wind: " + parseInt(data.response.ob.windSpeedMPH) + " mph");
       }
     });
   }
