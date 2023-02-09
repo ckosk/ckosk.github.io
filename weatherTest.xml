@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module> 
-<ModulePrefs title="RevelDigital Weather Gadget" description="TESTING123" author="RevelDigital" background="transparent" deprecated="true">
+<ModulePrefs title="RevelDigital Weather Gadget" description="TESTING" author="RevelDigital" background="transparent" deprecated="true">
   <Require feature="reveldigital" />
   <Require feature="jquery" />
   <Require feature="webfont" />
@@ -260,7 +260,9 @@ div, span
         if (data.success === false) {
           return;
         }
-        $("#fe_currently").html(currentTemplate(data.response.ob));
+        $(".fe_temp").text(parseInt(currentTemplate(data.response.ob.tempF)));
+        $(".fe_summary").text(currentTemplate(data.response.ob.weatherShort));
+        $(".fe_wind").text("Wind: " + parseInt(currentTemplate(data.response.ob.windSpeedMPH)) + " mph");
       }
     });
   }
