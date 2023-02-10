@@ -198,13 +198,13 @@ div, span
   function mapIcon(icon) {
   
     switch (icon) {
-      case 'clear-day':
+      case 'clear':
         return Skycons.CLEAR_DAY;
-      case 'clear-night':
+      case 'clearn':
         return Skycons.CLEAR_NIGHT;
-      case 'partly-cloudy-night':
+      case 'pcloudyn':
         return Skycons.PARTLY_CLOUDY_NIGHT;
-      case 'partly-cloudy-day':
+      case 'pcloudy':
         return Skycons.PARTLY_CLOUDY_DAY;
       case 'cloudy':
         return Skycons.CLOUDY;
@@ -261,6 +261,8 @@ div, span
         if (data.success === false) {
           return;
         }
+        skycons.remove("fe_current_icon");
+        skycons.add("fe_current_icon", mapIcon((data.response.ob.icon).split('.').slice(0, -1).join('.')));
         $(".fe_temp").text(parseInt(data.response.ob.tempF));
         $(".fe_summary").text(data.response.ob.weatherShort);
         $(".fe_wind").text("Wind: " + parseInt(data.response.ob.windSpeedMPH) + " mph");
