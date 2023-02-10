@@ -194,6 +194,9 @@ div, span
   var geoLocation;
   var skycons;
   var search = prefs.getString("Location");
+  var metricU = false;
+  if (prefs.getString("Units") == 'si'){
+    metricU = true;}
   
   function mapIcon(icon) {
   
@@ -262,9 +265,13 @@ div, span
         }
         skycons.remove("fe_current_icon");
         skycons.add("fe_current_icon", mapIcon((data.response.ob.icon).split('.').slice(0, -1).join('.')));
-        $(".fe_temp").text(parseInt(data.response.ob.tempF));
         $(".fe_summary").text(data.response.ob.weatherShort);
-        $(".fe_wind").text("Wind: " + parseInt(data.response.ob.windSpeedMPH) + " mph");
+        if (metricU) {
+          $(".fe_wind").text("Wind: " + parseInt(data.response.ob.windSpeedKPH) + " kph");
+          $(".fe_temp").text(parseInt(data.response.ob.tempC));}
+        else {
+          $(".fe_wind").text("Wind: " + parseInt(data.response.ob.windSpeedMPH) + " mph");
+          $(".fe_temp").text(parseInt(data.response.ob.tempF));}
       }
     });
   }
@@ -284,8 +291,12 @@ div, span
         }
         $('.fe_daily').empty();
       
-        var max = data.response[0].periods[0].maxTempF
-        var min = data.response[0].periods[0].minTempF
+        if (metricU){
+          var max = data.response[0].periods[0].maxTempC;
+          var min = data.response[0].periods[0].minTempC;}
+        else {
+          var max = data.response[0].periods[0].maxTempF;
+          var min = data.response[0].periods[0].minTempF;}
 
         for (let i = 0; i < prefs.getInt("ForecastDays"); i++) {
             var t = new Date(1970,0,1);
@@ -302,10 +313,16 @@ div, span
             $(".fe_daily").append(fe_day);
             
             skycons.add('fe_day_icon' + i, mapIcon((data.response[0].periods[i].icon).split('.').slice(0, -1).join('.')));
-            $(fe_high_temp).text(parseInt(data.response[0].periods[i].maxTempF));
-            $(fe_low_temp).text(parseInt(data.response[0].periods[i].minTempF));
-            $(fe_label).text(days[t.getDay()]);
-            $(fe_temp_bar).css('height', (data.response[0].periods[i].maxTempF - data.response[0].periods[i].minTempF) * 3 + 'px');}
+            if (metricU){
+              $(fe_high_temp).text(parseInt(data.response[0].periods[i].maxTempC));
+              $(fe_low_temp).text(parseInt(data.response[0].periods[i].minTempC));
+              $(fe_label).text(days[t.getDay()]);
+              $(fe_temp_bar).css('height', (data.response[0].periods[i].maxTempC - data.response[0].periods[i].minTempC) * 3 + 'px');}}
+            else {
+              $(fe_high_temp).text(parseInt(data.response[0].periods[i].maxTempF));
+              $(fe_low_temp).text(parseInt(data.response[0].periods[i].minTempF));
+              $(fe_label).text(days[t.getDay()]);
+              $(fe_temp_bar).css('height', (data.response[0].periods[i].maxTempF - data.response[0].periods[i].minTempF) * 3 + 'px');}}
         }
     });
   }
