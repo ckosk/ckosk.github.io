@@ -1,28 +1,28 @@
-<?xml version="1.0" encoding="UTF-8" ?> 
-<Module> 
-<ModulePrefs title="RevelDigital Weather Gadget" description="Local weather details with forecast" author="RevelDigital" background="transparent" deprecated="true">
-  <Require feature="reveldigital" />
-  <Require feature="jquery" />
-  <Require feature="webfont" />
-  
-  <UserPref name="Latitude" datatype="hidden" default_value="*|DEVICE.LOCATION.LATITUDE|*" />
-  <UserPref name="Longitude" datatype="hidden" default_value="*|DEVICE.LOCATION.LONGITUDE|*" />
-  <UserPref name="Location" display_name="City, State for Weather" datatype="string" required="true" default_value="*|DEVICE.LOCATION.CITY|*, *|DEVICE.LOCATION.STATE|*" />
-  <UserPref name="Units" display_name="Temperature Units" datatype="enum" default_value="us">
-    <EnumValue value="us" display_value="US" />
-    <EnumValue value="si" display_value="Metric" />
-  </UserPref>
-  <UserPref name="ForecastDays" display_name="Forecast Days" datatype="string" default_value="3" required="true" />
-  <UserPref name="TextStyle" display_name="Text Style" datatype="style" default_value="font-family:Verdana;color:#ffffff;font-size:24px;text-align:left;" required="true" />
-  <UserPref name="IconColor" display_name="Icon Color" datatype="color" default_value="#0000ff" required="true" />
-  <UserPref name="rdW" display_name="Width" required="true" default_value="280" datatype="hidden" />
-  <UserPref name="rdH" display_name="Height" required="true" default_value="190" datatype="hidden" />
-  <UserPref name="ForeColor" datatype="hidden" />
-  <UserPref name="BackColor" datatype="hidden" />
-  <UserPref name="gkey" datatype="hidden" default_value="AIzaSyBZ14SEPEoqnPFNhfhk9tIdK22_Jw8YSB8" />
-</ModulePrefs>
-<Content type="html">
-<![CDATA[
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="RevelDigital Weather Gadget" description="Local weather details with forecast" author="RevelDigital" background="transparent" deprecated="true">
+    <Require feature="reveldigital" />
+    <Require feature="jquery" />
+    <Require feature="webfont" />
+
+    <UserPref name="Latitude" datatype="hidden" default_value="*|DEVICE.LOCATION.LATITUDE|*" />
+    <UserPref name="Longitude" datatype="hidden" default_value="*|DEVICE.LOCATION.LONGITUDE|*" />
+    <UserPref name="Location" display_name="City, State for Weather" datatype="string" required="true" default_value="*|DEVICE.LOCATION.CITY|*, *|DEVICE.LOCATION.STATE|*" />
+    <UserPref name="Units" display_name="Temperature Units" datatype="enum" default_value="us">
+      <EnumValue value="us" display_value="US" />
+      <EnumValue value="si" display_value="Metric" />
+    </UserPref>
+    <UserPref name="ForecastDays" display_name="Forecast Days" datatype="string" default_value="3" required="true" />
+    <UserPref name="TextStyle" display_name="Text Style" datatype="style" default_value="font-family:Verdana;color:#ffffff;font-size:24px;text-align:left;" required="true" />
+    <UserPref name="IconColor" display_name="Icon Color" datatype="color" default_value="#0000ff" required="true" />
+    <UserPref name="rdW" display_name="Width" required="true" default_value="280" datatype="hidden" />
+    <UserPref name="rdH" display_name="Height" required="true" default_value="190" datatype="hidden" />
+    <UserPref name="ForeColor" datatype="hidden" />
+    <UserPref name="BackColor" datatype="hidden" />
+    <UserPref name="gkey" datatype="hidden" default_value="AIzaSyBZ14SEPEoqnPFNhfhk9tIdK22_Jw8YSB8" />
+  </ModulePrefs>
+  <Content type="html">
+    <![CDATA[
 
 <style type="text/css">
 body *
@@ -331,5 +331,5 @@ div, span
 </script>
 
 ]]>
-</Content>
+  </Content>
 </Module>
