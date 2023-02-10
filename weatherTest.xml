@@ -313,17 +313,17 @@ div, span
             $(".fe_daily").append(fe_day);
             
             skycons.add('fe_day_icon' + i, mapIcon((data.response[0].periods[i].icon).split('.').slice(0, -1).join('.')));
-            if (metricU){
+            if (metricU) {
               $(fe_high_temp).text(parseInt(data.response[0].periods[i].maxTempC));
               $(fe_low_temp).text(parseInt(data.response[0].periods[i].minTempC));
               $(fe_label).text(days[t.getDay()]);
-              $(fe_temp_bar).css('height', (data.response[0].periods[i].maxTempC - data.response[0].periods[i].minTempC) * 3 + 'px');}}
+              $(fe_temp_bar).css('height', (data.response[0].periods[i].maxTempC - data.response[0].periods[i].minTempC) * 3 + 'px');}
             else {
               $(fe_high_temp).text(parseInt(data.response[0].periods[i].maxTempF));
               $(fe_low_temp).text(parseInt(data.response[0].periods[i].minTempF));
               $(fe_label).text(days[t.getDay()]);
-              $(fe_temp_bar).css('height', (data.response[0].periods[i].maxTempF - data.response[0].periods[i].minTempF) * 3 + 'px');}}
-        }
+              $(fe_temp_bar).css('height', (data.response[0].periods[i].maxTempF - data.response[0].periods[i].minTempF) * 3 + 'px');}
+        }}
     });
   }
 
