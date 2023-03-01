@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-    <ModulePrefs title="Korona Menu" description="A menu gadget for displaying product information from Korona POS software" author="" background="transparent">
+    <ModulePrefs title="Korona Menu" description="Testing Korona POS Image Fetching" author="" background="transparent">
         <UserPref name="myAPIPref" display_name="API Token*" datatype="string" default_value="" required="true" />
         <UserPref name="accID" display_name="Account ID*" datatype="string" default_value="" required="true" />
         <UserPref name="minQty" display_name="Minimum Quantity for Removal*" datatype="string" default_value="0" required="true" />
