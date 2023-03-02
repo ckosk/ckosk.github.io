@@ -195,8 +195,8 @@
                     if (response.data.name != "" && typeof response.data.prices != 'undefined' && (__UP_myBoolImagePref__)) {
                         (document.getElementById("itemListList").innerHTML += "<tr><td>" + response.data.name + "</td><td>"
                             + formatter.format(response.data.prices[(response.data.prices.length)-1].value) + "</td><td>"
-                            + "Image Here" + "</td></tr>");}})
-            .catch(err => console.error(err));
+                            + "Image Here" + "</td></tr>");}}})
+                .catch(err => console.error(err));
         }
         else {
             axios.get(endPoint + '/accounts/' + accID + '/products' + tagEnd, options)
