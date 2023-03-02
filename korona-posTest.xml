@@ -39,6 +39,7 @@
             <EnumValue value="THB" display_value="Thai Baht" />
         </UserPref>
         <UserPref name="myBoolHeadPref" display_name="Display Header" datatype="bool" default_value="false" />
+	<UserPref name="myBoolImagePref" display_name="Display Special Image" datatype="bool" default_value="false" />
         <UserPref name="myBoolDashPref" display_name="Display Dash in Name" datatype="bool" default_value="true" />
         <UserPref name="myBoolBrandPref" display_name="Display Brand Name" datatype="bool" default_value="true" />
 
@@ -188,9 +189,13 @@
         if (myItemID != "" && accID != "") {
             axios.get(endPoint + '/accounts/' + accID + '/products/' + myItemID, options)
                 .then((response) => {
-                    if (response.data.name != "" && typeof response.data.prices != 'undefined') {
+                    if (response.data.name != "" && typeof response.data.prices != 'undefined' && !(__UP_myBoolImagePref__)) {
                         (document.getElementById("itemListList").innerHTML += "<tr><td>" + response.data.name + "</td><td>"
-                            + formatter.format(response.data.prices[(response.data.prices.length)-1].value) + "</td></tr>");}})
+                            + formatter.format(response.data.prices[(response.data.prices.length)-1].value) + "</td></tr>");
+                    if (response.data.name != "" && typeof response.data.prices != 'undefined' && (__UP_myBoolImagePref__)) {
+                        (document.getElementById("itemListList").innerHTML += "<tr><td>" + response.data.name + "</td><td>"
+                            + formatter.format(response.data.prices[(response.data.prices.length)-1].value) + "</td><td>"
+                            + "Image Here" + "</td></tr>");}})
             .catch(err => console.error(err));
         }
         else {
