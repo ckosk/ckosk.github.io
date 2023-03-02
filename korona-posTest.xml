@@ -224,10 +224,14 @@
             if (myItemID != "" && accID != "") {
                 axios.get(endPoint + '/accounts/' + accID + '/products/' + myItemID, options)
                     .then((response) => {
-                        if (response.data.name != "" && typeof response.data.prices != 'undefined') {
+                        if (response.data.name != "" && typeof response.data.prices != 'undefined' && !(__UP_myBoolImagePref__)) {
                             (document.getElementById("itemListList").innerHTML += "<tr><td>" + response.data.name + "</td><td>"
-                                + formatter.format(response.data.prices[(response.data.prices.length)-1].value) + "</td></tr>");}})
-                .catch(err => console.error(err));
+                                + formatter.format(response.data.prices[(response.data.prices.length)-1].value) + "</td></tr>");
+                        if (response.data.name != "" && typeof response.data.prices != 'undefined' && (__UP_myBoolImagePref__)) {
+                            (document.getElementById("itemListList").innerHTML += "<tr><td>" + response.data.name + "</td><td>"
+                                + formatter.format(response.data.prices[(response.data.prices.length)-1].value) + "</td><td>"
+                                + "Image Here" + "</td></tr>");}}})
+                    .catch(err => console.error(err));
             }
             else {
                 axios.get(endPoint + '/accounts/' + accID + '/products' + tagEnd, options)
