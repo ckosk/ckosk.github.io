@@ -24,7 +24,8 @@
         <UserPref name="tableSpacingSide" display_name="Left-Right Table Spacing" datatype="string" default_value="30" required="true" />
         <UserPref name="tableFontSize" display_name="Table Text Size" datatype="string" default_value="1.17" required="true" />
         <UserPref name="stockFontSize" display_name="Special Text Size" datatype="string" default_value="1.17" required="true" />
-        <UserPref name="imageSize" display_name="Image Size Scale Multiplier" datatype="string" default_value="1" required="true" />
+        <UserPref name="imageSize" display_name="Image Size/Scale Multiplier" datatype="string" default_value="0.5" required="true" />
+        <UserPref name="imageLocation" display_name="Image Location (TESTING)" datatype="string" default_value="https://images.squarespace-cdn.com/content/v1/5e7009b572ee273a2fba5da0/f9f42631-e068-4682-bcf9-cda690ef5691/GMO-rebrand.png" required="true" />
         <UserPref name="updateInterval" display_name="Update Interval (in minutes)" datatype="string" default_value="5" required="true" />
         <UserPref name="myBackColorPref" display_name="Background Color" datatype="color" default_value="#B6D0E2" />
         <UserPref name="myHeadColorPref" display_name="Header Color" datatype="color" default_value="#1ABC9C" />
@@ -202,7 +203,7 @@
                         console.log("Made it to image");
                         (document.getElementById("itemListList").innerHTML += "<tr><td>" + response.data.name + "</td><td>"
                             + formatter.format(response.data.prices[(response.data.prices.length)-1].value) + "</td><td>"
-                            + "<img src='https://images.squarespace-cdn.com/content/v1/5e7009b572ee273a2fba5da0/f9f42631-e068-4682-bcf9-cda690ef5691/GMO-rebrand.png'>" + "</td></tr>");}})
+                            + "<img src='__UP_imageLocation__'>" + "</td></tr>");}})
                 .catch(err => console.error(err));
         }
         else {
@@ -238,7 +239,7 @@
                             console.log("Made it to image");
                             (document.getElementById("itemListList").innerHTML += "<tr><td>" + response.data.name + "</td><td>"
                                 + formatter.format(response.data.prices[(response.data.prices.length)-1].value) + "</td><td>"
-                                + "<img src='https://images.squarespace-cdn.com/content/v1/5e7009b572ee273a2fba5da0/f9f42631-e068-4682-bcf9-cda690ef5691/GMO-rebrand.png'>" + "</td></tr>");}})
+                                + "<img src='__UP_imageLocation__'>" + "</td></tr>");}})
                     .catch(err => console.error(err));
             }
             else {
