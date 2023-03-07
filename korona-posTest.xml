@@ -24,7 +24,8 @@
         <UserPref name="tableSpacingSide" display_name="Left-Right Table Spacing" datatype="string" default_value="30" required="true" />
         <UserPref name="tableFontSize" display_name="Table Text Size" datatype="string" default_value="1.17" required="true" />
         <UserPref name="stockFontSize" display_name="Special Text Size" datatype="string" default_value="1.17" required="true" />
-        <UserPref name="imageSize" display_name="Image Size/Scale Multiplier" datatype="string" default_value="0.5" required="true" />
+        <UserPref name="imageWidth" display_name="Image Width Size (%)" datatype="string" default_value="100" required="true" />
+        <UserPref name="imageHeight" display_name="Image Height Size (%)" datatype="string" default_value="100" required="true" />
         <UserPref name="updateInterval" display_name="Update Interval (in minutes)" datatype="string" default_value="5" required="true" />
         <UserPref name="myBackColorPref" display_name="Background Color" datatype="color" default_value="#B6D0E2" />
         <UserPref name="myHeadColorPref" display_name="Header Color" datatype="color" default_value="#1ABC9C" />
@@ -103,7 +104,8 @@
 
     img {
         transform-origin: center;
-        transform: scale(__UP_imageSize__);
+        width:__UP_imageWidth__%;
+        height:__UP_imageHeight__%;
     }
 
     .my-style
