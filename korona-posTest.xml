@@ -284,9 +284,13 @@
         if (__UP_myBoolDashPref__ === false && accID != "") {
             var brandTable = document.getElementById("itemListList");
             if ((brandTable.rows.length) > 0) {
-                console.log("Attempting to Remove Dash from Name");
-                $('table.centerTable('td:first'):contains("-")').each(function(){
-                    $(this).html($(this).html().split("-").join(""));});
+                var total = brandTable.rows.length;
+                for(var i = 0; i < total; i++) {
+                    if(i > 0) {
+                        console.log("attempt to remove dash")
+                        brandTable.rows[i].cells[0].innerHTML = brandTable.rows[i].cells[0].innerHTML.replace("-", "");
+                    }
+                }
             }
             else {
                 await sleep(500);
