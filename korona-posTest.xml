@@ -285,7 +285,7 @@
             var brandTable = document.getElementById("itemListList");
             if ((brandTable.rows.length) > 0) {
                 console.log("Attempting to Remove Dash from Name");
-                $('table.centerTable:contains("-")').each(function(){
+                $('table.centerTable('td:first'):contains("-")').each(function(){
                     $(this).html($(this).html().split("-").join(""));});
             }
             else {
