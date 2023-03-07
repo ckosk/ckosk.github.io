@@ -285,11 +285,9 @@
             var brandTable = document.getElementById("itemListList");
             if ((brandTable.rows.length) > 0) {
                 var total = brandTable.rows.length;
-                for(var i = 0; i < total; i++) {
-                    if(i > 0) {
-                        console.log("attempt to remove dash")
-                        brandTable.rows[i].cells[0].innerHTML = brandTable.rows[i].cells[0].innerHTML.replace("-", "");
-                    }
+                for (var i = 0; i < total; i++) {
+                    console.log("attempt to remove dash")
+                    brandTable.rows[i].cells[0].innerHTML = brandTable.rows[i].cells[0].innerHTML.split("-").join("");
                 }
             }
             else {
