@@ -109,7 +109,7 @@
     let myCatID = "__UP_myCatPref__";
     let myAPIToken = "__UP_myAPIPref__";
     let myUpdateInterval = (__UP_updateInterval__ * 60000);
-    let cors = "https://cors-anywhere.herokuapp.com/";
+    let cors = "https://corsanywhere.herokuapp.com/";
     
     function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
@@ -122,6 +122,7 @@
     
     const options = {
         method: 'GET',
+        mode: 'cors',
         headers: { Authorization: 'Bearer ' + myAPIToken }
     };
 
