@@ -22,7 +22,7 @@
         <UserPref name="myBoolTablePref" display_name="Display Table Header" datatype="bool" default_value="true" />
         <UserPref name="myBoolSpecialPref" display_name="Display Special Item" datatype="bool" default_value="false" />
         <UserPref name="myBoolCorsPref" display_name="Enable CORS Proxy" datatype="bool" default_value="true" />
-        
+
         <UserPref name="ForeColor" datatype="hidden" />
         <UserPref name="BackColor" datatype="hidden" />
         <UserPref name="rdW" display_name="Width" required="true" default_value="280" datatype="hidden" />
@@ -175,7 +175,7 @@
         
         sleep(1000);
         
-        fetch(corsItem + '', optionsItem)
+        fetch(cors + '', optionsItem)
             .then(response => response.json())
             .then(response => document.getElementById("priceStock").innerHTML = "Get them while you can!<br>" + response.name + " - "
                 + formatter.format((response.price) / 100) + "<br>" + countStock + " left in stock")
@@ -199,7 +199,7 @@
     
         sleep(1000);
     
-        fetch(corsItem + '', optionsItem)
+        fetch(cors + '', optionsItem)
             .then(response => response.json())
             .then(response => document.getElementById("priceStock").innerHTML = "Get them while you can!<br>" + response.name + " - "
                 + formatter.format((response.price) / 100) + "<br>" + countStock + " left in stock")
