@@ -3,7 +3,7 @@
     <ModulePrefs title="Clover Menu" description="A menu gadget for displaying information from a Clover POS machine" author="" background="transparent">
         <UserPref name="myMerchPref" display_name="Merchant ID*" datatype="string" default_value="" required="true" />
         <UserPref name="myItemPref" display_name="Item ID" datatype="string" default_value="" required="false" />
-        <UserPref name="myCatPref" display_name="Category ID*" datatype="string" default_value="" required="true" />
+        <UserPref name="myCatPref" display_name="Category ID*" datatype="string" default_value="" required="false" />
         <UserPref name="myAPIPref" display_name="API Token*" datatype="string" default_value="" required="true" />
 
         <UserPref name="tableSpacingTop" display_name="Top-Bottom Table Spacing" datatype="string" default_value="8" required="true" />
@@ -20,7 +20,7 @@
 
         <UserPref name="myBoolHeadPref" display_name="Display Header" datatype="bool" default_value="true" />
         <UserPref name="myBoolCorsPref" display_name="Enable CORS Proxy" datatype="bool" default_value="true" />
-        
+
         <UserPref name="ForeColor" datatype="hidden" />
         <UserPref name="BackColor" datatype="hidden" />
         <UserPref name="rdW" display_name="Width" required="true" default_value="280" datatype="hidden" />
@@ -138,7 +138,7 @@
                 + formatter.format((response.price) / 100) + "<br>")
             .catch(err => console.error(err));
     }
-    else if (myCatID != "" && merchID != "") {
+    if (myCatID != "" && merchID != "") {
         fetch(cors + 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/categories/' + myCatID + '/items', options)
             .then(response => response.json())
             .then((response) => {
@@ -147,8 +147,11 @@
                         + formatter.format((response.elements[i].price) / 100) + "</td></tr>");}})
             .catch(err => console.error(err));
     }
-    else {
-        document.getElementById("itemListList").innerHTML = "Enter Correct Credentials";
+    if (merchID == "") {
+        document.getElementById("itemListList").innerHTML = "Enter Merchant ID";
+    }
+    if (itemID == "" && myCatID == "") {
+        document.getElementById("itemListList").innerHTML = "Enter Category ID or Item ID";
     }
     
     sleep(1000);
