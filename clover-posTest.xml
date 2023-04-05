@@ -123,19 +123,19 @@
     const optionsCat = {
         method: 'GET',
         headers: { Authorization: 'Bearer ' + myAPIToken,
-                   "Target-Endpoint": 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/categories/' + myCatID + '/items' }
+                   'Target-Endpoint': 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/categories/' + myCatID + '/items' }
     };
 
     const optionsStock = {
         method: 'GET',
         headers: { Authorization: 'Bearer ' + myAPIToken,
-                   "Target-Endpoint": 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/item_stocks/' + itemID' }
+                   'Target-Endpoint': 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/item_stocks/' + itemID }
     };
 
     const optionsItem = {
         method: 'GET',
         headers: { Authorization: 'Bearer ' + myAPIToken,
-                   "Target-Endpoint": 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/items/' + itemID' }
+                   'Target-Endpoint': 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/items/' + itemID }
     };
 
     if (__UP_myBoolCorsPref__ === false) {
