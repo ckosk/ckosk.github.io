@@ -132,7 +132,7 @@
     }
 
     if (itemID != "" && merchID != "") {
-        fetch(cors + 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/items/' + itemID, options)
+        fetch(cors + 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/items/' + itemID + '', options)
             .then(response => response.json())
             .then(response => document.getElementById("itemListList").innerHTML = response.name + " - "
                 + formatter.format((response.price) / 100) + "<br>")
@@ -155,7 +155,7 @@
     
     function getInv() {
         if (itemID != "" && merchID != "") {
-            fetch(cors + 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/items/' + itemID, options)
+            fetch(cors + 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/items/' + itemID + '', options)
                 .then(response => response.json())
                 .then(response => document.getElementById("itemListList").innerHTML = response.name + " - "
                     + formatter.format((response.price) / 100) + "<br>")
@@ -175,12 +175,12 @@
         }
     }
 
-    if (__UP_myBoolSpecialPref__) { 
-        setInterval(function () {
-            getInv();
-            console.log("Item count has been automatically updated");
-        }, myUpdateInterval);
-    }
+
+    setInterval(function () {
+        getInv();
+        console.log("Item count has been automatically updated");
+    }, myUpdateInterval);
+    
 
 </script>]]></Content>
 </Module>
