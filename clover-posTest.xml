@@ -125,6 +125,12 @@
                    'Target-URL': 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/categories/' + myCatID + '/items' }
     };
 
+    const optionsCatName = {
+        method: 'GET',
+        headers: { Authorization: 'Bearer ' + myAPIToken,
+                   'Target-URL': 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/categories/' + myCatID }
+    };
+
     const optionsStock = {
         method: 'GET',
         headers: { Authorization: 'Bearer ' + myAPIToken,
@@ -181,7 +187,7 @@
     sleep(1000);
 
     if (__UP_myBoolTablePref__) {
-        fetch(cors, optionsCat)
+        fetch(cors, optionsCatName)
             .then(response => response.json())
             .then(response => document.getElementById("itemListTable").innerHTML = ("View our Wide Selection of " + response.name))
             .catch(err => console.error(err));
