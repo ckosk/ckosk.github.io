@@ -130,18 +130,6 @@
         const element = document.getElementById('headerID');
         element.remove();
     }
-    if (__UP_myBoolTablePref__ === false) {
-        const element = document.getElementById('itemListTable');
-        element.remove();
-    }
-    if (__UP_myBoolSpecialPref__ === false) {
-        const element = document.getElementById('priceStock');
-        element.remove();
-    }
-    else if (__UP_myBoolSpecialPref__ === true && itemID == "") {
-        const element = document.getElementById('priceStock');
-        element.remove();
-    }
 
     if (itemID != "" && merchID != "") {
         fetch(cors + 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/items/' + itemID, options)
