@@ -109,7 +109,7 @@
     let myCatID = "__UP_myCatPref__";
     let myAPIToken = "__UP_myAPIPref__";
     let myUpdateInterval = (__UP_updateInterval__ * 60000);
-    let cors = "https://corsanywhere.herokuapp.com/";
+    let cors = "http://localhost:3000/";
     
     function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
