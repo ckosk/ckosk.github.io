@@ -160,7 +160,7 @@
         element.remove();
     }
     
-    if (myCatID != '' && itemID == '') {
+    if (myCatID != "" && merchID != "") {
         fetch(cors, optionsCat)
             .then(response => response.json())
             .then((response) => {
@@ -170,7 +170,8 @@
             .catch(err => console.error(err));
     }
 
-    if (myCatID == '' && itemID != '') {
+    if (merchID != "" && itemID != "") {
+        sleep(1000)
         fetch(cors, optionsItem)
             .then(response => response.json())
             .then((response) => {
@@ -178,8 +179,6 @@
                     + formatter.format((response.elements.price) / 100) + "</td></tr>");})
             .catch(err => console.error(err));
     }
-    
-    sleep(1000);
     
     function getInv() {
         sleep(1000);
