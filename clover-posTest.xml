@@ -120,10 +120,22 @@
         currency: 'USD',
     });
     
-    const options = {
+    const optionsCat = {
         method: 'GET',
-        mode: 'cors',
-        headers: { Authorization: 'Bearer ' + myAPIToken }
+        headers: { Authorization: 'Bearer ' + myAPIToken,
+                   "Target-Endpoint": 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/categories/' + myCatID + '/items' }
+    };
+
+    const optionsStock = {
+        method: 'GET',
+        headers: { Authorization: 'Bearer ' + myAPIToken,
+                   "Target-Endpoint": 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/item_stocks/' + itemID' }
+    };
+
+    const optionsItem = {
+        method: 'GET',
+        headers: { Authorization: 'Bearer ' + myAPIToken,
+                   "Target-Endpoint": 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/items/' + itemID' }
     };
 
     if (__UP_myBoolCorsPref__ === false) {
@@ -146,7 +158,7 @@
         element.remove();
     }
     
-    fetch(cors + 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/categories/' + myCatID + '/items', options)
+    fetch(cors, optionsCat)
         .then(response => response.json())
         .then((response) => {
             for (let i = 0; i < response.elements.length; i++) {
@@ -156,14 +168,14 @@
     
     if (__UP_myBoolSpecialPref__) { 
         let countStock;
-        fetch(cors + 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/item_stocks/' + itemID, options)
+        fetch(cors, optionsStock)
             .then(response => response.json())
             .then(response => countStock = response.stockCount)
             .catch(err => console.error(err));
         
         sleep(1000);
         
-        fetch(cors + 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/items/' + itemID + '', options)
+        fetch(corsItem + '', optionsItem)
             .then(response => response.json())
             .then(response => document.getElementById("priceStock").innerHTML = "Get them while you can!<br>" + response.name + " - "
                 + formatter.format((response.price) / 100) + "<br>" + countStock + " left in stock")
@@ -173,21 +185,21 @@
     sleep(1000);
 
     if (__UP_myBoolTablePref__) {
-        fetch(cors + 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/categories/' + myCatID, options)
+        fetch(cors, optionsCat)
             .then(response => response.json())
             .then(response => document.getElementById("itemListTable").innerHTML = ("View our Wide Selection of " + response.name))
             .catch(err => console.error(err));
     }
     
     function getInv() {
-        fetch(cors + 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/item_stocks/' + itemID, options)
+        fetch(cors, optionsStock)
             .then(response => response.json())
             .then(response => countStock = response.stockCount)
             .catch(err => console.error(err));
     
         sleep(1000);
     
-        fetch(cors + 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/items/' + itemID + '', options)
+        fetch(corsItem + '', optionsItem)
             .then(response => response.json())
             .then(response => document.getElementById("priceStock").innerHTML = "Get them while you can!<br>" + response.name + " - "
                 + formatter.format((response.price) / 100) + "<br>" + countStock + " left in stock")
