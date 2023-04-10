@@ -138,8 +138,8 @@
                 for (let i = 0; i < response.elements.length; i++) {
                     if (response.elements[i].id == itemID) {
                         (document.getElementById("itemListList").innerHTML = "<tr><td>" + response.elements[i].name + "</td><td>"
-                        + formatter.format((response.elements[i].price) / 100) + "</td></tr>");}})
-                    }
+                        + formatter.format((response.elements[i].price) / 100) + "</td></tr>");}}
+                    })
             .catch(err => console.error(err));
     }
     if (myCatID != "" && merchID != "") {
@@ -168,8 +168,8 @@
                     for (let i = 0; i < response.elements.length; i++) {
                         if (response.elements[i].id == itemID) {
                             (document.getElementById("itemListList").innerHTML = "<tr><td>" + response.elements[i].name + "</td><td>"
-                            + formatter.format((response.elements[i].price) / 100) + "</td></tr>");}})
-                        }
+                            + formatter.format((response.elements[i].price) / 100) + "</td></tr>");}}
+                        })
                 .catch(err => console.error(err));
         }
         else if (myCatID != "" && merchID != "") {
