@@ -135,14 +135,12 @@
 
     if (itemID != "" && merchID != "") {
         axios.get(cors + 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/items/' + itemID + '', options)
-            .then(response => response.json())
             .then(response => document.getElementById("itemListList").innerHTML = response.name + " - "
                 + formatter.format((response.price) / 100) + "<br>")
             .catch(err => console.error(err));
     }
     if (myCatID != "" && merchID != "") {
         axios.get(cors + 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/categories/' + myCatID + '/items', options)
-            .then(response => response.json())
             .then((response) => {
                 for (let i = 0; i < response.elements.length; i++) {
                     (document.getElementById("itemListList").innerHTML += "<tr><td>" + response.elements[i].name + "</td><td>"
@@ -161,14 +159,12 @@
     function getInv() {
         if (itemID != "" && merchID != "") {
             axios.get(cors + 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/items/' + itemID + '', options)
-                .then(response => response.json())
                 .then(response => document.getElementById("itemListList").innerHTML = response.name + " - "
                     + formatter.format((response.price) / 100) + "<br>")
                 .catch(err => console.error(err));
         }
         else if (myCatID != "" && merchID != "") {
             axios.get(cors + 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/categories/' + myCatID + '/items', options)
-                .then(response => response.json())
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
                         (document.getElementById("itemListList").innerHTML += "<tr><td>" + response.elements[i].name + "</td><td>"
