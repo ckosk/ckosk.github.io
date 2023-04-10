@@ -100,6 +100,8 @@
 
 <script type="text/javascript">
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     var prefs = new gadgets.Prefs();
 
     let merchID = "__UP_myMerchPref__";
@@ -132,14 +134,14 @@
     }
 
     if (itemID != "" && merchID != "") {
-        fetch(cors + 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/items/' + itemID + '', options)
+        axios.get(cors + 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/items/' + itemID + '', options)
             .then(response => response.json())
             .then(response => document.getElementById("itemListList").innerHTML = response.name + " - "
                 + formatter.format((response.price) / 100) + "<br>")
             .catch(err => console.error(err));
     }
     if (myCatID != "" && merchID != "") {
-        fetch(cors + 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/categories/' + myCatID + '/items', options)
+        axios.get(cors + 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/categories/' + myCatID + '/items', options)
             .then(response => response.json())
             .then((response) => {
                 for (let i = 0; i < response.elements.length; i++) {
@@ -158,14 +160,14 @@
     
     function getInv() {
         if (itemID != "" && merchID != "") {
-            fetch(cors + 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/items/' + itemID + '', options)
+            axios.get(cors + 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/items/' + itemID + '', options)
                 .then(response => response.json())
                 .then(response => document.getElementById("itemListList").innerHTML = response.name + " - "
                     + formatter.format((response.price) / 100) + "<br>")
                 .catch(err => console.error(err));
         }
         else if (myCatID != "" && merchID != "") {
-            fetch(cors + 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/categories/' + myCatID + '/items', options)
+            axios.get(cors + 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/categories/' + myCatID + '/items', options)
                 .then(response => response.json())
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
