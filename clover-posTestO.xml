@@ -131,6 +131,8 @@
         element.remove();
     }
 
+    console.log(gadgets.io.getProxyUrl('https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/categories/' + myCatID + '/items'));
+
     if (itemID != "" && merchID != "") {
         fetch(gadgets.io.getProxyUrl('https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/items'), options)
             .then(response => response.json())
