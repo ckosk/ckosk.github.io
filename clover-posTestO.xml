@@ -132,6 +132,10 @@
     }
 
     console.log(gadgets.io.getProxyUrl('https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/categories/' + myCatID + '/items'));
+    let catURL = ('https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/categories/' + myCatID + '/items');
+    let itemURL = ('https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/items');
+    console.log(itemURL);
+    console.log(gadgets.io.getProxyUrl(catURL));
 
     if (itemID != "" && merchID != "") {
         fetch(gadgets.io.getProxyUrl('https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/items'), options)
