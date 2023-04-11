@@ -132,7 +132,7 @@
     }
 
     if (itemID != "" && merchID != "") {
-        fetch(cors + 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/items', options)
+        fetch(gadgets.io.getProxyUrl('https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/items'), options)
             .then(response => response.json())
             .then((response) => {
                 for (let i = 0; i < response.elements.length; i++) {
@@ -143,7 +143,7 @@
             .catch(err => console.error(err));
     }
     if (myCatID != "" && merchID != "") {
-        fetch(cors + 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/categories/' + myCatID + '/items', options)
+        fetch(gadgets.io.getProxyUrl('https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/categories/' + myCatID + '/items'), options)
             .then(response => response.json())
             .then((response) => {
                 for (let i = 0; i < response.elements.length; i++) {
@@ -162,7 +162,7 @@
     
     function getInv() {
         if (itemID != "" && merchID != "") {
-            fetch(cors + 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/items', options)
+            fetch(gadgets.io.getProxyUrl('https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/items'), options)
                 .then(response => response.json())
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
@@ -174,7 +174,7 @@
         }
         else if (myCatID != "" && merchID != "") {
             document.getElementById("itemListList").innerHTML = "";
-            fetch(cors + 'https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/categories/' + myCatID + '/items', options)
+            fetch(gadgets.io.getProxyUrl('https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/categories/' + myCatID + '/items'), options)
                 .then(response => response.json())
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
