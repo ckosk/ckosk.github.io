@@ -134,11 +134,11 @@
     console.log(gadgets.io.getProxyUrl('https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/categories/' + myCatID + '/items'));
     let catURL = ('https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/categories/' + myCatID + '/items');
     let itemURL = ('https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/items');
-    console.log(itemURL);
-    console.log(gadgets.io.getProxyUrl(catURL));
+    let catURLP = gadgets.io.getProxyUrl(catURL));
+    let itemURLP = gadgets.io.getProxyUrl(itemURL));
 
     if (itemID != "" && merchID != "") {
-        fetch(gadgets.io.getProxyUrl('https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/items'), options)
+        fetch(itemURLP, options))
             .then(response => response.json())
             .then((response) => {
                 for (let i = 0; i < response.elements.length; i++) {
@@ -149,7 +149,7 @@
             .catch(err => console.error(err));
     }
     if (myCatID != "" && merchID != "") {
-        fetch(gadgets.io.getProxyUrl('https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/categories/' + myCatID + '/items'), options)
+        fetch(catURLP, options))
             .then(response => response.json())
             .then((response) => {
                 for (let i = 0; i < response.elements.length; i++) {
@@ -168,7 +168,7 @@
     
     function getInv() {
         if (itemID != "" && merchID != "") {
-            fetch(gadgets.io.getProxyUrl('https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/items'), options)
+            fetch(itemURLP, options))
                 .then(response => response.json())
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
@@ -180,7 +180,7 @@
         }
         else if (myCatID != "" && merchID != "") {
             document.getElementById("itemListList").innerHTML = "";
-            fetch(gadgets.io.getProxyUrl('https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/categories/' + myCatID + '/items'), options)
+            fetch(catURLP, options))
                 .then(response => response.json())
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
