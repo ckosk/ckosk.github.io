@@ -138,10 +138,9 @@
 
     if (itemID != "" && merchID != "") {
         fetch(itemURLP, options)
-            .then(response => response.json())
             .then(response => {
-                console.log(response.status);
-                console.log(response.statusText);})
+                console.log(response.status);})
+            .then(response => response.json())
             .then((response) => {
                 for (let i = 0; i < response.elements.length; i++) {
                     if (response.elements[i].id == itemID) {
@@ -152,10 +151,9 @@
     }
     if (myCatID != "" && merchID != "") {
         fetch(catURLP, options)
-            .then(response => response.json())
             .then(response => {
-                console.log(response.status);
-                console.log(response.statusText);})
+                console.log(response.status);})
+            .then(response => response.json())
             .then((response) => {
                 for (let i = 0; i < response.elements.length; i++) {
                     (document.getElementById("itemListList").innerHTML += "<tr><td>" + response.elements[i].name + "</td><td>"
@@ -174,10 +172,9 @@
     function getInv() {
         if (itemID != "" && merchID != "") {
             fetch(itemURLP, options)
-                .then(response => response.json())
                 .then(response => {
-                    console.log(response.status);
-                    console.log(response.statusText);})
+                    console.log(response.status);})
+                .then(response => response.json())
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
                         if (response.elements[i].id == itemID) {
@@ -189,10 +186,9 @@
         else if (myCatID != "" && merchID != "") {
             document.getElementById("itemListList").innerHTML = "";
             fetch(catURLP, options)
-                .then(response => response.json())
                 .then(response => {
-                    console.log(response.status);
-                    console.log(response.statusText);})
+                    console.log(response.status);})
+                .then(response => response.json())
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
                         (document.getElementById("itemListList").innerHTML += "<tr><td>" + response.elements[i].name + "</td><td>"
