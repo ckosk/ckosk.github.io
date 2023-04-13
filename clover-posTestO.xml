@@ -142,7 +142,7 @@
 
     if (itemID != "" && merchID != "") {
         if (stockBool) { 
-            axios.get(itemURLP, options)
+            fetch(itemURLP, options)
                 .then(response => {
                     gStatus = (response.status);
                     console.log(gStatus);})
@@ -156,7 +156,7 @@
                 .catch(err => console.error(err));
         }
         else {
-            axios.get(itemURLP, options)
+            fetch(itemURLP, options)
                 .then(response => {
                     gStatus = (response.status);
                     console.log(gStatus);})
@@ -172,7 +172,7 @@
     }
     if (myCatID != "" && merchID != "") {
         if (stockBool) { 
-            axios.get(catURLP, options)
+            fetch(catURLP, options)
                 .then(response => {
                     gStatus = (response.status);
                     console.log(gStatus);})
@@ -184,7 +184,7 @@
                 .catch(err => console.error(err));
         }
         else {
-            axios.get(catURLP, options)
+            fetch(catURLP, options)
                 .then(response => {
                     gStatus = (response.status);
                     console.log(gStatus);})
@@ -205,7 +205,7 @@
         
     function getInv() {
         if (itemID != "" && merchID != "") {
-            axios.get(itemURLP, options)
+            fetch(itemURLP, options)
                 .then(response => {
                     gStatus = (response.status);
                     console.log(gStatus);})
@@ -220,7 +220,7 @@
         }
         else if (myCatID != "" && merchID != "") {
             document.getElementById("itemListList").innerHTML = "";
-            axios.get(catURLP, options)
+            fetch(catURLP, options)
                 .then(response => {
                     gStatus = (response.status);
                     console.log(gStatus);})
