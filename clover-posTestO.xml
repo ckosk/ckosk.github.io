@@ -20,6 +20,7 @@
 
         <UserPref name="myBoolHeadPref" display_name="Display Header" datatype="bool" default_value="true" />
         <UserPref name="myBoolStockPref" display_name="Display Stock Count" datatype="bool" default_value="false" />
+        <UserPref name="myBoolRemovePref" display_name="Remove Out-of-Stock" datatype="bool" default_value="true" />
         <UserPref name="myBoolCorsPref" display_name="Enable Proxy" datatype="bool" default_value="true" />
 
         <UserPref name="ForeColor" datatype="hidden" />
@@ -91,10 +92,8 @@
     <div class="header" id="headerID">
         <h1>__UP_myTitlePref__</h1>
     </div>
-    <h3 id="priceStock"></h3>
     <div id="itemList">
         <div>
-            <h3 id="itemListTable"></h3>
             <table id="itemListList" class="centerTable">
             </table>
         </div>
@@ -106,12 +105,12 @@
     var prefs = new gadgets.Prefs();
 
     let merchID = "__UP_myMerchPref__";
-    let stockBool = "__UP_myBoolStockPref__";
+    let stockBool = __UP_myBoolStockPref__;
+    let removeBool = __UP_myBoolRemovePref__;
     let itemID = "__UP_myItemPref__";
     let myCatID = "__UP_myCatPref__";
     let myAPIToken = "__UP_myAPIPref__";
     let myUpdateInterval = (__UP_updateInterval__ * 60000);
-    let cors = "https://corsanywhere.herokuapp.com/";
     
     function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
@@ -230,9 +229,41 @@
         }
     }
 
+    async function removeMinStock() {
+        var numRows = document.getElementById("itemListList").rows.length;
+        const rows = Array.from(document.getElementsByTagName('td'));
+        if (numRows > 0) {
+            let countRow = 0;
+            for (i = 0; i <= numRows; i++) {
+                try {
+                    rows.forEach(rowItem => {
+                        if ((rowItem.innerHTML == 0) {
+                            rowItem.closest('tr').remove();
+                            countRow++;
+                        }
+                    })
+                }
+                catch(err) {
+                    console.error(err);
+                }
+            }
+            console.log(countRow + " items removed due to low quantity.");
+        }
+        else {
+            console.log("Table not full. Trying again shortly.");
+            await sleep(500);
+            removeMinStock();
+        }
+        console.log(numRows + " rows searched for removal.");
+    }
+    if (removeBool) {
+        removeMinStock();}
+
     if (stockBool) { 
         setInterval(function () {
             getInv();
+            if (removeBool) {
+                removeMinStock();}
             console.log("Item count has been automatically updated");
         }, myUpdateInterval);
     }
