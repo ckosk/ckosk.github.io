@@ -138,12 +138,14 @@
     let itemURL = ('https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/items');
     let catURLP = gadgets.io.getProxyUrl(catURL);
     let itemURLP = gadgets.io.getProxyUrl(itemURL);
+    let gStatus = 404;
 
     if (itemID != "" && merchID != "") {
         if (stockBool) { 
             axios.get(itemURLP, options)
                 .then(response => {
-                    console.log(response.status);})
+                    gstatus = (response.status);
+                    console.log(gStatus);})
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
                         if (response.elements[i].id == itemID) {
@@ -156,7 +158,8 @@
         else {
             axios.get(itemURLP, options)
                 .then(response => {
-                    console.log(response.status);})
+                    gstatus = (response.status);
+                    console.log(gStatus);})
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
                         if (response.elements[i].id == itemID) {
@@ -171,7 +174,8 @@
         if (stockBool) { 
             axios.get(catURLP, options)
                 .then(response => {
-                    console.log(response.status);})
+                    gstatus = (response.status);
+                    console.log(gStatus);})
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
                         (document.getElementById("itemListList").innerHTML += "<tr><td>" + response.elements[i].name + "</td><td>"
@@ -182,7 +186,8 @@
         else {
             axios.get(catURLP, options)
                 .then(response => {
-                    console.log(response.status);})
+                    gstatus = (response.status);
+                    console.log(gStatus);})
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
                         (document.getElementById("itemListList").innerHTML += "<tr><td>" + response.elements[i].name + "</td><td>"
@@ -202,7 +207,8 @@
         if (itemID != "" && merchID != "") {
             axios.get(itemURLP, options)
                 .then(response => {
-                    console.log(response.status);})
+                    gstatus = (response.status);
+                    console.log(gStatus);})
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
                         if (response.elements[i].id == itemID) {
@@ -216,7 +222,8 @@
             document.getElementById("itemListList").innerHTML = "";
             axios.get(catURLP, options)
                 .then(response => {
-                    console.log(response.status);})
+                    gstatus = (response.status);
+                    console.log(gStatus);})
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
                         (document.getElementById("itemListList").innerHTML += "<tr><td>" + response.elements[i].name + "</td><td>"
@@ -230,31 +237,36 @@
     }
 
     async function removeMinStock() {
-        var numRows = document.getElementById("itemListList").rows.length;
-        const rows = Array.from(document.getElementsByTagName('td'));
-        if (numRows > 0) {
-            let countRow = 0;
-            for (i = 0; i <= numRows; i++) {
-                try {
-                    rows.forEach(rowItem => {
-                        if (rowItem.innerHTML == 0) {
-                            rowItem.closest('tr').remove();
-                            countRow++;
-                        }
-                    })
+        if (gStatus == 200) {
+            var numRows = document.getElementById("itemListList").rows.length;
+            const rows = Array.from(document.getElementsByTagName('td'));
+            if (numRows > 0) {
+                let countRow = 0;
+                for (i = 0; i <= numRows; i++) {
+                    try {
+                        rows.forEach(rowItem => {
+                            if (rowItem.innerHTML == 0) {
+                                rowItem.closest('tr').remove();
+                                countRow++;
+                            }
+                        })
+                    }
+                    catch(err) {
+                        console.error(err);
+                    }
                 }
-                catch(err) {
-                    console.error(err);
-                }
+                console.log(countRow + " items removed due to low quantity.");
             }
-            console.log(countRow + " items removed due to low quantity.");
+            else {
+                console.log("Table not full. Trying again shortly.");
+                await sleep(500);
+                removeMinStock();
+            }
+            console.log(numRows + " rows searched for removal.");
         }
         else {
-            console.log("Table not full. Trying again shortly.");
-            await sleep(500);
-            removeMinStock();
+            console.log(Did not search rows. Status: " + gStatus);
         }
-        console.log(numRows + " rows searched for removal.");
     }
     if (removeBool) {
         removeMinStock();}
