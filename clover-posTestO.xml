@@ -265,7 +265,7 @@
             console.log(numRows + " rows searched for removal.");
         }
         else {
-            console.log(Did not search rows. Status: " + gStatus);
+            console.log("Did not search rows. Status: " + String(gStatus));
         }
     }
     if (removeBool) {
