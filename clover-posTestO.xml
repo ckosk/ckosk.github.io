@@ -237,7 +237,7 @@
             for (i = 0; i <= numRows; i++) {
                 try {
                     rows.forEach(rowItem => {
-                        if ((rowItem.innerHTML == 0) {
+                        if (rowItem.innerHTML == 0) {
                             rowItem.closest('tr').remove();
                             countRow++;
                         }
