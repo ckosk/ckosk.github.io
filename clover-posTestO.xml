@@ -145,7 +145,7 @@
             fetch(itemURLP, options)
                 .then(response => {
                     gStatus = (response.status);
-                    console.log(gStatus);})
+                    console.log("Status: "+ gStatus);})
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
                         if (response.elements[i].id == itemID) {
@@ -159,7 +159,7 @@
             fetch(itemURLP, options)
                 .then(response => {
                     gStatus = (response.status);
-                    console.log(gStatus);})
+                    console.log("Status: "+ gStatus);})
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
                         if (response.elements[i].id == itemID) {
@@ -175,7 +175,7 @@
             fetch(catURLP, options)
                 .then(response => {
                     gStatus = (response.status);
-                    console.log(gStatus);})
+                    console.log("Status: "+ gStatus);})
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
                         (document.getElementById("itemListList").innerHTML += "<tr><td>" + response.elements[i].name + "</td><td>"
@@ -187,7 +187,7 @@
             fetch(catURLP, options)
                 .then(response => {
                     gStatus = (response.status);
-                    console.log(gStatus);})
+                    console.log("Status: "+ gStatus);})
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
                         (document.getElementById("itemListList").innerHTML += "<tr><td>" + response.elements[i].name + "</td><td>"
@@ -208,7 +208,7 @@
             fetch(itemURLP, options)
                 .then(response => {
                     gStatus = (response.status);
-                    console.log(gStatus);})
+                    console.log("Status: "+ gStatus);})
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
                         if (response.elements[i].id == itemID) {
@@ -223,7 +223,7 @@
             fetch(catURLP, options)
                 .then(response => {
                     gStatus = (response.status);
-                    console.log(gStatus);})
+                    console.log("Status: "+ gStatus);})
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
                         (document.getElementById("itemListList").innerHTML += "<tr><td>" + response.elements[i].name + "</td><td>"
@@ -265,7 +265,7 @@
             console.log(numRows + " rows searched for removal.");
         }
         else {
-            console.log("Did not search rows. Status: " + String(gStatus));
+            console.log("Did not search rows. Status: " + gStatus);
         }
     }
     if (removeBool) {
