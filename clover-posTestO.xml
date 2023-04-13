@@ -19,6 +19,7 @@
         <UserPref name="myTitlePref" display_name="Menu Title" datatype="string" default_value="Default Menu Title" required="true" />
 
         <UserPref name="myBoolHeadPref" display_name="Display Header" datatype="bool" default_value="true" />
+        <UserPref name="myBoolStockPref" display_name="Display Stock Count" datatype="bool" default_value="false" />
         <UserPref name="myBoolCorsPref" display_name="Enable Proxy" datatype="bool" default_value="true" />
 
         <UserPref name="ForeColor" datatype="hidden" />
@@ -105,6 +106,7 @@
     var prefs = new gadgets.Prefs();
 
     let merchID = "__UP_myMerchPref__";
+    let stockBool = "__UP_myBoolStockPref__";
     let itemID = "__UP_myItemPref__";
     let myCatID = "__UP_myCatPref__";
     let myAPIToken = "__UP_myAPIPref__";
@@ -139,38 +141,20 @@
     let itemURLP = gadgets.io.getProxyUrl(itemURL);
 
     if (itemID != "" && merchID != "") {
-        axios.get(itemURLP, options)
-            .then(response => {
-                console.log(response.status);})
-            .then((response) => {
-                for (let i = 0; i < response.elements.length; i++) {
-                    if (response.elements[i].id == itemID) {
-                        (document.getElementById("itemListList").innerHTML = "<tr><td>" + response.elements[i].name + "</td><td>"
-                        + formatter.format((response.elements[i].price) / 100) + "</td></tr>");}}
-                    })
-            .catch(err => console.error(err));
-    }
-    if (myCatID != "" && merchID != "") {
-        axios.get(catURLP, options)
-            .then(response => {
-                console.log(response.status);})
-            .then((response) => {
-                for (let i = 0; i < response.elements.length; i++) {
-                    (document.getElementById("itemListList").innerHTML += "<tr><td>" + response.elements[i].name + "</td><td>"
-                        + formatter.format((response.elements[i].price) / 100) + "</td></tr>");}})
-            .catch(err => console.error(err));
-    }
-    if (merchID == "") {
-        document.getElementById("itemListList").innerHTML = "Enter Merchant ID";
-    }
-    if (itemID == "" && myCatID == "") {
-        document.getElementById("itemListList").innerHTML = "Enter Category ID or Item ID";
-    }
-    
-    sleep(1000);
-    
-    function getInv() {
-        if (itemID != "" && merchID != "") {
+        if (stockBool) { 
+            axios.get(itemURLP, options)
+                .then(response => {
+                    console.log(response.status);})
+                .then((response) => {
+                    for (let i = 0; i < response.elements.length; i++) {
+                        if (response.elements[i].id == itemID) {
+                            (document.getElementById("itemListList").innerHTML = "<tr><td>" + response.elements[i].name + "</td><td>"
+                            + formatter.format((response.elements[i].price) / 100) + "</td><td>" 
+                            + response.elements[i].stockCount + "</td></tr>");}}
+                        })
+                .catch(err => console.error(err));
+        }
+        else {
             axios.get(itemURLP, options)
                 .then(response => {
                     console.log(response.status);})
@@ -182,8 +166,21 @@
                         })
                 .catch(err => console.error(err));
         }
-        else if (myCatID != "" && merchID != "") {
-            document.getElementById("itemListList").innerHTML = "";
+
+    }
+    if (myCatID != "" && merchID != "") {
+        if (stockBool) { 
+            axios.get(catURLP, options)
+                .then(response => {
+                    console.log(response.status);})
+                .then((response) => {
+                    for (let i = 0; i < response.elements.length; i++) {
+                        (document.getElementById("itemListList").innerHTML += "<tr><td>" + response.elements[i].name + "</td><td>"
+                            + formatter.format((response.elements[i].price) / 100) + "</td><td>" 
+                            + response.elements[i].stockCount + "</td></tr>");}})
+                .catch(err => console.error(err));
+        }
+        else {
             axios.get(catURLP, options)
                 .then(response => {
                     console.log(response.status);})
@@ -193,16 +190,52 @@
                             + formatter.format((response.elements[i].price) / 100) + "</td></tr>");}})
                 .catch(err => console.error(err));
         }
+    }
+
+    if (merchID == "") {
+        document.getElementById("itemListList").innerHTML = "Enter Merchant ID";
+    }
+    if (itemID == "" && myCatID == "") {
+        document.getElementById("itemListList").innerHTML = "Enter Category ID or Item ID";
+    }
+        
+    function getInv() {
+        if (itemID != "" && merchID != "") {
+            axios.get(itemURLP, options)
+                .then(response => {
+                    console.log(response.status);})
+                .then((response) => {
+                    for (let i = 0; i < response.elements.length; i++) {
+                        if (response.elements[i].id == itemID) {
+                            (document.getElementById("itemListList").innerHTML = "<tr><td>" + response.elements[i].name + "</td><td>"
+                            + formatter.format((response.elements[i].price) / 100) + "</td><td>" 
+                            + response.elements[i].stockCount + "</td></tr>");}}
+                        })
+                .catch(err => console.error(err));
+        }
+        else if (myCatID != "" && merchID != "") {
+            document.getElementById("itemListList").innerHTML = "";
+            axios.get(catURLP, options)
+                .then(response => {
+                    console.log(response.status);})
+                .then((response) => {
+                    for (let i = 0; i < response.elements.length; i++) {
+                        (document.getElementById("itemListList").innerHTML += "<tr><td>" + response.elements[i].name + "</td><td>"
+                            + formatter.format((response.elements[i].price) / 100) + "</td><td>" 
+                            + response.elements[i].stockCount + "</td></tr>");}})
+                .catch(err => console.error(err));
+        }
         else {
             document.getElementById("itemListList").innerHTML = "Enter Correct Credentials";
         }
     }
 
-
-    setInterval(function () {
-        getInv();
-        console.log("Item count has been automatically updated");
-    }, myUpdateInterval);
+    if (stockBool) { 
+        setInterval(function () {
+            getInv();
+            console.log("Item count has been automatically updated");
+        }, myUpdateInterval);
+    }
     
 
 </script>]]></Content>
