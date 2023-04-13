@@ -138,13 +138,13 @@
     let itemURL = ('https://sandbox.dev.clover.com/v3/merchants/' + merchID + '/items');
     let catURLP = gadgets.io.getProxyUrl(catURL);
     let itemURLP = gadgets.io.getProxyUrl(itemURL);
-    let gStatus = 404;
+    let gStatus;
 
     if (itemID != "" && merchID != "") {
         if (stockBool) { 
             axios.get(itemURLP, options)
                 .then(response => {
-                    gstatus = (response.status);
+                    gStatus = (response.status);
                     console.log(gStatus);})
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
@@ -158,7 +158,7 @@
         else {
             axios.get(itemURLP, options)
                 .then(response => {
-                    gstatus = (response.status);
+                    gStatus = (response.status);
                     console.log(gStatus);})
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
@@ -174,7 +174,7 @@
         if (stockBool) { 
             axios.get(catURLP, options)
                 .then(response => {
-                    gstatus = (response.status);
+                    gStatus = (response.status);
                     console.log(gStatus);})
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
@@ -186,7 +186,7 @@
         else {
             axios.get(catURLP, options)
                 .then(response => {
-                    gstatus = (response.status);
+                    gStatus = (response.status);
                     console.log(gStatus);})
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
@@ -207,7 +207,7 @@
         if (itemID != "" && merchID != "") {
             axios.get(itemURLP, options)
                 .then(response => {
-                    gstatus = (response.status);
+                    gStatus = (response.status);
                     console.log(gStatus);})
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
@@ -222,7 +222,7 @@
             document.getElementById("itemListList").innerHTML = "";
             axios.get(catURLP, options)
                 .then(response => {
-                    gstatus = (response.status);
+                    gStatus = (response.status);
                     console.log(gStatus);})
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
