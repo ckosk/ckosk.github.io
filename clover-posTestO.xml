@@ -123,7 +123,8 @@
     
     const options = {
         method: 'GET',
-        headers: { Authorization: 'Bearer ' + myAPIToken }
+        headers: { Authorization: 'Bearer ' + myAPIToken,
+        'Content-Type': 'application/json' }
     };
 
     if (__UP_myBoolCorsPref__ === false) {
@@ -144,8 +145,8 @@
         if (stockBool) { 
             fetch(itemURLP, options)
                 .then(response => {
-                    gStatus = (response.status);
-                    console.log("Status: "+ gStatus);})
+                    gStatus = (response.status);})
+                .then(response => response.json())
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
                         if (response.elements[i].id == itemID) {
@@ -158,8 +159,8 @@
         else {
             fetch(itemURLP, options)
                 .then(response => {
-                    gStatus = (response.status);
-                    console.log("Status: "+ gStatus);})
+                    gStatus = (response.status);})
+                .then(response => response.json())
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
                         if (response.elements[i].id == itemID) {
@@ -174,8 +175,8 @@
         if (stockBool) { 
             fetch(catURLP, options)
                 .then(response => {
-                    gStatus = (response.status);
-                    console.log("Status: "+ gStatus);})
+                    gStatus = (response.status);})
+                .then(response => response.json())
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
                         (document.getElementById("itemListList").innerHTML += "<tr><td>" + response.elements[i].name + "</td><td>"
@@ -186,8 +187,8 @@
         else {
             fetch(catURLP, options)
                 .then(response => {
-                    gStatus = (response.status);
-                    console.log("Status: "+ gStatus);})
+                    gStatus = (response.status);})
+                .then(response => response.json())
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
                         (document.getElementById("itemListList").innerHTML += "<tr><td>" + response.elements[i].name + "</td><td>"
@@ -207,8 +208,8 @@
         if (itemID != "" && merchID != "") {
             fetch(itemURLP, options)
                 .then(response => {
-                    gStatus = (response.status);
-                    console.log("Status: "+ gStatus);})
+                    gStatus = (response.status);})
+                .then(response => response.json())
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
                         if (response.elements[i].id == itemID) {
@@ -222,8 +223,8 @@
             document.getElementById("itemListList").innerHTML = "";
             fetch(catURLP, options)
                 .then(response => {
-                    gStatus = (response.status);
-                    console.log("Status: "+ gStatus);})
+                    gStatus = (response.status);})
+                .then(response => response.json())
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
                         (document.getElementById("itemListList").innerHTML += "<tr><td>" + response.elements[i].name + "</td><td>"
@@ -269,6 +270,7 @@
         }
     }
     if (removeBool) {
+        sleep(1000);
         removeMinStock();}
 
     if (stockBool) { 
