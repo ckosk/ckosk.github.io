@@ -144,8 +144,6 @@
     if (itemID != "" && merchID != "") {
         if (stockBool) { 
             fetch(itemURLP, options)
-                .then(response => {
-                    gStatus = (response.status);})
                 .then(response => response.json())
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
@@ -158,8 +156,6 @@
         }
         else {
             fetch(itemURLP, options)
-                .then(response => {
-                    gStatus = (response.status);})
                 .then(response => response.json())
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
@@ -174,8 +170,6 @@
     if (myCatID != "" && merchID != "") {
         if (stockBool) { 
             fetch(catURLP, options)
-                .then(response => {
-                    gStatus = (response.status);})
                 .then(response => response.json())
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
@@ -186,8 +180,6 @@
         }
         else {
             fetch(catURLP, options)
-                .then(response => {
-                    gStatus = (response.status);})
                 .then(response => response.json())
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
@@ -207,8 +199,6 @@
     function getInv() {
         if (itemID != "" && merchID != "") {
             fetch(itemURLP, options)
-                .then(response => {
-                    gStatus = (response.status);})
                 .then(response => response.json())
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
@@ -222,8 +212,6 @@
         else if (myCatID != "" && merchID != "") {
             document.getElementById("itemListList").innerHTML = "";
             fetch(catURLP, options)
-                .then(response => {
-                    gStatus = (response.status);})
                 .then(response => response.json())
                 .then((response) => {
                     for (let i = 0; i < response.elements.length; i++) {
@@ -238,36 +226,31 @@
     }
 
     async function removeMinStock() {
-        if (gStatus == 200) {
-            var numRows = document.getElementById("itemListList").rows.length;
-            const rows = Array.from(document.getElementsByTagName('td'));
-            if (numRows > 0) {
-                let countRow = 0;
-                for (i = 0; i <= numRows; i++) {
-                    try {
-                        rows.forEach(rowItem => {
-                            if (rowItem.innerHTML == 0) {
-                                rowItem.closest('tr').remove();
-                                countRow++;
-                            }
-                        })
-                    }
-                    catch(err) {
-                        console.error(err);
-                    }
+        var numRows = document.getElementById("itemListList").rows.length;
+        const rows = Array.from(document.getElementsByTagName('td'));
+        if (numRows > 0) {
+            let countRow = 0;
+            for (i = 0; i <= numRows; i++) {
+                try {
+                    rows.forEach(rowItem => {
+                        if (rowItem.innerHTML == 0) {
+                            rowItem.closest('tr').remove();
+                            countRow++;
+                        }
+                    })
                 }
-                console.log(countRow + " items removed due to low quantity.");
+                catch(err) {
+                    console.error(err);
+                }
             }
-            else {
-                console.log("Table not full. Trying again shortly.");
-                await sleep(500);
-                removeMinStock();
-            }
-            console.log(numRows + " rows searched for removal.");
+            console.log(countRow + " items removed due to low quantity.");
         }
         else {
-            console.log("Did not search rows. Status: " + gStatus);
+            console.log("Table not full. Trying again shortly.");
+            await sleep(500);
+            removeMinStock();
         }
+        console.log(numRows + " rows searched for removal.");
     }
     if (removeBool) {
         sleep(1000);
