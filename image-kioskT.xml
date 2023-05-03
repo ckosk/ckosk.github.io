@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+    <ModulePrefs title="Photo Kiosk" description="Testing New" author="" background="transparent">
+        <UserPref name="myCountdownPref" display_name="Timer Duration" datatype="string" default_value="5" required="true" />
+        <UserPref name="timerLoc" display_name="Timer Location" datatype="enum" default_value="TLeft" required="true">
+            <EnumValue value="TLeft" display_value="Top-Left" />
+            <EnumValue value="TRight" display_value="Top-Right" />
+            <EnumValue value="BLeft" display_value="Bottom-Left" />
+            <EnumValue value="BRight" display_value="Bottom-Right" />
+        </UserPref>
+
+        <UserPref name="ForeColor" datatype="hidden" />
+        <UserPref name="BackColor" datatype="hidden" />
+        <UserPref name="rdW" display_name="Width" required="true" default_value="280" datatype="hidden" />
+        <UserPref name="rdH" display_name="Height" required="true" default_value="190" datatype="hidden" />
+        <UserPref name="rdKey" display_name="Device Registration Key" default_value="*|DEVICE.REGISTRATIONKEY|*" datatype="hidden" />
+    </ModulePrefs>
+    <Content type="html"><![CDATA[<style type="text/css">
+
+    body *{
+        line-height: 1.2em; 
+        letter-spacing: 0; 
+        word-spacing: normal;
+    }
+
+    .my-style{
+        __UP_myStylePref__;
+    }
+
+    #countdown{
+        position: absolute;
+    }
+
+</style>
+
+<body>
+    <div id="countdown"></div>
+</body>
+
+<script type="text/javascript">
+
+    var prefs = new gadgets.Prefs();
+
+    let timeleft = __UP_myCountdownPref__;
+    let timerStyle = "__UP_timerLoc__";
+
+    if (timerStyle == "TRight"){
+        document.getElementById("countdown").style.right = "0";
+        document.getElementById("countdown").style.top = "0";
+    }
+    else if (timerStyle == "BLeft"){
+        document.getElementById("countdown").style.left = "0";
+        document.getElementById("countdown").style.bottom = "0";
+    }
+    else if (timerStyle == "BRight"){
+        document.getElementById("countdown").style.right = "0";
+        document.getElementById("countdown").style.bottom = "0";
+    }
+    else if (timerStyle == "TLeft"){
+        document.getElementById("countdown").style.left = "0";
+        document.getElementById("countdown").style.top = "0";
+    }
+
+    var downloadTimer = setInterval(function(){
+        if(timeleft <= 0){
+            clearInterval(downloadTimer);
+            document.getElementById("countdown").innerHTML = "Cheese";
+        } else {
+            document.getElementById("countdown").innerHTML = timeleft;
+        }
+        timeleft -= 1;
+    }, 1000);
+    
+
+</script>]]></Content>
+</Module>
