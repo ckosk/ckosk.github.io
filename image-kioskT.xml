@@ -23,6 +23,10 @@
         word-spacing: normal;
     }
 
+    body{
+        background-color: #ffffff00
+    }
+
     .my-style{
         __UP_myStylePref__;
     }
