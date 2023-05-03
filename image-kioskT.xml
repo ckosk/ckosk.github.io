@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-    <ModulePrefs title="Photo Kiosk" description="Testing New" author="" background="transparent">
+    <ModulePrefs title="Photo Kiosk" description="Testing Photo Kiosk" author="" background="transparent">
         <UserPref name="myCountdownPref" display_name="Timer Duration" datatype="string" default_value="5" required="true" />
         <UserPref name="timerLoc" display_name="Timer Location" datatype="enum" default_value="TLeft" required="true">
             <EnumValue value="TLeft" display_value="Top-Left" />
@@ -24,7 +24,7 @@
     }
 
     body{
-        background-color: #ffffff00
+        background-color: transparent;
     }
 
     .my-style{
