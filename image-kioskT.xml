@@ -8,6 +8,7 @@
             <EnumValue value="BLeft" display_value="Bottom-Left" />
             <EnumValue value="BRight" display_value="Bottom-Right" />
         </UserPref>
+        <UserPref name="textStyle" display_name="Countdown Style" datatype="style" default_value="font-family:Verdana;color:rgb(255, 255, 255);font-size:64px;font-weight:bold;" required="true" />
 
         <UserPref name="ForeColor" datatype="hidden" />
         <UserPref name="BackColor" datatype="hidden" />
@@ -33,6 +34,7 @@
 
     #countdown{
         position: absolute;
+        __UP_textStyle__;
     }
 
 </style>
