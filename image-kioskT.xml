@@ -49,7 +49,7 @@
 
 <body>
     <div id="countdown"></div>
-    <div id="qrCode"><img src="https://fourthcapital.com/wp-content/uploads/2021/09/ExampleQRCode.png" alt="QRCODE"></div>
+    <div id="qrCode"></div>
 </body>
 
 <script type="text/javascript">
@@ -58,6 +58,9 @@
 
     let timeRemain = __UP_myCountdownPref__;
     let timerStyle = "__UP_timerLoc__";
+
+    var x = Math.floor((Math.random() * 99) + 1);
+    document.getElementById("qrCode").innerHTML = ("<img src='https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" + x + "'>");
 
     if (timerStyle == "TRight"){
         document.getElementById("countdown").style.right = "0";
@@ -85,7 +88,8 @@
     }
 
     function startTimer(){
-        return True;
+        console.log("Timer Started");
+        return true;
     }
 
     if (startTimer()){
