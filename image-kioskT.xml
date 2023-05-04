@@ -97,12 +97,17 @@
             if(timeRemain <= 0){
                 clearInterval(downloadTimer);
                 document.getElementById("countdown").innerHTML = "Cheese";
+                if(Client){
+                    Client.sendCommand("takesnapshot", "");
+                }
             } else {
                 document.getElementById("countdown").innerHTML = timeRemain;
             }
             timeRemain -= 1;
         }, 1000);
     }
+
+    var RevelDigital.Controller = { onCommand: function(name, arg) { console.log(name); } }
     
 
 </script>]]></Content>
