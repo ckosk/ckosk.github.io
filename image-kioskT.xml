@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-    <ModulePrefs title="Photo Kiosk" description="Testing Photo Kiosk" author="" background="transparent">
+    <ModulePrefs title="Photobooth Kiosk" description="Testing Photobooth Kiosk" author="" background="transparent">
         <UserPref name="myCountdownPref" display_name="Timer Duration" datatype="string" default_value="5" required="true" />
         <UserPref name="timerLoc" display_name="Timer Location" datatype="enum" default_value="TLeft" required="true">
             <EnumValue value="TLeft" display_value="Top-Left" />
@@ -43,6 +43,10 @@
 
 </style>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+
 <body>
     <div id="countdown"></div>
     <div id="qrCode"><img src="https://fourthcapital.com/wp-content/uploads/2021/09/ExampleQRCode.png" alt="QRCODE"></div>
@@ -52,7 +56,7 @@
 
     var prefs = new gadgets.Prefs();
 
-    let timeleft = __UP_myCountdownPref__;
+    let timeRemain = __UP_myCountdownPref__;
     let timerStyle = "__UP_timerLoc__";
 
     if (timerStyle == "TRight"){
@@ -80,15 +84,21 @@
         document.getElementById("qrCode").style.top = "0";
     }
 
-    var downloadTimer = setInterval(function(){
-        if(timeleft <= 0){
-            clearInterval(downloadTimer);
-            document.getElementById("countdown").innerHTML = "Cheese";
-        } else {
-            document.getElementById("countdown").innerHTML = timeleft;
-        }
-        timeleft -= 1;
-    }, 1000);
+    function startTimer(){
+        return True;
+    }
+
+    if (startTimer()){
+        var downloadTimer = setInterval(function(){
+            if(timeRemain <= 0){
+                clearInterval(downloadTimer);
+                document.getElementById("countdown").innerHTML = "Cheese";
+            } else {
+                document.getElementById("countdown").innerHTML = timeRemain;
+            }
+            timeRemain -= 1;
+        }, 1000);
+    }
     
 
 </script>]]></Content>
