@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
     <ModulePrefs title="Photobooth Kiosk" description="Testing Photobooth Kiosk" author="" background="transparent">
+        <Require feature="reveldigital" />
         <UserPref name="myCountdownPref" display_name="Timer Duration" datatype="string" default_value="5" required="true" />
         <UserPref name="timerLoc" display_name="Timer Location" datatype="enum" default_value="TLeft" required="true">
             <EnumValue value="TLeft" display_value="Top-Left" />
@@ -107,7 +108,7 @@
         }, 1000);
     }
 
-    var RevelDigital.Controller = { onCommand: function(name, arg) { console.log(name); } }
+    //var RevelDigital.Controller = { onCommand: function(name, arg) { console.log(name); } }
     
 
 </script>]]></Content>
