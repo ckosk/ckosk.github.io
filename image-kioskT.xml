@@ -37,10 +37,15 @@
         __UP_textStyle__;
     }
 
+    #qrCode{
+        position: absolute;
+    }
+
 </style>
 
 <body>
     <div id="countdown"></div>
+    <div id="qrCode"><img src="https://fourthcapital.com/wp-content/uploads/2021/09/ExampleQRCode.png" alt="QRCODE"></div>
 </body>
 
 <script type="text/javascript">
@@ -53,18 +58,26 @@
     if (timerStyle == "TRight"){
         document.getElementById("countdown").style.right = "0";
         document.getElementById("countdown").style.top = "0";
+        document.getElementById("qrCode").style.left = "0";
+        document.getElementById("qrCode").style.top = "0";
     }
     else if (timerStyle == "BLeft"){
         document.getElementById("countdown").style.left = "0";
         document.getElementById("countdown").style.bottom = "0";
+        document.getElementById("qrCode").style.right = "0";
+        document.getElementById("qrCode").style.bottom = "0";
     }
     else if (timerStyle == "BRight"){
         document.getElementById("countdown").style.right = "0";
         document.getElementById("countdown").style.bottom = "0";
+        document.getElementById("qrCode").style.left = "0";
+        document.getElementById("qrCode").style.bottom = "0";
     }
     else if (timerStyle == "TLeft"){
         document.getElementById("countdown").style.left = "0";
         document.getElementById("countdown").style.top = "0";
+        document.getElementById("qrCode").style.right = "0";
+        document.getElementById("qrCode").style.top = "0";
     }
 
     var downloadTimer = setInterval(function(){
