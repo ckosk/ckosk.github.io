@@ -60,6 +60,7 @@
     let timeRemain = __UP_myCountdownPref__;
     let timerStyle = "__UP_timerLoc__";
 
+    //generate random QR code for now
     var x = Math.floor((Math.random() * 99) + 1);
     document.getElementById("qrCode").innerHTML = ("<img src='https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" + x + "'>");
 
@@ -88,6 +89,7 @@
         document.getElementById("qrCode").style.top = "0";
     }
 
+    //listener to activate timer in future
     function startTimer(){
         console.log("Timer Started");
         return true;
@@ -95,10 +97,12 @@
 
     if (startTimer()){
         var downloadTimer = setInterval(function(){
+            //when timer hits 0
             if(timeRemain <= 0){
                 clearInterval(downloadTimer);
                 document.getElementById("countdown").innerHTML = "Cheese";
-                Client.sendCommand("takesnapshot", "");
+                Client.sendCommand("takesnapshot", ""); // <-----
+                console.log("snapshot taken");
             } else {
                 document.getElementById("countdown").innerHTML = timeRemain;
             }
@@ -106,6 +110,7 @@
         }, 1000);
     }
 
+    //intercept the command callback from the player
     //var RevelDigital.Controller = { onCommand: function(name, arg) { console.log(name); } }
     
 
