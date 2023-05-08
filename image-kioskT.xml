@@ -90,7 +90,8 @@
 
     //intercept the command callback from the player
     //POST to herokuapp for testing
-    window['RevelDigital.Controller'] = {
+    //window['RevelDigital.Controller'] = {
+    var RevelDigital.Controller = {
         onCommand: function(name, arg) {
             document.getElementById("countdown").innerHTML = name + "-" + arg;
             axios.post("https://photo-booth.herokuapp.com/photo", {
@@ -115,7 +116,7 @@
                 clearInterval(downloadTimer);
                 document.getElementById("countdown").innerHTML = "Cheese!";
                 Client.sendCommand("takesnapshot", ""); // <-----
-                document.getElementById("countdown").innerHTML += "Snap";
+                document.getElementById("countdown").innerHTML += " Snap Taken";
                 console.log("snapshot taken");
             } else {
                 document.getElementById("countdown").innerHTML = timeRemain;
