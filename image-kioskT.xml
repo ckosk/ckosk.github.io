@@ -110,6 +110,7 @@
         onCommand: function(name, arg) { 
             console.log(arg); 
             console.log(name); 
+            document.getElementById("countdown").innerHTML += " control";
         } 
     }
 
@@ -126,7 +127,7 @@
                 clearInterval(downloadTimer);
                 document.getElementById("countdown").innerHTML = "Cheese!";
                 Client.sendCommand("takesnapshot", ""); // <-----
-                document.getElementById("countdown").innerHTML += " Snap Taken";
+                document.getElementById("countdown").innerHTML = "Snap Taken";
                 console.log("snapshot taken");
             } else {
                 document.getElementById("countdown").innerHTML = timeRemain;
