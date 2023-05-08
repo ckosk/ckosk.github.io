@@ -90,11 +90,20 @@
 
     //listener to activate timer in future potential
     function startTimer(){
-        console.log("Timer Started");
         return true;
+    }
+    
+    //intercept the command callback from the player
+    window['RevelDigital.Controller'] = {
+        onCommand: function(name, arg) {
+            console.log(arg); 
+            console.log(name); 
+            document.getElementById("countdown").innerHTML = name;
+        }
     }
 
     if (startTimer()){
+        console.log("Counting down");
         var downloadTimer = setInterval(function(){
             //when timer hits 0
             if(timeRemain <= 0){
@@ -107,22 +116,6 @@
             }
             timeRemain -= 1;
         }, 1000);
-    }
-
-    //intercept the command callback from the player
-    //POST to herokuapp for testing
-    window['RevelDigital.Controller'] = {
-        onCommand: function(name, arg) {
-            console.log(arg); 
-            console.log(name); 
-            document.getElementById("countdown").innerHTML = name;
-            axios.post("https://photo-booth.herokuapp.com/photo", {
-                "key": "5203977e-3e11-49d5-8f27-50d732f4ed3a",
-                "photo": arg
-            })
-            .then((response) => console.log(response.data))
-            .then((error) => console.log(error));
-        }
     }
 
 </script>]]></Content>
