@@ -93,6 +93,7 @@
     //Try POST to herokuapp for testing
     window['RevelDigital.Controller'] = {
         onCommand: function(name, arg) {
+            document.getElementById("countdown").innerHTML = name + "-" + arg;
             axios.post("https://photo-booth.herokuapp.com/photo", {
                 "key": "7ef4a535-e988-4f71-ada8-522a5b5da812",
                 "photo": arg
