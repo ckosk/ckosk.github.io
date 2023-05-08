@@ -88,26 +88,6 @@
         document.getElementById("qrCode").style.top = "0";
     }
 
-    //intercept the command callback from the player
-    //POST to herokuapp for testing
-    try {
-        window['RevelDigital.Controller'] = {
-            onCommand: function(name, arg) {
-                console.log(arg); 
-                console.log(name); 
-                document.getElementById("countdown").innerHTML = name;
-                axios.post("https://photo-booth.herokuapp.com/photo", {
-                    "key": "5203977e-3e11-49d5-8f27-50d732f4ed3a",
-                    "photo": arg
-                })
-                .then((response) => console.log(response.data))
-                .then((error) => console.log(error));
-            }
-        }
-    } catch (error) {
-        document.getElementById("countdown").innerHTML += error;
-    }
-
     //listener to activate timer in future potential
     function startTimer(){
         console.log("Timer Started");
@@ -127,6 +107,22 @@
             }
             timeRemain -= 1;
         }, 1000);
+    }
+
+    //intercept the command callback from the player
+    //POST to herokuapp for testing
+    window['RevelDigital.Controller'] = {
+        onCommand: function(name, arg) {
+            console.log(arg); 
+            console.log(name); 
+            document.getElementById("countdown").innerHTML = name;
+            axios.post("https://photo-booth.herokuapp.com/photo", {
+                "key": "5203977e-3e11-49d5-8f27-50d732f4ed3a",
+                "photo": arg
+            })
+            .then((response) => console.log(response.data))
+            .then((error) => console.log(error));
+        }
     }
 
 </script>]]></Content>
