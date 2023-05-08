@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-    <ModulePrefs title="Photobooth Kiosk" description="Testing Photobooth Kiosk" author="" background="transparent">
-        <Require feature="reveldigital" />
-        <UserPref name="myCountdownPref" display_name="Timer Duration" datatype="string" default_value="5" required="true" />
-        <UserPref name="timerLoc" display_name="Timer Location" datatype="enum" default_value="TLeft" required="true">
-            <EnumValue value="TLeft" display_value="Top-Left" />
-            <EnumValue value="TRight" display_value="Top-Right" />
-            <EnumValue value="BLeft" display_value="Bottom-Left" />
-            <EnumValue value="BRight" display_value="Bottom-Right" />
-        </UserPref>
-        <UserPref name="textStyle" display_name="Countdown Style" datatype="style" default_value="font-family:Verdana;color:rgb(255, 255, 255);font-size:64px;font-weight:bold;" required="true" />
-
-        <UserPref name="ForeColor" datatype="hidden" />
-        <UserPref name="BackColor" datatype="hidden" />
-        <UserPref name="rdW" display_name="Width" required="true" default_value="280" datatype="hidden" />
-        <UserPref name="rdH" display_name="Height" required="true" default_value="190" datatype="hidden" />
-        <UserPref name="rdKey" display_name="Device Registration Key" default_value="*|DEVICE.REGISTRATIONKEY|*" datatype="hidden" />
-    </ModulePrefs>
-    <Content type="html"><![CDATA[<style type="text/css">
+   <ModulePrefs title="Photobooth Kiosk" description="Testing Photobooth Kiosk" author="" background="transparent">
+      <Require feature="reveldigital" />
+      <UserPref name="myCountdownPref" display_name="Timer Duration" datatype="string" default_value="5" required="true" />
+      <UserPref name="timerLoc" display_name="Timer Location" datatype="enum" default_value="TLeft" required="true">
+         <EnumValue value="TLeft" display_value="Top-Left" />
+         <EnumValue value="TRight" display_value="Top-Right" />
+         <EnumValue value="BLeft" display_value="Bottom-Left" />
+         <EnumValue value="BRight" display_value="Bottom-Right" />
+      </UserPref>
+      <UserPref name="textStyle" display_name="Countdown Style" datatype="style" default_value="font-family:Verdana;color:rgb(255, 255, 255);font-size:64px;font-weight:bold;" required="true" />
+      <UserPref name="ForeColor" datatype="hidden" />
+      <UserPref name="BackColor" datatype="hidden" />
+      <UserPref name="rdW" display_name="Width" required="true" default_value="280" datatype="hidden" />
+      <UserPref name="rdH" display_name="Height" required="true" default_value="190" datatype="hidden" />
+      <UserPref name="rdKey" display_name="Device Registration Key" default_value="*|DEVICE.REGISTRATIONKEY|*" datatype="hidden" />
+   </ModulePrefs>
+   <Content type="html"><![CDATA[<style type="text/css">
 
     body *{
         line-height: 1.2em; 
@@ -90,7 +89,7 @@
     }
 
     //intercept the command callback from the player
-    //Try POST to herokuapp for testing
+    //POST to herokuapp for testing
     window['RevelDigital.Controller'] = {
         onCommand: function(name, arg) {
             document.getElementById("countdown").innerHTML = name + "-" + arg;
@@ -116,6 +115,7 @@
                 clearInterval(downloadTimer);
                 document.getElementById("countdown").innerHTML = "Cheese!";
                 Client.sendCommand("takesnapshot", ""); // <-----
+                document.getElementById("countdown").innerHTML += "Snap";
                 console.log("snapshot taken");
             } else {
                 document.getElementById("countdown").innerHTML = timeRemain;
