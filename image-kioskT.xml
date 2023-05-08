@@ -106,7 +106,7 @@
         document.getElementById("countdown").innerHTML += error;
     } */
 
-    var RevelDigital.Controller = { 
+    window['RevelDigital.Controller'] = { 
         onCommand: function(name, arg) { 
             console.log(arg); 
             console.log(name); 
