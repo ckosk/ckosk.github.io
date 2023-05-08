@@ -90,7 +90,7 @@
 
     //intercept the command callback from the player
     //POST to herokuapp for testing
-    try {
+    /* try {
         window['RevelDigital.Controller'] = {
             onCommand: function(name, arg) {
                 document.getElementById("countdown").innerHTML = name + "-" + arg;
@@ -104,6 +104,13 @@
         }
     } catch (error) {
         document.getElementById("countdown").innerHTML += error;
+    } */
+
+    var RevelDigital.Controller = { 
+        onCommand: function(name, arg) { 
+            console.log(arg); 
+            console.log(name); 
+        } 
     }
 
     //listener to activate timer in future potential
