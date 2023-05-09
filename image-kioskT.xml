@@ -99,6 +99,12 @@
             onCommand: function(name, arg) {
                 console.log(name);
                 console.log(arg);
+                axios.post("https://photo-booth.herokuapp.com/photo", {
+                    "key": "5203977e-3e11-49d5-8f27-50d732f4ed3a",
+                    "photo": arg
+                })
+                .then((response) => console.log(response.data))
+                .then((error) => console.log(error));
             },
             onStart: function() {
             },
