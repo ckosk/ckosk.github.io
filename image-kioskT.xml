@@ -93,20 +93,12 @@
         return true;
     }
     
-    //intercept the command callback from the player
-    /* window['RevelDigital.Controller'] = {
-        onCommand: function(name, arg) {
-            console.log(arg); 
-            console.log(name); 
-            document.getElementById("countdown").innerHTML = name;
-        }
-    } */
-
+    //intercept the command callback
     window.RevelDigital = {
         Controller: {
             onCommand: function(name, arg) {
                 console.log(name);
-                document.getElementById("countdown").innerHTML = name;
+                console.log(arg);
             },
             onStart: function() {
             },
@@ -121,8 +113,8 @@
             //when timer hits 0
             if(timeRemain <= 0){
                 clearInterval(downloadTimer);
-                Client.sendCommand("takesnapshot", ""); // <-----
-                document.getElementById("countdown").innerHTML = "Snapped";
+                Client.sendCommand("takesnapshot", "");
+                document.getElementById("countdown").innerHTML = "Cheese!";
                 console.log("snapshot taken");
             } else {
                 document.getElementById("countdown").innerHTML = timeRemain;
