@@ -94,11 +94,24 @@
     }
     
     //intercept the command callback from the player
-    window['RevelDigital.Controller'] = {
+    /* window['RevelDigital.Controller'] = {
         onCommand: function(name, arg) {
             console.log(arg); 
             console.log(name); 
             document.getElementById("countdown").innerHTML = name;
+        }
+    } */
+
+    window.RevelDigital = {
+        Controller: {
+            onCommand: function(name, arg) {
+                console.log(name);
+                document.getElementById("countdown").innerHTML = name;
+            },
+            onStart: function() {
+            },
+            onStop: function() {
+            }
         }
     }
 
@@ -109,7 +122,7 @@
             if(timeRemain <= 0){
                 clearInterval(downloadTimer);
                 Client.sendCommand("takesnapshot", ""); // <-----
-                document.getElementById("countdown").innerHTML = "Snap Taken";
+                document.getElementById("countdown").innerHTML = "Snapped";
                 console.log("snapshot taken");
             } else {
                 document.getElementById("countdown").innerHTML = timeRemain;
