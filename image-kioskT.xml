@@ -44,7 +44,7 @@
     #canvas{
         overflow: auto;
     }
-    
+
     .vid {
         position: absolute; 
         top: 0; left:0;
@@ -117,27 +117,26 @@
                 canvas.getContext('2d').drawImage(video, 0, 0, 1080, 1920);
                 var data = canvas.toDataURL();
                 console.log(data);
-
                 axios.post("https://photo-booth.herokuapp.com/photo", {
                     "key": key,
-                    "background": data.substring(data.indexOf(',')+1),
+                    "background": data.substring(data.indexOf(',') + 1),
                     "overlay": arg
                 })
                 .then((response) => console.log(response.data))
                 .then((error) => console.log(error));
                 document.getElementById('canvas').hidden = true;
             },
-            onStart: function() {
-            },
-            onStop: function() {
-            }
+            onStart: function() {},
+            onStop: function() {}
         }
     }
 
     async function getMedia() {
         let stream = null
         try {
-            stream = await navigator.mediaDevices.getUserMedia({ video: true })
+            stream = await navigator.mediaDevices.getUserMedia({
+                video: true
+            })
             video.srcObject = stream
         } catch (err) {
             console.log("error displaying stream")
@@ -145,11 +144,11 @@
     }
     getMedia();
 
-    if (startTimer()){
+    if (startTimer()) {
         console.log("Counting down");
-        var downloadTimer = setInterval(function(){
+        var downloadTimer = setInterval(function() {
             //when timer hits 0
-            if(timeRemain <= 0){
+            if (timeRemain <= 0) {
                 clearInterval(downloadTimer);
                 Client.sendCommand("takesnapshot", "");
                 document.getElementById("countdown").innerHTML = "Cheese!";
