@@ -45,6 +45,12 @@
         overflow: auto;
     }
 
+    #video{
+        position: fixed; 
+        top: 0px; 
+        left: 0px; 
+    }
+
 </style>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
