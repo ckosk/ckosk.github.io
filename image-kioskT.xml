@@ -14,7 +14,7 @@
       <UserPref name="BackColor" datatype="hidden" />
       <UserPref name="rdW" display_name="Width" required="true" default_value="280" datatype="hidden" />
       <UserPref name="rdH" display_name="Height" required="true" default_value="190" datatype="hidden" />
-      <UserPref name="rdKey" display_name="Device Registration Key" default_value="*|DEVICE.REGISTRATIONKEY|*" datatype="hidden" />
+      <UserPref name="regkey" display_name="Device Registration Key" default_value="*|DEVICE.REGISTRATIONKEY|*" datatype="hidden" />
    </ModulePrefs>
    <Content type="html"><![CDATA[<style type="text/css">
 
@@ -41,6 +41,12 @@
         position: absolute;
     }
 
+    #canvas{
+        overflow: auto;
+        width: 100%;
+        height: 100%;
+    }
+
 </style>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
@@ -51,7 +57,7 @@
     <div id="countdown"></div>
     <div id="qrCode"></div>
     <center><video id="video" width="100%" height="100%" muted autoplay></video></center>
-    <canvas id="canvas" style="overflow:auto" width="100%" height="100%"></canvas>
+    <canvas id="canvas"></canvas>
 </body>
 
 <script type="text/javascript">
@@ -60,10 +66,13 @@
 
     let timeRemain = __UP_myCountdownPref__;
     let timerStyle = "__UP_timerLoc__";
+    const video = document.getElementById("video")
+    key = prefs.getString("regkey");
+    console.log("key");
 
-    //generate random QR code for now
     var x = Math.floor((Math.random() * 99) + 1);
-    document.getElementById("qrCode").innerHTML = ("<img src='https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" + x + "'>");
+    //QR code format: "randomNumber.deviceRegKey" Example: 72.7ef4n535-e988-4f71-ada3-522a5b4da812
+    document.getElementById("qrCode").innerHTML = ("<img src='https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" + x + "." + key + "'>");
 
     if (timerStyle == "TRight"){
         document.getElementById("countdown").style.right = "0";
@@ -101,20 +110,20 @@
             onCommand: function(name, arg) {
                 console.log(name);
                 console.log(arg);
-                canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+                canvas.getContext('2d').drawImage(video, 0, 0, video.width, video.height);
                 var data = canvas.toDataURL();
                 console.log(data);
 
                 /* axios.post("https://photo-booth.herokuapp.com/photo", {
-                    "key": "5203977e-3e11-49d5-8f27-50d732f4ed3a",
+                    "key": key,
                     "photo": arg
                 })
                 .then((response) => console.log(response.data))
                 .then((error) => console.log(error)); */
 
                 axios.post("https://photo-booth.herokuapp.com/photo", {
-                    "key": "5203977e-3e11-49d5-8f27-50d732f4ed3a",
-                    "photo": data
+                    "key": key,
+                    "photo": data.substring(data.indexOf(',')+1)
                 })
                 .then((response) => console.log(response.data))
                 .then((error) => console.log(error));
@@ -126,7 +135,6 @@
         }
     }
 
-    const video = document.getElementById("video")
     async function getMedia() {
         let stream = null
         try {
