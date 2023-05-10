@@ -26,6 +26,8 @@
 
     body{
         background-color: transparent;
+        padding: 0;
+        margin: 0;
     }
 
     .my-style{
@@ -45,11 +47,17 @@
         overflow: auto;
     }
 
+    #video{
+        object-position: top;
+        display: block;
+    }
+
     .vid {
         position: absolute; 
         top: 0; left:0;
         width: 100%; height: 100%; 
         z-index: -1;
+        margin: 0px;
     } 
 
 </style>
