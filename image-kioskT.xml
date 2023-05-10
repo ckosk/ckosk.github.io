@@ -43,8 +43,6 @@
 
     #canvas{
         overflow: auto;
-        width: 100%;
-        height: 100%;
     }
 
 </style>
@@ -56,8 +54,8 @@
 <body>
     <div id="countdown"></div>
     <div id="qrCode"></div>
-    <center><video id="video" width="100%" height="100%" muted autoplay></video></center>
-    <canvas id="canvas"></canvas>
+    <center><video id="video" width="1080" height="1920" muted autoplay></video></center>
+    <canvas id="canvas" width="1080" height="1920"></canvas>
 </body>
 
 <script type="text/javascript">
@@ -109,20 +107,14 @@
             onCommand: function(name, arg) {
                 console.log(name);
                 console.log(arg);
-                canvas.getContext('2d').drawImage(video, 0, 0, window.innerWidth, window.innerHeight);
+                canvas.getContext('2d').drawImage(video, 0, 0, 1080, 1920);
                 var data = canvas.toDataURL();
                 console.log(data);
 
-                /* axios.post("https://photo-booth.herokuapp.com/photo", {
-                    "key": key,
-                    "photo": arg
-                })
-                .then((response) => console.log(response.data))
-                .then((error) => console.log(error)); */
-
                 axios.post("https://photo-booth.herokuapp.com/photo", {
                     "key": key,
-                    "photo": data.substring(data.indexOf(',')+1)
+                    "background": data.substring(data.indexOf(',')+1),
+                    "overlay": arg
                 })
                 .then((response) => console.log(response.data))
                 .then((error) => console.log(error));
