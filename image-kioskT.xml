@@ -48,8 +48,11 @@
     }
 
     #video{
-        object-position: top;
         display: block;
+    }
+
+    video {
+        object-fit: fill;
     }
 
     .vid {
