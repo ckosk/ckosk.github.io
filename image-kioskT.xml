@@ -50,8 +50,8 @@
 <body>
     <div id="countdown"></div>
     <div id="qrCode"></div>
-    <center><video id="video" width="640" height="480" muted autoplay></video></center>
-    <canvas id="canvas" style="overflow:auto" width="640" height="480"></canvas>
+    <center><video id="video" width="100%" height="100%" muted autoplay></video></center>
+    <canvas id="canvas" style="overflow:auto" width="100%" height="100%"></canvas>
 </body>
 
 <script type="text/javascript">
@@ -103,12 +103,12 @@
                 console.log(arg);
                 var data = canvas.toDataURL();
 
-                axios.post("https://photo-booth.herokuapp.com/photo", {
+                /* axios.post("https://photo-booth.herokuapp.com/photo", {
                     "key": "5203977e-3e11-49d5-8f27-50d732f4ed3a",
                     "photo": arg
                 })
                 .then((response) => console.log(response.data))
-                .then((error) => console.log(error));
+                .then((error) => console.log(error)); */
 
                 axios.post("https://photo-booth.herokuapp.com/photo", {
                     "key": "5203977e-3e11-49d5-8f27-50d732f4ed3a",
