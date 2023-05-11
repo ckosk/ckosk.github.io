@@ -51,8 +51,8 @@
 
     #qrCode{
         position: absolute;
-        width: __UP_myQRSizePref__;
-        height: __UP_myQRSizePref__;
+        width: __UP_myQRSizePref__px;
+        height: __UP_myQRSizePref__px;
     }
 
     #qrCode img{
@@ -105,6 +105,10 @@
 
     document.getElementById('countdown').hidden = true;
 
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
     //QR code format: "https://photo-booth.herokuapp.com/?key=RegKey" Ex: https://photo-booth.herokuapp.com/?key=7ef4a535-e988-4f71-ada8-522a5b5da812
     document.getElementById("qrCode").innerHTML = ("<img src='https://api.qrserver.com/v1/create-qr-code/?size= + qrSize + x + qrSize + &data=https://photo-booth.herokuapp.com/?key=" + key + "'>");
 
@@ -148,6 +152,7 @@
                     startTimer();
                 }
                 else {
+                    flash();
                     canvas.getContext('2d').drawImage(video, 0, 0, 1080, 1920);
                     var data = canvas.toDataURL();
                     console.log(data);
@@ -189,7 +194,6 @@
                 document.getElementById('countdown').hidden = true;
                 Client.sendCommand("takesnapshot", "");
                 console.log("snapshot taken");
-                flash();
                 document.getElementById('qrCode').hidden = false;
             } else {
                 document.getElementById("countdown").innerHTML = timeRemain;
