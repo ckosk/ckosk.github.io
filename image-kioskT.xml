@@ -149,6 +149,8 @@
         Controller: {
             onCommand: function(name, arg) {
                 if (arg == "start") {
+                    document.getElementById('qrCode').hidden = true;
+                    document.getElementById('countdown').hidden = false;
                     startTimer();
                 }
                 else {
@@ -164,7 +166,10 @@
                     .then((error) => console.log(error));
                     flash();
                     document.getElementById('canvas').hidden = true;
-                    document.getElementById('qrCode').hidden = false;
+                    setTimeout(()=> {
+                        document.getElementById('qrCode').hidden = false;
+                    }
+                    ,1000);
                 }
             },
             onStart: function() {},
@@ -186,8 +191,6 @@
     getMedia();
 
     function startTimer() {
-        document.getElementById('qrCode').hidden = true;
-        document.getElementById('countdown').hidden = false;
         console.log("Timer Started");
         var downloadTimer = setInterval(function() {
             if (timeRemain <= 0) {
