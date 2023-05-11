@@ -90,30 +90,30 @@
     document.getElementById('countdown').hidden = true;
 
     //QR code format: "https://photo-booth.herokuapp.com/?key=RegKey" Ex: https://photo-booth.herokuapp.com/?key=7ef4a535-e988-4f71-ada8-522a5b5da812
-    document.getElementById("qrCode").innerHTML = ("<img src='https://api.qrserver.com/v1/create-qr-code/?size= + "qrSize" + x + "qrSize" + &data=https://photo-booth.herokuapp.com/?key=" + key + "'>");
+    document.getElementById("qrCode").innerHTML = ("<img src='https://api.qrserver.com/v1/create-qr-code/?size= + qrSize + x + qrSize + &data=https://photo-booth.herokuapp.com/?key=" + key + "'>");
 
     if (timerStyle == "TRight"){
         document.getElementById("countdown").style.right = "0";
         document.getElementById("countdown").style.top = "0";
-        document.getElementById("qrCode").style.left = "0";
+        document.getElementById("qrCode").style.right = "0";
         document.getElementById("qrCode").style.top = "0";
     }
     else if (timerStyle == "BLeft"){
         document.getElementById("countdown").style.left = "0";
         document.getElementById("countdown").style.bottom = "0";
-        document.getElementById("qrCode").style.right = "0";
+        document.getElementById("qrCode").style.left = "0";
         document.getElementById("qrCode").style.bottom = "0";
     }
     else if (timerStyle == "BRight"){
         document.getElementById("countdown").style.right = "0";
         document.getElementById("countdown").style.bottom = "0";
-        document.getElementById("qrCode").style.left = "0";
+        document.getElementById("qrCode").style.right = "0";
         document.getElementById("qrCode").style.bottom = "0";
     }
     else if (timerStyle == "TLeft"){
         document.getElementById("countdown").style.left = "0";
         document.getElementById("countdown").style.top = "0";
-        document.getElementById("qrCode").style.right = "0";
+        document.getElementById("qrCode").style.left = "0";
         document.getElementById("qrCode").style.top = "0";
     }
     
@@ -156,6 +156,7 @@
     getMedia();
 
     function startTimer() {
+        document.getElementById('qrCode').hidden = true;
         document.getElementById('countdown').hidden = false;
         console.log("Timer Started");
         var downloadTimer = setInterval(function() {
