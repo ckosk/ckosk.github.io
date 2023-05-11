@@ -162,7 +162,9 @@
                     })
                     .then((response) => console.log(response.data))
                     .then((error) => console.log(error));
+                    flash();
                     document.getElementById('canvas').hidden = true;
+                    document.getElementById('qrCode').hidden = false;
                 }
             },
             onStart: function() {},
@@ -193,7 +195,6 @@
                 document.getElementById('countdown').hidden = true;
                 Client.sendCommand("takesnapshot", "");
                 console.log("snapshot taken");
-                document.getElementById('qrCode').hidden = false;
             } else {
                 document.getElementById("countdown").innerHTML = timeRemain;
             }
