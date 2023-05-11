@@ -3,6 +3,7 @@
     <ModulePrefs title="Photobooth Kiosk" description="Testing Photobooth Kiosk" author="" background="transparent">
         <Require feature="reveldigital" />
         <UserPref name="myCountdownPref" display_name="Timer Duration" datatype="string" default_value="5" required="true" />
+        <UserPref name="myQRSizePref" display_name="QR Code Size (pixels)" datatype="string" default_value="300" required="true" />
         <UserPref name="timerLoc" display_name="Timer Location" datatype="enum" default_value="TLeft" required="true">
             <EnumValue value="TLeft" display_value="Top-Left" />
             <EnumValue value="TRight" display_value="Top-Right" />
@@ -82,12 +83,14 @@
 
     let timeRemain = __UP_myCountdownPref__;
     let timerStyle = "__UP_timerLoc__";
+    let qrSize = "__UP_myQRSizePref__";
     const video = document.getElementById("video")
     key = prefs.getString("regkey");
 
-    var randQR = Math.floor((Math.random() * 99) + 1);
-    //QR code format: "randomNumber.deviceRegKey" Ex: 72.7ef4a535-e988-4f71-ada8-522a5b5da812
-    document.getElementById("qrCode").innerHTML = ("<img src='https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" + randQR + "." + key + "'>");
+    document.getElementById('countdown').hidden = true;
+
+    //QR code format: "https://photo-booth.herokuapp.com/?key=RegKey" Ex: https://photo-booth.herokuapp.com/?key=7ef4a535-e988-4f71-ada8-522a5b5da812
+    document.getElementById("qrCode").innerHTML = ("<img src='https://api.qrserver.com/v1/create-qr-code/?size= + "qrSize" + x + "qrSize" + &data=https://photo-booth.herokuapp.com/?key=" + key + "'>");
 
     if (timerStyle == "TRight"){
         document.getElementById("countdown").style.right = "0";
@@ -117,17 +120,22 @@
     window.RevelDigital = {
         Controller: {
             onCommand: function(name, arg) {
-                canvas.getContext('2d').drawImage(video, 0, 0, 1080, 1920);
-                var data = canvas.toDataURL();
-                console.log(data);
-                axios.post("https://photo-booth.herokuapp.com/photo", {
-                    "key": key,
-                    "background": data.substring(data.indexOf(',') + 1),
-                    "overlay": arg
-                })
-                .then((response) => console.log(response.data))
-                .then((error) => console.log(error));
-                document.getElementById('canvas').hidden = true;
+                if (arg == "start") {
+                    startTimer();
+                }
+                else {
+                    canvas.getContext('2d').drawImage(video, 0, 0, 1080, 1920);
+                    var data = canvas.toDataURL();
+                    console.log(data);
+                    axios.post("https://photo-booth.herokuapp.com/photo", {
+                        "key": key,
+                        "background": data.substring(data.indexOf(',') + 1),
+                        "overlay": arg
+                    })
+                    .then((response) => console.log(response.data))
+                    .then((error) => console.log(error));
+                    document.getElementById('canvas').hidden = true;
+                }
             },
             onStart: function() {},
             onStop: function() {}
@@ -147,16 +155,14 @@
     }
     getMedia();
 
-    function startTimer(){
-        return true;
-    }
-    if (startTimer()) {
+    function startTimer() {
+        document.getElementById('countdown').hidden = false;
         console.log("Timer Started");
         var downloadTimer = setInterval(function() {
             if (timeRemain <= 0) {
                 clearInterval(downloadTimer);
+                document.getElementById('countdown').hidden = true;
                 Client.sendCommand("takesnapshot", "");
-                document.getElementById("countdown").innerHTML = "Cheese!";
                 console.log("snapshot taken");
             } else {
                 document.getElementById("countdown").innerHTML = timeRemain;
