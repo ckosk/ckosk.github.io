@@ -51,11 +51,11 @@
 
     #qrCode{
         position: absolute;
-        width: __UP_myQRSizePref__px;
-        height: __UP_myQRSizePref__px;
     }
 
     #qrCode img{
+        width: __UP_myQRSizePref__px;
+        height: __UP_myQRSizePref__px;
     }
 
     #canvas{
@@ -152,7 +152,6 @@
                     startTimer();
                 }
                 else {
-                    flash();
                     canvas.getContext('2d').drawImage(video, 0, 0, 1080, 1920);
                     var data = canvas.toDataURL();
                     console.log(data);
@@ -192,8 +191,12 @@
             if (timeRemain <= 0) {
                 clearInterval(downloadTimer);
                 document.getElementById('countdown').hidden = true;
+                sleep(100);
                 Client.sendCommand("takesnapshot", "");
                 console.log("snapshot taken");
+                sleep(400);
+                flash();
+                sleep(500);
                 document.getElementById('qrCode').hidden = false;
             } else {
                 document.getElementById("countdown").innerHTML = timeRemain;
