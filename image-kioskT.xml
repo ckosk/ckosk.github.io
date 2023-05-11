@@ -51,11 +51,11 @@
 
     #qrCode{
         position: absolute;
-        width: 100%;
+        width: __UP_myQRSizePref__;
+        height: __UP_myQRSizePref__;
     }
 
     #qrCode img{
-        width: 100%;
     }
 
     #canvas{
