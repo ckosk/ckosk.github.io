@@ -162,7 +162,7 @@
                     document.getElementById('countdown').hidden = false;
                     startTimer();
                 }
-                else {
+                else if (name == "takesnapshot") {
                     canvas.getContext('2d').drawImage(video, 0, 0, 1080, 1920);
                     var data = canvas.toDataURL();
                     console.log(data);
@@ -177,6 +177,9 @@
                     flash();
                     document.getElementById('qrCode').hidden = false;
                     isSleep = true;
+                }
+                else {
+                    console.log("Unknown Command");
                 }
             },
             onStart: function() {},
