@@ -150,7 +150,7 @@
 
     function streamAsleep(){
         if (isSleep == true){
-            Client.sendCommand("photobooth", "");
+            Client.sendCommand("photobooth", "timeout");
         }
     }
     
@@ -162,7 +162,10 @@
                     document.getElementById('countdown').hidden = false;
                     startTimer();
                 }
-                else if (name == "takesnapshot") {
+                else if (arg == "timeout") {
+                    console.log("");
+                }
+                else {
                     canvas.getContext('2d').drawImage(video, 0, 0, 1080, 1920);
                     var data = canvas.toDataURL();
                     console.log(data);
