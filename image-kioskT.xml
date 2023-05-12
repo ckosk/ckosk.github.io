@@ -4,6 +4,7 @@
         <Require feature="reveldigital" />
         <UserPref name="myCountdownPref" display_name="Timer Duration" datatype="string" default_value="5" required="true" />
         <UserPref name="myQRSizePref" display_name="QR Code Size (pixels)" datatype="string" default_value="300" required="true" />
+        <UserPref name="mytimeoutPref" display_name="Stream Timeout" datatype="string" default_value="60" required="true" />
         <UserPref name="timerLoc" display_name="Timer Location" datatype="enum" default_value="TLeft" required="true">
             <EnumValue value="TLeft" display_value="Top-Left" />
             <EnumValue value="TRight" display_value="Top-Right" />
@@ -98,7 +99,9 @@
 
     let timeRemain = __UP_myCountdownPref__;
     let timerStyle = "__UP_timerLoc__";
+    let myTime = __UP_mytimeoutPref__;
     let qrSize = "__UP_myQRSizePref__";
+    let isSleep = true;
     const video = document.getElementById("video")
     key = prefs.getString("regkey");
     $('.flash').hide();
@@ -144,6 +147,12 @@
         .fadeOut(500)
         .css({'opacity': 1});
     }
+
+    function streamAsleep(){
+        if (isSleep == true){
+            Client.sendCommand("photobooth", "");
+        }
+    }
     
     window.RevelDigital = {
         Controller: {
@@ -167,6 +176,7 @@
                     .then((error) => console.log(error));
                     flash();
                     document.getElementById('qrCode').hidden = false;
+                    isSleep = true;
                 }
             },
             onStart: function() {},
@@ -188,10 +198,11 @@
     getMedia();
 
     function startTimer() {
+        isSleep = false;
         console.log("Timer Started");
-        var downloadTimer = setInterval(function() {
+        var countdownTimer = setInterval(function() {
             if (timeRemain <= 0) {
-                clearInterval(downloadTimer);
+                clearInterval(countdownTimer);
                 document.getElementById('countdown').hidden = true;
                 Client.sendCommand("takesnapshot", "");
             } else {
@@ -200,6 +211,10 @@
             timeRemain -= 1;
         }, 1000);
     }
+
+    var sleepTimer = setInterval(function() {
+        streamAsleep();
+    }, myTime * 1000); 
 
 </script>]]></Content>
 </Module>
