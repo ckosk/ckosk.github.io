@@ -163,7 +163,7 @@
                     startTimer();
                 }
                 else if (arg == "timeout") {
-                    console.log("");
+                    console.log("Command Sent");
                 }
                 else {
                     canvas.getContext('2d').drawImage(video, 0, 0, 1080, 1920);
@@ -180,9 +180,6 @@
                     flash();
                     document.getElementById('qrCode').hidden = false;
                     isSleep = true;
-                }
-                else {
-                    console.log("Unknown Command");
                 }
             },
             onStart: function() {},
