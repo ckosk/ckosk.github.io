@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-    <ModulePrefs title="Photobooth Kiosk" description="Testing Photobooth Kiosk" author="" background="transparent">
+    <ModulePrefs title="Photobooth Kiosk" description="Photobooth Functionality" author="" background="transparent">
         <Require feature="reveldigital" />
         <UserPref name="myCountdownPref" display_name="Timer Duration" datatype="string" default_value="5" required="true" />
         <UserPref name="myQRSizePref" display_name="QR Code Size (pixels)" datatype="string" default_value="300" required="true" />
@@ -198,7 +198,6 @@
         console.log("Timer Started");
         var countdownTimer = setInterval(function() {
             if (timeRemain <= 0) {
-                clearInterval(countdownTimer);
                 document.getElementById('countdown').hidden = true;
                 Client.sendCommand("takesnapshot", "");
             } else {
