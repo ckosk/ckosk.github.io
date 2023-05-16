@@ -97,7 +97,6 @@
 
     var prefs = new gadgets.Prefs();
 
-    let timeRemain = __UP_myCountdownPref__;
     let timerStyle = "__UP_timerLoc__";
     let myTime = __UP_mytimeoutPref__;
     let qrSize = "__UP_myQRSizePref__";
@@ -194,10 +193,12 @@
     getMedia();
 
     function startTimer() {
+        let timeRemain = __UP_myCountdownPref__;
         isSleep = false;
         console.log("Timer Started");
         var countdownTimer = setInterval(function() {
             if (timeRemain <= 0) {
+                clearInterval(countdownTimer);
                 document.getElementById('countdown').hidden = true;
                 Client.sendCommand("takesnapshot", "");
             } else {
