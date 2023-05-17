@@ -104,6 +104,7 @@
     const video = document.getElementById("video")
     key = prefs.getString("regkey");
     $('.flash').hide();
+    var functionIsRunning = false;
 
     document.getElementById('countdown').hidden = true;
 
@@ -154,7 +155,6 @@
             onCommand: function(name, arg) {
                 if (arg == "start") {
                     document.getElementById('qrCode').hidden = true;
-                    document.getElementById('countdown').hidden = false;
                     startTimer();
                 }
                 else if (arg != "timeout") {
@@ -192,16 +192,21 @@
     function startTimer() {
         let timeRemain = __UP_myCountdownPref__;
         isSleep = false;
-        var countdownTimer = setInterval(function() {
-            if (timeRemain <= 0) {
-                clearInterval(countdownTimer);
-                document.getElementById('countdown').hidden = true;
-                Client.sendCommand("takesnapshot", "");
-            } else {
-                document.getElementById("countdown").innerHTML = timeRemain;
-            }
-            timeRemain -= 1;
-        }, 1000);
+        if (!functionIsRunning) {
+            functionIsRunning = true;
+            document.getElementById('countdown').hidden = false;
+            var countdownTimer = setInterval(function() {
+                if (timeRemain <= 0) {
+                    clearInterval(countdownTimer);
+                    document.getElementById('countdown').hidden = true;
+                    Client.sendCommand("takesnapshot", "");
+                } else {
+                    document.getElementById("countdown").innerHTML = timeRemain;
+                }
+                timeRemain -= 1;
+            }, 1000);
+            functionIsRunning = false;
+        }
     }
 
     var sleepTimer = setInterval(function() {
