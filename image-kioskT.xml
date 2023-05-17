@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-    <ModulePrefs title="Photobooth Kiosk" description="Photobooth Functionality" author="" background="transparent">
+    <ModulePrefs title="Photobooth" description="Photobooth Functionality" author="" background="transparent">
         <Require feature="reveldigital" />
         <UserPref name="myCountdownPref" display_name="Timer Duration" datatype="string" default_value="5" required="true" />
         <UserPref name="myQRSizePref" display_name="QR Code Size (pixels)" datatype="string" default_value="300" required="true" />
@@ -67,11 +67,11 @@
         display: block;
     }
 
-    video {
+    video{
         object-fit: fill;
     }
 
-    .vid {
+    .vid{
         position: absolute; 
         top: 0; left:0;
         width: 100%; height: 100%; 
@@ -101,16 +101,12 @@
     let myTime = __UP_mytimeoutPref__;
     let qrSize = "__UP_myQRSizePref__";
     let isSleep = true;
-    const video = document.getElementById("video")
-    key = prefs.getString("regkey");
-    $('.flash').hide();
     var functionIsRunning = false;
 
+    const video = document.getElementById("video")
     document.getElementById('countdown').hidden = true;
-
-    function sleep(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
+    key = prefs.getString("regkey");
+    $('.flash').hide();
 
     //QR code format: "https://photo-booth.herokuapp.com/?key=RegKey" Ex: https://photo-booth.herokuapp.com/?key=7ef4a535-e988-4f71-ada8-522a5b5da812
     document.getElementById("qrCode").innerHTML = ("<img src='https://api.qrserver.com/v1/create-qr-code/?size= + qrSize + x + qrSize + &data=https://photo-booth.herokuapp.com/?key=" + key + "'>");
@@ -194,7 +190,6 @@
         isSleep = false;
         if (!functionIsRunning) {
             functionIsRunning = true;
-            document.getElementById('countdown').hidden = false;
             var countdownTimer = setInterval(function() {
                 if (timeRemain <= 0) {
                     clearInterval(countdownTimer);
@@ -203,6 +198,7 @@
                     functionIsRunning = false;
                 } else {
                     document.getElementById("countdown").innerHTML = timeRemain;
+                    document.getElementById('countdown').hidden = false;
                 }
                 timeRemain -= 1;
             }, 1000);
