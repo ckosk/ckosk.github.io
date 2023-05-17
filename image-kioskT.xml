@@ -200,12 +200,12 @@
                     clearInterval(countdownTimer);
                     document.getElementById('countdown').hidden = true;
                     Client.sendCommand("takesnapshot", "");
+                    functionIsRunning = false;
                 } else {
                     document.getElementById("countdown").innerHTML = timeRemain;
                 }
                 timeRemain -= 1;
             }, 1000);
-            functionIsRunning = false;
         }
     }
 
