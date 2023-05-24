@@ -89,8 +89,8 @@
     <div class="flash"></div>
     <div id="countdown"></div>
     <div id="qrCode"></div>
-    <div class='vid'><video id="video" width="1080" height="1920" muted autoplay></video></div>
     <canvas id="canvas" width="1080" height="1920"></canvas>
+    <div class='vid'><video id="video" width="1080" height="1920" muted autoplay></video></div>
 </body>
 
 <script type="text/javascript">
@@ -140,8 +140,21 @@
         .css({'opacity': 1});
     }
 
+    var canvases = document.getElementsByTagName("canvas");
+    function animCanv(){
+        for(var c in canvases) {
+            $(canvases[c]).animate({
+                'width': "945px",
+                'height': "1680px"
+            }, 1000);
+        }
+        let ctx = canvases.getContext("2d");
+        ctx.rotate(15 * Math.PI / 180);
+    }
+
     function streamAsleep(){
         if (isSleep == true){
+            document.getElementById('canvas').hidden = true;
             Client.sendCommand("photobooth", "timeout");
         }
     }
@@ -157,7 +170,6 @@
                     canvas.getContext('2d').drawImage(video, 0, 0, 1080, 1920);
                     var data = canvas.toDataURL();
                     flash();
-                    document.getElementById('canvas').hidden = true;
                     axios.post("https://photo-booth.herokuapp.com/photo", {
                         "key": key,
                         "background": data.substring(data.indexOf(',') + 1),
@@ -166,6 +178,8 @@
                     .then((response) => console.log(response.data))
                     .then((error) => console.log(error));
                     document.getElementById('qrCode').hidden = false;
+                    document.getElementById('canvas').hidden = false;
+                    animCanv();
                     isSleep = true;
                 }
             },
@@ -189,6 +203,7 @@
         let timeRemain = __UP_myCountdownPref__;
         isSleep = false;
         if (!functionIsRunning) {
+            document.getElementById('canvas').hidden = true;
             functionIsRunning = true;
             var countdownTimer = setInterval(function() {
                 if (timeRemain <= 0) {
