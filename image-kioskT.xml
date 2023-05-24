@@ -156,6 +156,7 @@
     function streamAsleep(){
         if (isSleep == true){
             document.getElementsByTagName("canvas").hidden = true;
+            document.getElementsByClassName('vid')[0].style.visibility = 'visible';
             Client.sendCommand("photobooth", "timeout");
         }
     }
@@ -179,7 +180,8 @@
                     .then((response) => console.log(response.data))
                     .then((error) => console.log(error));
                     document.getElementById('qrCode').hidden = false;
-                    document.getElementById('canvas').hidden = false;
+                    document.getElementsByClassName('vid')[0].style.visibility = 'hidden';
+                    document.getElementsByTagName("canvas").hidden = false;
                     animCanv();
                     isSleep = true;
                 }
@@ -204,6 +206,7 @@
         let timeRemain = __UP_myCountdownPref__;
         isSleep = false;
         if (!functionIsRunning) {
+            document.getElementsByClassName('vid')[0].style.visibility = 'visible';
             document.getElementsByTagName("canvas").hidden = true;
             functionIsRunning = true;
             var countdownTimer = setInterval(function() {
