@@ -4,7 +4,6 @@
         <Require feature="reveldigital" />
         <UserPref name="myCountdownPref" display_name="Timer Duration" datatype="string" default_value="5" required="true" />
         <UserPref name="myQRSizePref" display_name="QR Code Size (pixels)" datatype="string" default_value="300" required="true" />
-        <UserPref name="mytimeoutPref" display_name="Stream Timeout" datatype="string" default_value="60" required="true" />
         <UserPref name="timerLoc" display_name="Timer Location" datatype="enum" default_value="TLeft" required="true">
             <EnumValue value="TLeft" display_value="Top-Left" />
             <EnumValue value="TRight" display_value="Top-Right" />
@@ -60,12 +59,14 @@
     }
 
     #canvas{
+        postition: absolute;
         overflow: auto;
         margin: auto;
         top: 0;
         right: 0;
         bottom: 0;
         left: 0;
+        border: 5px solid white;
     }
 
     #video{
@@ -103,7 +104,6 @@
     var prefs = new gadgets.Prefs();
 
     let timerStyle = "__UP_timerLoc__";
-    let myTime = __UP_mytimeoutPref__;
     let qrSize = "__UP_myQRSizePref__";
     let isSleep = true;
     var functionIsRunning = false;
@@ -153,16 +153,6 @@
                 'width': "945px",
                 'height': "1680px"
             }, 1000);
-        }
-    }
-
-    function streamAsleep(){
-        if (isSleep == true){
-            context.clearRect(0, 0, canvas.width, canvas.height);
-            functionIsRunning = true;
-            videoAtt.height = 1920;
-            videoAtt.width = 1080;
-            Client.sendCommand("photobooth", "timeout");
         }
     }
     
@@ -235,8 +225,14 @@
     }
 
     var sleepTimer = setInterval(function() {
-        streamAsleep();
-    }, myTime * 1000); 
+        if (isSleep == true){
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            functionIsRunning = true;
+            videoAtt.height = 1920;
+            videoAtt.width = 1080;
+            Client.sendCommand("photobooth", "timeout");
+        }
+    }, 60000); 
 
 </script>]]></Content>
 </Module>
