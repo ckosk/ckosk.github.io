@@ -59,7 +59,7 @@
     }
 
     #canvas{
-        postition: absolute;
+        position: absolute;
         overflow: auto;
         margin: auto;
         top: 0;
@@ -105,7 +105,7 @@
 
     let timerStyle = "__UP_timerLoc__";
     let qrSize = "__UP_myQRSizePref__";
-    let isSleep = true;
+    let isSleep = 1;
     var functionIsRunning = false;
 
     const video = document.getElementById("video")
@@ -154,6 +154,7 @@
                 'height': "1680px"
             }, 1000);
         }
+        isSleep = 1;
     }
     
     window.RevelDigital = {
@@ -181,7 +182,6 @@
                     videoAtt.width = 1;
                     document.getElementsByTagName("canvas").hidden = false;
                     animCanv();
-                    isSleep = true;
                 }
             },
             onStart: function() {},
@@ -202,7 +202,7 @@
 
     function startTimer() {
         let timeRemain = __UP_myCountdownPref__;
-        isSleep = false;
+        isSleep = 0;
         if (!functionIsRunning) {
             videoAtt.height = 1920;
             videoAtt.width = 1080;
@@ -225,7 +225,7 @@
     }
 
     var sleepTimer = setInterval(function() {
-        if (isSleep == true){
+        if (isSleep === 1){
             context.clearRect(0, 0, canvas.width, canvas.height);
             functionIsRunning = true;
             videoAtt.height = 1920;
