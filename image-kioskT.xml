@@ -61,6 +61,7 @@
 
     #canvas{
         overflow: auto;
+        margin: auto;
     }
 
     #video{
@@ -154,7 +155,7 @@
 
     function streamAsleep(){
         if (isSleep == true){
-            document.getElementById('canvas').hidden = true;
+            document.getElementsByTagName("canvas").hidden = true;
             Client.sendCommand("photobooth", "timeout");
         }
     }
@@ -203,7 +204,7 @@
         let timeRemain = __UP_myCountdownPref__;
         isSleep = false;
         if (!functionIsRunning) {
-            document.getElementById('canvas').hidden = true;
+            document.getElementsByTagName("canvas").hidden = true;
             functionIsRunning = true;
             var countdownTimer = setInterval(function() {
                 if (timeRemain <= 0) {
