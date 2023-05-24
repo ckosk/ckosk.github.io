@@ -155,16 +155,17 @@
                 'height': "1680px"
             }, 1000);
         }
-        const centerX = canvasR.width / 2,
-        centerY = canvasR.height / 2;
-        const ctx = canvasR.getContext('2d');
-        ctx.translate(centerX, centerY);
-        ctx.rotate(15 * Math.PI / 180);
+            const centerX = canvasR.width / 2,
+            centerY = canvasR.height / 2;
+            const ctx = canvasR.getContext('2d');
+            ctx.translate(centerX, centerY);
+            ctx.rotate(15 * Math.PI / 180);
         }
 
     function streamAsleep(){
         if (isSleep == true){
-            document.getElementsByTagName("canvas").hidden = true;
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            functionIsRunning = true;
             document.getElementById('video').hidden = false;
             Client.sendCommand("photobooth", "timeout");
         }
@@ -215,8 +216,9 @@
         let timeRemain = __UP_myCountdownPref__;
         isSleep = false;
         if (!functionIsRunning) {
-            document.getElementsByClassName('vid')[0].style.visibility = 'visible';
-            document.getElementsByTagName("canvas").hidden = true;
+            document.getElementById('video').hidden = false;
+            const context = canvas.getContext('2d');
+            context.clearRect(0, 0, canvas.width, canvas.height);
             functionIsRunning = true;
             var countdownTimer = setInterval(function() {
                 if (timeRemain <= 0) {
