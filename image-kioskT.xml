@@ -27,7 +27,7 @@
     }
 
     body{
-        background-color: transparent;
+        background-color: black;
         padding: 0;
         margin: 0;
     }
@@ -61,7 +61,12 @@
 
     #canvas{
         overflow: auto;
+        position: absolute;
         margin: auto;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
     }
 
     #video{
@@ -90,8 +95,8 @@
     <div class="flash"></div>
     <div id="countdown"></div>
     <div id="qrCode"></div>
-    <canvas id="canvas" width="1080" height="1920"></canvas>
     <div class='vid'><video id="video" width="1080" height="1920" muted autoplay></video></div>
+    <canvas id="canvas" width="1080" height="1920"></canvas>
 </body>
 
 <script type="text/javascript">
@@ -142,6 +147,7 @@
     }
 
     var canvases = document.getElementsByTagName("canvas");
+    const canvasR = document.querySelector('#canvas');
     function animCanv(){
         for(var c in canvases) {
             $(canvases[c]).animate({
@@ -149,14 +155,17 @@
                 'height': "1680px"
             }, 1000);
         }
-        let ctx = canvases.getContext("2d");
+        const centerX = canvasR.width / 2,
+        centerY = canvasR.height / 2;
+        const ctx = canvasR.getContext('2d');
+        ctx.translate(centerX, centerY);
         ctx.rotate(15 * Math.PI / 180);
-    }
+        }
 
     function streamAsleep(){
         if (isSleep == true){
             document.getElementsByTagName("canvas").hidden = true;
-            document.getElementsByClassName('vid')[0].style.visibility = 'visible';
+            document.getElementById('video').hidden = false;
             Client.sendCommand("photobooth", "timeout");
         }
     }
