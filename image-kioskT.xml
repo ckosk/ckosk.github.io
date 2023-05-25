@@ -51,7 +51,7 @@
 
     #qrCode{
         position: absolute;
-        z-index: 999;
+        z-index: 1;
     }
 
     #qrCode img{
@@ -166,7 +166,6 @@
             document.getElementById('qrCode').hidden = false;
             Client.sendCommand("photobooth", "timeout");
         }
-        setTimeout(timeoutOccur, 30000);
     }
 
     
@@ -199,6 +198,7 @@
                     animCanv();
 
                     justTaken = true;
+                    let intervalCD = setTimeout(timeoutOccur, 20000);
                 }
             },
             onStart: function() {},
@@ -239,7 +239,5 @@
             }, 1000);
         }
     }
-
-    timeoutOccur();
 </script>]]></Content>
 </Module>
