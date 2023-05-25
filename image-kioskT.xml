@@ -106,7 +106,7 @@
     let timerStyle = "__UP_timerLoc__";
     let qrSize = "__UP_myQRSizePref__";
     var functionIsRunning = false;
-    let justTaken = false;
+    var justTaken = false;
 
     const context = canvas.getContext('2d');
     const video = document.getElementById("video")
@@ -158,7 +158,7 @@
     }
 
     function tempTimeout(){
-        if (justTaken){
+        if (justTaken === true && functionIsRunning === false){
             document.getElementById("canvas").style.border = "none";
             context.clearRect(0, 0, canvas.width, canvas.height);
             videoAtt.height = 1920;
@@ -198,10 +198,9 @@
                     animCanv();
 
                     justTaken = true;
-                    let timeout;
-                    function myTimeout() {
-                        timeout = setTimeout(tempTimeout, 30000);
-                    }
+                    setTimeout(() => {
+                        tempTimeout();
+                    }, 30000)
                 }
             },
             onStart: function() {},
