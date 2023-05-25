@@ -160,25 +160,15 @@
         }
     }
 
-    function timeoutOccur() {
-        if (!functionIsRunning){
-            document.getElementById("canvas").style.border = "none";
-            videoAtt.height = 1920;
-            videoAtt.width = 1080;
-            context.clearRect(0, 0, canvas.width, canvas.height);
-            document.getElementById('qrCode').hidden = false;
-            Client.sendCommand("photobooth", "timeout");
-        }
-    }
-
     async function timeoutSleep() {
+        const contextT = canvas.getContext('2d');
         await sleep(20000);
+        Client.sendCommand("photobooth", "timeout");
+        document.getElementById('qrCode').hidden = false;
         document.getElementById("canvas").style.border = "none";
         videoAtt.height = 1920;
         videoAtt.width = 1080;
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        document.getElementById('qrCode').hidden = false;
-        Client.sendCommand("photobooth", "timeout");
+        contextT.clearRect(0, 0, canvas.width, canvas.height);
     }
 
     window.RevelDigital = {
