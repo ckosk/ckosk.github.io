@@ -238,8 +238,8 @@
 
 
     var sleepTimer = setInterval(function() {
-        checkIdle;
-    }, 2000); 
+        checkIdle();
+    }, 10000); 
 
 </script>]]></Content>
 </Module>
