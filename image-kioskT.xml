@@ -157,7 +157,7 @@
         }
     }
 
-    function tempTimeout(){
+    function timeoutOccur() {
         if (justTaken === true){
             document.getElementById("canvas").style.border = "none";
             context.clearRect(0, 0, canvas.width, canvas.height);
@@ -166,6 +166,7 @@
             document.getElementById('qrCode').hidden = false;
             Client.sendCommand("photobooth", "timeout");
         }
+        setTimeout(timeoutOccur, 30000);
     }
 
     
@@ -198,14 +199,6 @@
                     animCanv();
 
                     justTaken = true;
-                    setTimeout(() => {
-                        document.getElementById("canvas").style.border = "none";
-                        context.clearRect(0, 0, canvas.width, canvas.height);
-                        videoAtt.height = 1920;
-                        videoAtt.width = 1080;
-                        document.getElementById('qrCode').hidden = false;
-                        Client.sendCommand("photobooth", "timeout");
-                    }, 30000)
                 }
             },
             onStart: function() {},
@@ -246,5 +239,7 @@
             }, 1000);
         }
     }
+
+    timeoutOccur();
 </script>]]></Content>
 </Module>
