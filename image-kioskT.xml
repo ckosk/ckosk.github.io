@@ -106,7 +106,6 @@
     let timerStyle = "__UP_timerLoc__";
     let qrSize = "__UP_myQRSizePref__";
     var functionIsRunning = false;
-    var justTaken = false;
 
     const context = canvas.getContext('2d');
     const video = document.getElementById("video")
@@ -147,6 +146,10 @@
         .css({'opacity': 1});
     }
 
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
     var canvases = document.getElementsByTagName("canvas");
     function animCanv(){
         for(var c in canvases) {
@@ -158,17 +161,26 @@
     }
 
     function timeoutOccur() {
-        if (justTaken === true){
+        if (!functionIsRunning){
             document.getElementById("canvas").style.border = "none";
-            context.clearRect(0, 0, canvas.width, canvas.height);
             videoAtt.height = 1920;
             videoAtt.width = 1080;
+            context.clearRect(0, 0, canvas.width, canvas.height);
             document.getElementById('qrCode').hidden = false;
             Client.sendCommand("photobooth", "timeout");
         }
     }
 
-    
+    async function timeoutSleep() {
+        await sleep(20000);
+        document.getElementById("canvas").style.border = "none";
+        videoAtt.height = 1920;
+        videoAtt.width = 1080;
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        document.getElementById('qrCode').hidden = false;
+        Client.sendCommand("photobooth", "timeout");
+    }
+
     window.RevelDigital = {
         Controller: {
             onCommand: function(name, arg) {
@@ -196,9 +208,7 @@
                     document.getElementsByTagName("canvas").hidden = false;
                     document.getElementById("canvas").style.border = "5px solid white";
                     animCanv();
-
-                    justTaken = true;
-                    let intervalCD = setTimeout(timeoutOccur, 20000);
+                    timeoutSleep();
                 }
             },
             onStart: function() {},
@@ -219,7 +229,6 @@
 
     function startTimer() {
         let timeRemain = __UP_myCountdownPref__;
-        justTaken = false;
         if (!functionIsRunning) {
             videoAtt.height = 1920;
             videoAtt.width = 1080;
@@ -227,8 +236,8 @@
             functionIsRunning = true;
             var countdownTimer = setInterval(function() {
                 if (timeRemain <= 0) {
-                    clearInterval(countdownTimer);
                     document.getElementById('countdown').hidden = true;
+                    clearInterval(countdownTimer);
                     Client.sendCommand("takesnapshot", "");
                     functionIsRunning = false;
                 } else {
