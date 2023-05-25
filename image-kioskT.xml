@@ -224,25 +224,21 @@
         }
     }
 
-    function idleTimeout() {
-        const checkIdle = async () => {
-            if (justTaken){
-                await delay(30000);
-                document.getElementById("canvas").style.border = "none";
-                context.clearRect(0, 0, canvas.width, canvas.height);
-                videoAtt.height = 1920;
-                videoAtt.width = 1080;
-                document.getElementById('qrCode').hidden = false;
-                Client.sendCommand("photobooth", "timeout");
-            }
-            else{
-                console.log("Not sleeping");
-            }
-        };
-    }
+    const checkIdle = async () => {
+        if (justTaken){
+            await delay(30000);
+            document.getElementById("canvas").style.border = "none";
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            videoAtt.height = 1920;
+            videoAtt.width = 1080;
+            document.getElementById('qrCode').hidden = false;
+            Client.sendCommand("photobooth", "timeout");
+        }
+    };
+
 
     var sleepTimer = setInterval(function() {
-        idleTimeout();
+        checkIdle;
     }, 2000); 
 
 </script>]]></Content>
