@@ -141,8 +141,8 @@
     function flash(){
         $('.flash')
         .show()
-        .animate({opacity: 0.5}, 300) 
-        .fadeOut(750)
+        .animate({opacity: 0.5}, 500) 
+        .fadeOut(900)
         .css({'opacity': 1});
     }
 
@@ -225,22 +225,21 @@
         }
     }
 
-    if (isAsleep === true){
-        const updateVideoHeight = () => 
-            videoAtt.height = 1920;
-        const updateVideoWidth = () => 
-            videoAtt.width = 1080;
-        const updateCanvas = () => 
+    function updateIdle(){
+        if (isAsleep){
+            document.getElementById("canvas").style.border = "none";
             context.clearRect(0, 0, canvas.width, canvas.height);
+            videoAtt.height = 1920;
+            videoAtt.width = 1080;
+        }
+        else{
+            console.log("Not sleeping");
+        }
+        Client.sendCommand("photobooth", "timeout");
     }
 
     var sleepTimer = setInterval(function() {
-        document.getElementById("canvas").style.border = "none";
-        updateVideoHeight;
-        updateVideoWidth;
-        updateCanvas;
-        functionIsRunning = true;
-        Client.sendCommand("photobooth", "timeout");
+        updateIdle();
     }, 60000); 
 
 </script>]]></Content>
