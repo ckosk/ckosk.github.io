@@ -158,7 +158,7 @@
     }
 
     function tempTimeout(){
-        if (justTaken === true && functionIsRunning === false){
+        if (justTaken === true){
             document.getElementById("canvas").style.border = "none";
             context.clearRect(0, 0, canvas.width, canvas.height);
             videoAtt.height = 1920;
@@ -199,7 +199,12 @@
 
                     justTaken = true;
                     setTimeout(() => {
-                        tempTimeout();
+                        document.getElementById("canvas").style.border = "none";
+                        context.clearRect(0, 0, canvas.width, canvas.height);
+                        videoAtt.height = 1920;
+                        videoAtt.width = 1080;
+                        document.getElementById('qrCode').hidden = false;
+                        Client.sendCommand("photobooth", "timeout");
                     }, 30000)
                 }
             },
@@ -241,19 +246,5 @@
             }, 1000);
         }
     }
-
-    /*
-    const checkIdle = async () => {
-        if (justTaken){
-            await delay(30000);
-            document.getElementById("canvas").style.border = "none";
-            context.clearRect(0, 0, canvas.width, canvas.height);
-            videoAtt.height = 1920;
-            videoAtt.width = 1080;
-            document.getElementById('qrCode').hidden = false;
-            Client.sendCommand("photobooth", "timeout");
-        }
-    };*/
-
 </script>]]></Content>
 </Module>
