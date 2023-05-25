@@ -50,7 +50,8 @@
     }
 
     #qrCode{
-        position: absolute;
+        position: relative;
+        z-index: 999;
     }
 
     #qrCode img{
@@ -141,7 +142,7 @@
     function flash(){
         $('.flash')
         .show()
-        .animate({opacity: 0.5}, 500) 
+        .animate({opacity: 0.5}, 650) 
         .fadeOut(900)
         .css({'opacity': 1});
     }
@@ -224,6 +225,7 @@
         }
     }
 
+    /*
     const checkIdle = async () => {
         if (justTaken){
             await delay(30000);
@@ -234,7 +236,7 @@
             document.getElementById('qrCode').hidden = false;
             Client.sendCommand("photobooth", "timeout");
         }
-    };
+    };*/
 
     function tempTimeout(){
         if (justTaken){
@@ -249,7 +251,7 @@
 
     var sleepTimer = setInterval(function() {
         tempTimeout();
-    }, 10000); 
+    }, 30000); 
 
 </script>]]></Content>
 </Module>
