@@ -107,6 +107,7 @@
     let isAsleep = true;
     var functionIsRunning = false;
 
+    const context = canvas.getContext('2d');
     const video = document.getElementById("video")
     var videoAtt = document.getElementsByTagName("video")[0];
     document.getElementById('countdown').hidden = true;
@@ -141,7 +142,7 @@
         $('.flash')
         .show()
         .animate({opacity: 0.5}, 300) 
-        .fadeOut(500)
+        .fadeOut(750)
         .css({'opacity': 1});
     }
 
@@ -207,7 +208,6 @@
         if (!functionIsRunning) {
             videoAtt.height = 1920;
             videoAtt.width = 1080;
-            const context = canvas.getContext('2d');
             context.clearRect(0, 0, canvas.width, canvas.height);
             functionIsRunning = true;
             var countdownTimer = setInterval(function() {
@@ -225,15 +225,22 @@
         }
     }
 
-    var sleepTimer = setInterval(function() {
-        if (isAsleep === true){
-            document.getElementById("canvas").style.border = "none";
-            context.clearRect(0, 0, canvas.width, canvas.height);
-            functionIsRunning = true;
+    if (isAsleep === true){
+        const updateVideoHeight = () => 
             videoAtt.height = 1920;
+        const updateVideoWidth = () => 
             videoAtt.width = 1080;
-            Client.sendCommand("photobooth", "timeout");
-        }
+        const updateCanvas = () => 
+            context.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    var sleepTimer = setInterval(function() {
+        document.getElementById("canvas").style.border = "none";
+        updateVideoHeight;
+        updateVideoWidth;
+        updateCanvas;
+        functionIsRunning = true;
+        Client.sendCommand("photobooth", "timeout");
     }, 60000); 
 
 </script>]]></Content>
