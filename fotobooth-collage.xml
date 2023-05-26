@@ -4,6 +4,7 @@
         <Require feature="reveldigital" />
         <UserPref name="myQuanPref" display_name="Number of Images" datatype="string" default_value="10" required="true" />
         <UserPref name="myBoolRanPref" display_name="Random Images Everytime" datatype="bool" default_value="false" />
+        <UserPref name="myBackColorPref" display_name="Background Color" datatype="color" default_value="#FFFFFF" />
         <UserPref name="ForeColor" datatype="hidden" />
         <UserPref name="BackColor" datatype="hidden" />
         <UserPref name="rdW" display_name="Width" required="true" default_value="280" datatype="hidden" />
@@ -18,7 +19,11 @@
         word-spacing: normal;
     }
 
-    #containter {
+    body{
+        background-color: __UP_myBackColorPref__;
+    }
+
+    #containter{
       position: absolute;
       top:0;
       bottom: 0;
@@ -27,15 +32,15 @@
       margin: auto;
     }
 
-    .wrapper {
+    .wrapper{
       position: relative;
     }
-    .box {
+    .box{
       position: relative;
       width: 400px;
       height: 400px;
     }
-    .box img {
+    .box img{
       position: absolute;
       width: 100%;
       height: 100%;
@@ -54,7 +59,6 @@
 
 <body>
     <main>
-        <h1>Here</h1>  
         <div class="wrapper">
           <div class="box" id="container" style="margin:0 auto;">
           </div>
@@ -103,7 +107,7 @@
                 return anime.random(-300, 300);
             },
             translateY: function () {
-                return anime.random(-100, 1100);
+                return anime.random(-100, 1200);
             },
             rotate: function () {
                 return anime.random(-15, 15);
