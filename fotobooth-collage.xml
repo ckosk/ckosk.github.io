@@ -3,6 +3,7 @@
     <ModulePrefs title="Photobooth Collage" description="Display a Collage of Images" author="" background="transparent">
         <Require feature="reveldigital" />
         <UserPref name="myQuanPref" display_name="Number of Images" datatype="string" default_value="10" required="true" />
+        <UserPref name="mySpeedPref" display_name="Animation Speed" datatype="string" default_value="3500" required="true" />
         <UserPref name="myBoolLayerPref" display_name="Randomize Layers with Animation" datatype="bool" default_value="true" />
         <UserPref name="myBoolRanPref" display_name="Randomize Images" datatype="bool" default_value="false" />
         <UserPref name="myBackColorPref" display_name="Background Color" datatype="color" default_value="#FFFFFF" />
@@ -71,6 +72,7 @@
 
     var prefs = new gadgets.Prefs();
     let imageValue = "__UP_myQuanPref__";
+    let animeSpeed = __UP_mySpeedPref__;
 
     var arr = [];
     const container = document.getElementById('container');
@@ -102,12 +104,12 @@
         anime({
             targets: box.querySelectorAll("img"),
             easing: "easeOutExpo",
-            duration: 3500,
+            duration: animeSpeed,
             translateX: function () {
                 return anime.random(-350, 350);
             },
             translateY: function () {
-                return anime.random(-50, 1250);
+                return anime.random(-50, 1350);
             },
             rotate: function () {
                 return anime.random(-15, 15);
@@ -118,6 +120,6 @@
                 imgSel.appendChild(imgSel.children[Math.random() * i | 0]);
             }
         }
-    }, 3500);
+    }, animeSpeed);
 </script>]]></Content>
 </Module>
