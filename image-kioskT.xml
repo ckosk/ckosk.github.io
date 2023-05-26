@@ -164,11 +164,11 @@
         const contextT = canvas.getContext('2d');
         await sleep(20000);
         Client.sendCommand("photobooth", "timeout");
+        contextT.clearRect(0, 0, canvas.width, canvas.height);
         document.getElementById('qrCode').hidden = false;
         document.getElementById("canvas").style.border = "none";
         videoAtt.height = 1920;
         videoAtt.width = 1080;
-        contextT.clearRect(0, 0, canvas.width, canvas.height);
     }
 
     window.RevelDigital = {
