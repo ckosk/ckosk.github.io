@@ -3,7 +3,8 @@
     <ModulePrefs title="Photobooth Collage" description="Display a Collage of Images" author="" background="transparent">
         <Require feature="reveldigital" />
         <UserPref name="myQuanPref" display_name="Number of Images" datatype="string" default_value="10" required="true" />
-        <UserPref name="myBoolRanPref" display_name="Random Images Everytime" datatype="bool" default_value="false" />
+        <UserPref name="myBoolLayerPref" display_name="Randomize Layers with Animation" datatype="bool" default_value="true" />
+        <UserPref name="myBoolRanPref" display_name="Randomize Images" datatype="bool" default_value="false" />
         <UserPref name="myBackColorPref" display_name="Background Color" datatype="color" default_value="#FFFFFF" />
         <UserPref name="ForeColor" datatype="hidden" />
         <UserPref name="BackColor" datatype="hidden" />
@@ -86,7 +87,6 @@
             img.src = arr[i];
             container.appendChild(img);
         }
-        return (console.log(arr));
     };
     fetchData();
 
@@ -104,18 +104,19 @@
             easing: "easeOutExpo",
             duration: 3500,
             translateX: function () {
-                return anime.random(-300, 300);
+                return anime.random(-350, 350);
             },
             translateY: function () {
-                return anime.random(-100, 1200);
+                return anime.random(-50, 1250);
             },
             rotate: function () {
                 return anime.random(-15, 15);
             }
           });
-        //RANDOM LAYER IMAGES EVERY ANIMATION
-        for (var i = imgSel.children.length; i >= 0; i--) {
-            imgSel.appendChild(imgSel.children[Math.random() * i | 0]);
+        if (__UP_myBoolLayerPref__) {
+            for (var i = imgSel.children.length; i >= 0; i--) {
+                imgSel.appendChild(imgSel.children[Math.random() * i | 0]);
+            }
         }
     }, 3500);
 </script>]]></Content>
