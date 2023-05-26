@@ -3,8 +3,8 @@
     <ModulePrefs title="Photobooth Collage" description="Display a Collage of Images" author="" background="transparent">
         <Require feature="reveldigital" />
         <UserPref name="myQuanPref" display_name="Number of Images" datatype="string" default_value="10" required="true" />
-        <UserPref name="mySpeedPref" display_name="Animation Speed" datatype="string" default_value="3500" required="true" />
-        <UserPref name="myBoolLayerPref" display_name="Randomize Layers with Animation" datatype="bool" default_value="true" />
+        <UserPref name="mySpeedPref" display_name="Animation Speed (ms)" datatype="string" default_value="3500" required="true" />
+        <UserPref name="myBoolLayerPref" display_name="Randomize Layers with Animation" datatype="bool" default_value="false" />
         <UserPref name="myBoolRanPref" display_name="Randomize Images" datatype="bool" default_value="false" />
         <UserPref name="myBackColorPref" display_name="Background Color" datatype="color" default_value="#FFFFFF" />
         <UserPref name="ForeColor" datatype="hidden" />
