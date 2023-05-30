@@ -128,7 +128,7 @@
                 if (arg === "start") {
                     startTimer();
                 }
-                else if (name === "takesnapshot") {
+                else if ((arg != "timeout") && (isSleep === false)) {
                     canvas.getContext('2d').drawImage(video, 0, 0, 1080, 1920);
                     var data = canvas.toDataURL();
                     flash();
@@ -141,9 +141,6 @@
                     .then((response) => console.log(response.data))
                     .then((error) => console.log(error));
                     isSleep = true;
-                }
-                else {
-                    console.log("Command Not Recognized");
                 }
             },
             onStart: function() {},
