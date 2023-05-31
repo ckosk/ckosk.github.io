@@ -5,6 +5,7 @@
         <UserPref name="myQuanPref" display_name="Number of Images" datatype="string" default_value="10" required="true" />
         <UserPref name="mySpeedPref" display_name="Animation Speed (ms)" datatype="string" default_value="3500" required="true" />
         <UserPref name="myBorderSizePref" display_name="Border Thickness (px)" datatype="string" default_value="5" required="true" />
+        <UserPref name="myImageSizePref" display_name="Image Size (px)" datatype="string" default_value="400" required="true" />
         <UserPref name="myBoolLayerPref" display_name="Randomize Layers with Animation" datatype="bool" default_value="false" />
         <UserPref name="myBoolRanPref" display_name="Randomize Images" datatype="bool" default_value="false" />
         <UserPref name="myBackColorPref" display_name="Background Color" datatype="color" default_value="#FFFFFF" />
@@ -41,8 +42,8 @@
     }
     .box{
       position: relative;
-      width: 400px;
-      height: 400px;
+      width: __UP_myImageSizePref__px;
+      height: __UP_myImageSizePref__px;
     }
     .box img{
       position: absolute;
@@ -83,7 +84,7 @@
     const fetchData = async () => {
         const response = await axios.get('https://photo-booth.herokuapp.com/random?size=' + imageValue);
         arr = response.data;
-        for (var i=arr.length; i--;) {
+        for (var i = arr.length; i--;) {
             arr[i] = 'https://photo-booth.herokuapp.com/p/' + arr[i];
         }
         for (let i = 0; i < arr.length; i++) {
@@ -107,16 +108,16 @@
             targets: box.querySelectorAll("img"),
             easing: "easeOutExpo",
             duration: animeSpeed,
-            translateX: function () {
+            translateX: function() {
                 return anime.random(-350, 350);
             },
-            translateY: function () {
+            translateY: function() {
                 return anime.random(-50, 1350);
             },
-            rotate: function () {
+            rotate: function() {
                 return anime.random(-15, 15);
             }
-          });
+        });
         if (__UP_myBoolLayerPref__) {
             for (var i = imgSel.children.length; i >= 0; i--) {
                 imgSel.appendChild(imgSel.children[Math.random() * i | 0]);
