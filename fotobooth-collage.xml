@@ -103,7 +103,7 @@
             arr[i] = 'https://photo-booth.herokuapp.com/p/' + arr[i];
         }
         var imgs = document.getElementsByTagName("img");
-        for (var i = 0, i < imgs.length; i++) {
+        for (var i = 0; i < imgs.length; i++) {
             imgs[i].src = arr[i];
         }
     };
