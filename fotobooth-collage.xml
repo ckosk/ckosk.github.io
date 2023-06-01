@@ -99,7 +99,7 @@
         arr = [];
         const response = await axios.get('https://photo-booth.herokuapp.com/random?size=' + imageValue);
         arr = response.data;
-        for (var i = arry.length; i--;) {
+        for (var i = arr.length; i--;) {
             arr[i] = 'https://photo-booth.herokuapp.com/p/' + arr[i];
         }
         var imgs = document.getElementsByTagName("img");
@@ -110,7 +110,6 @@
 
     if (__UP_myBoolRanPref__) {
         const intervalFetch = setInterval(function() {
-            document.getElementById("container").innerHTML = "";
             fetchDataAgain();
         }, 20000);
     }
