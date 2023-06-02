@@ -88,12 +88,12 @@
         }
         for (let i = 0; i < arr.length; i++) {
             const img = document.createElement('img');
-            if (arr[i].length === 21) {
+            if (arr[i].split("/").pop().length === 21) {
                 img.src = arr[i];
                 container.appendChild(img);
             }
             else {
-                console.log("invalid photo ID");
+                console.log(arr[i].split("/").pop().toString() + " is not a valid photo ID");
             }
         }
     };
@@ -108,11 +108,11 @@
         }
         var imgs = document.getElementsByTagName("img");
         for (var i = 0; i < imgs.length; i++) {
-            if (arr[i].length === 21) {
+            if (arr[i].split("/").pop().length === 21) {
                 imgs[i].src = arr[i];
             }
             else {
-                console.log("invalid photo ID");
+                console.log(arr[i].split("/").pop().toString() + " is not a valid photo ID");
             }
         }
     };
