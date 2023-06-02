@@ -4,6 +4,7 @@
         <Require feature="reveldigital" />
         <UserPref name="myQuanPref" display_name="Number of Images" datatype="string" default_value="10" required="true" />
         <UserPref name="mySpeedPref" display_name="Animation Speed (ms)" datatype="string" default_value="3500" required="true" />
+        <UserPref name="myImageTimingPref" display_name="Randomize Images Every (ms)" datatype="string" default_value="20000" required="true" />
         <UserPref name="myBorderSizePref" display_name="Border Thickness (px)" datatype="string" default_value="6" required="true" />
         <UserPref name="myImageSizePref" display_name="Image Size (px)" datatype="string" default_value="500" required="true" />
         <UserPref name="myBoolLayerPref" display_name="Randomize Layers with Animation" datatype="bool" default_value="false" />
@@ -76,6 +77,7 @@
     var prefs = new gadgets.Prefs();
     let imageValue = "__UP_myQuanPref__";
     let animeSpeed = __UP_mySpeedPref__;
+    let imageTiming = __UP_myImageTimingPref__;
 
     var arr = [];
     const container = document.getElementById('container');
@@ -111,7 +113,7 @@
     if (__UP_myBoolRanPref__) {
         const intervalFetch = setInterval(function() {
             fetchDataAgain();
-        }, 20000);
+        }, imageTiming);
     }
 
     let box = document.querySelector(".box");
