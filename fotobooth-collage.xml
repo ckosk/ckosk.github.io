@@ -5,13 +5,13 @@
         <UserPref name="myQuanPref" display_name="Number of Images" datatype="string" default_value="10" required="true" />
         <UserPref name="mySpeedPref" display_name="Animation Speed (ms)" datatype="string" default_value="3500" required="true" />
         <UserPref name="myImageTimingPref" display_name="Randomize Images Every (ms)" datatype="string" default_value="20000" required="true" />
-        <UserPref name="myBorderSizePref" display_name="Image Border Thickness (px)" datatype="string" default_value="6" required="true" />
+        <UserPref name="myBorderSizePref" display_name="Image Border Thickness (px)" datatype="string" default_value="8" required="true" />
         <UserPref name="myImageSizePref" display_name="Image Size (px)" datatype="string" default_value="500" required="true" />
         <UserPref name="myReplaceImagePref" display_name="Replacement Image URL" datatype="string" default_value="https://aabaseball.com/wp-content/uploads/2021/02/fm-redhawks-logo.png" required="true" />
         <UserPref name="myBoolLayerPref" display_name="Randomize Layers with Animation" datatype="bool" default_value="false" />
         <UserPref name="myBoolRanPref" display_name="Randomize Images" datatype="bool" default_value="false" />
-        <UserPref name="myBackColorPref" display_name="Background Color" datatype="color" default_value="#FFFFFF" />
-        <UserPref name="myBorderColorPref" display_name="Border Color" datatype="color" default_value="#fff" />
+        <UserPref name="myBackColorPref" display_name="Background Color" datatype="color" default_value="#000000" />
+        <UserPref name="myBorderColorPref" display_name="Border Color" datatype="color" default_value="#c51d24" />
         <UserPref name="ForeColor" datatype="hidden" />
         <UserPref name="BackColor" datatype="hidden" />
         <UserPref name="rdW" display_name="Width" required="true" default_value="280" datatype="hidden" />
