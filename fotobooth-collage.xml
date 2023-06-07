@@ -88,13 +88,12 @@
         }
         for (let i = 0; i < arr.length; i++) {
             const img = document.createElement('img');
-            if (arr[i].split("/").pop().length === 21) {
-                img.src = arr[i];
-                container.appendChild(img);
-            }
-            else {
-                console.log(arr[i].split("/").pop().toString() + " is not a valid photo ID");
-            }
+            img.src = arr[i];
+            container.appendChild(img);
+        }
+        var imgs = document.getElementsByTagName("img");
+        for (var i=0; i < imgs.length; i++) {
+            imgs[i].setAttribute("onerror", "this.style.display='none'");
         }
     };
     fetchData();
@@ -107,13 +106,8 @@
             arr[i] = 'https://photo-booth.herokuapp.com/p/' + arr[i];
         }
         var imgs = document.getElementsByTagName("img");
-        for (var i = 0; i < imgs.length; i++) {
-            if (arr[i].split("/").pop().length === 21) {
-                imgs[i].src = arr[i];
-            }
-            else {
-                console.log(arr[i].split("/").pop().toString() + " is not a valid photo ID");
-            }
+        for (var i=0; i < imgs.length; i++) {
+            imgs[i].src = arr[i];        
         }
     };
 
@@ -145,5 +139,6 @@
             }
         }
     }, animeSpeed);
+    
 </script>]]></Content>
 </Module>
