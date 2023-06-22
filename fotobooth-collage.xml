@@ -149,7 +149,7 @@
                 easing: "easeOutExpo",
                 duration: animeSpeed,
                 translateX: function () {
-                    return anime.random(-900, 900);
+                    return anime.random(-850, 850);
                 },
                 translateY: function () {
                     return anime.random(-100, 350);
