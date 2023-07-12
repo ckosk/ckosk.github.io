@@ -1,5 +1,5 @@
 body {
-  background-color: black;
+    background-color: black;
 }
 
 .container {
@@ -7,7 +7,7 @@ body {
     justify-content: center;
 }
 
-.center{
+.center {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,7 +15,7 @@ body {
     min-height: 95vh;
 }
 
-#coords{
+#coords {
     color: white;
     font-family: "Arial Black", Gadget, sans-serif;
     font-size: 16px;
@@ -33,4 +33,48 @@ span {
     top: 5;
     right: 5;
     transform: scale(0.75);
+}
+
+.hidden {
+    display: none;
+}
+
+#mask {
+    background: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+}
+
+#modal {
+    background: #fff;
+    width: 50%;
+    height: auto;
+    padding: 24px;
+    border-radius: 4px;
+    justify-content: center;
+    color: black;
+    position: fixed;
+    top: 25%;
+    left: 10%;
+    right: 10%;
+    text-align: center;
+    margin: 0 auto;
+    z-index: 2;
+}
+
+section {
+    color: white;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 16px;
+    letter-spacing: -0.2px;
+    word-spacing: 0px;
+    font-weight: 700;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
 }

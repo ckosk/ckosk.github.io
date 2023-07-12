@@ -1,4 +1,5 @@
 <html>
+
 <head>
     <title> CKOSKI </title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
@@ -9,9 +10,19 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <body>
-    <span onclick="messAl();" class="fa fa-question-circle" style="font-size:48px;color:white"></span>
+    <div id="mask" class="hidden"></div>
+    <section id="modal" class="hidden">
+        <h1 id="popTitle">CoordGuesser</h1>
+        <p id="popCont">Impossible difficulty random guesser game
+            <br><br>On every page reload, a random set of page coordinates are generated. Can you locate and click them?
+            <br><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+            et dolore magna aliqua.
+        </p>
+    </section>
+    <span id="questionIcn" class="fa fa-question-circle" style="font-size:48px;color:white"></span>
     <div class="container">
         <div id="coords" class="center"></div>
     </div>
 </body>
+
 </html>
