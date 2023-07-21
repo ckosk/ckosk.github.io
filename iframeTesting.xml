@@ -40,7 +40,8 @@ div#container
 <div id="container">
     <iframe id="inlineFrameExample"
 	    title="Inline Frame Example"
-        allow="camera;microphone"
+        sandbox="allow-same-origin"
+        allow="camera __UP_text__;microphone __UP_text__;display-capture __UP_text__"
 	    width="__UP_rdW__"
 	    height="__UP_rdH__"
 	    src="__UP_text__">
