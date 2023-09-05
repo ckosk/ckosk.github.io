@@ -38,28 +38,31 @@
     <canvas id="output" height="__UP_myCanvHeight__" width="__UP_myCanvWidth__"></canvas>
 </body>
 
-<script src="https://cdn.jsdelivr.net/gh/foobar404/wave.js/dist/bundle.iife.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/foobar404/wave.js/dist/bundle.js"></script>
 
 <script type="text/javascript">
     var prefs = new gadgets.Prefs();
-    
-    let wave = new Wave();
 
-    //look into selecting audio port
-    navigator.mediaDevices.getUserMedia({
-        audio: true
-    })
-        .then(function (stream) {
-            wave.fromStream(stream, "output", {
-                type: "bars",
-                connectDestination: false,
-                colors: ["__UP_myFirstColorPref__", "__UP_mySecondColorPref__", "__UP_myThirdColorPref__"]
-            });
+
+    function init() {
+        let wave = new Wave();
+
+        //look into selecting audio port
+        navigator.mediaDevices.getUserMedia({
+            audio: true
         })
-        .catch(function (err) {
-            console.log(err.message)
-        });
+            .then(function (stream) {
+                wave.fromStream(stream, "output", {
+                    type: "bars",
+                    connectDestination: false,
+                    colors: ["__UP_myFirstColorPref__", "__UP_mySecondColorPref__", "__UP_myThirdColorPref__"]
+                });
+            })
+            .catch(function (err) {
+                console.log(err.message)
+            });
+    }
 
+    document.addEventListener("DOMContentLoaded", init, false);
 </script>]]></Content>
 </Module>
