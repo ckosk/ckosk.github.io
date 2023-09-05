@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+    <ModulePrefs title="Audio Visualizer" description="A gadget for visualizing audio" author="" background="transparent">
+        <UserPref name="myCanvHeight" display_name="Height (px)" datatype="string" default_value="500" required="true" />
+        <UserPref name="myCanvWidth" display_name="Width (px)" datatype="string" default_value="500" required="true" />
+        <UserPref name="myFirstColorPref" display_name="First Color" datatype="color" default_value="#710193" />
+        <UserPref name="mySecondColorPref" display_name="Second Color" datatype="color" default_value="#07da63" />
+        <UserPref name="myThirdColorPref" display_name="Third Color" datatype="color" default_value="#1167b1" />
+
+        <UserPref name="ForeColor" datatype="hidden" />
+        <UserPref name="BackColor" datatype="hidden" />
+        <UserPref name="rdW" display_name="Width" required="true" default_value="280" datatype="hidden" />
+        <UserPref name="rdH" display_name="Height" required="true" default_value="190" datatype="hidden" />
+        <UserPref name="rdKey" display_name="Device Registration Key" default_value="*|DEVICE.REGISTRATIONKEY|*" datatype="hidden" />
+    </ModulePrefs>
+    <Content type="html">
+        <![CDATA[<style type="text/css">
+
+    body *
+    {
+        line-height: 1.2em; 
+        letter-spacing: 0; 
+        word-spacing: normal;
+    }
+
+    body {
+        background-color: __UP_myBackColorPref__;
+    }
+
+    .my-style
+    {
+        __UP_myStylePref__;
+    }
+
+</style>
+
+<body>
+    <canvas id="output" height="__UP_myCanvHeight__" width="__UP_myCanvWidth__"></canvas>
+</body>
+
+<script type="text/javascript">
+    var prefs = new gadgets.Prefs();
+    
+    let wave = new Wave();
+
+    navigator.mediaDevices.getUserMedia({
+        audio: true
+    })
+        .then(function (stream) {
+            wave.fromStream(stream, "output", {
+                type: "bars",
+                connectDestination: false,
+                colors: ["__UP_myFirstColorPref__", "__UP_mySecondColorPref__", "__UP_myThirdColorPref__"]
+            });
+        })
+        .catch(function (err) {
+            console.log(err.message)
+        });
+
+</script>]]></Content>
+</Module>
