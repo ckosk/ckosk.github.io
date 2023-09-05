@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
     <ModulePrefs title="Audio Visualizer" description="A gadget for visualizing audio" author="" background="transparent">
-        <UserPref name="myCanvHeight" display_name="Height (px)" datatype="string" default_value="500" required="true" />
-        <UserPref name="myCanvWidth" display_name="Width (px)" datatype="string" default_value="500" required="true" />
-        <UserPref name="myFirstColorPref" display_name="First Color" datatype="color" default_value="#710193" />
-        <UserPref name="mySecondColorPref" display_name="Second Color" datatype="color" default_value="#07da63" />
-        <UserPref name="myThirdColorPref" display_name="Third Color" datatype="color" default_value="#1167b1" />
+        <UserPref name="numBars" display_name="Number of Bars" datatype="string" default_value="64" required="true" />
 
         <UserPref name="ForeColor" datatype="hidden" />
         <UserPref name="BackColor" datatype="hidden" />
@@ -25,6 +21,7 @@
 
     body {
         background-color: __UP_myBackColorPref__;
+        margin: 0;
     }
 
     .my-style
@@ -32,37 +29,93 @@
         __UP_myStylePref__;
     }
 
+    canvas {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
 </style>
 
 <body>
-    <canvas id="output" height="__UP_myCanvHeight__" width="__UP_myCanvWidth__"></canvas>
+    <canvas id="canvas"></canvas>
 </body>
-
-<script src="https://cdn.jsdelivr.net/gh/foobar404/wave.js/dist/bundle.js"></script>
 
 <script type="text/javascript">
     var prefs = new gadgets.Prefs();
 
 
-    function init() {
-        let wave = new Wave();
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
 
-        //look into selecting audio port
-        navigator.mediaDevices.getUserMedia({
-            audio: true
-        })
-            .then(function (stream) {
-                wave.fromStream(stream, "output", {
-                    type: "bars",
-                    connectDestination: false,
-                    colors: ["__UP_myFirstColorPref__", "__UP_mySecondColorPref__", "__UP_myThirdColorPref__"]
-                });
-            })
-            .catch(function (err) {
-                console.log(err.message)
+    window.onload = () => {
+        window.onresize()
+
+        window.requestAnimationFrame(draw);
+        setup();
+    }
+
+    window.onresize = () => {
+        const scale = window.devicePixelRatio;
+        canvas.width = window.innerWidth * scale;
+        canvas.height = window.innerHeight * scale;
+        ctx.scale(scale, scale);
+    }
+
+    const numBars = __UP_numBars__;
+    const minimum = 20;
+
+    function setup() {
+        ctx.lineCap = 'round';
+        if (typeof actx == 'undefined') {
+            state = [];
+            for (let i = 0; i < numBars; i++)
+                state.push((128 - minimum / 2) * (1 + Math.sin(2 * Math.PI * i / numBars)));
+            actx = new (window.AudioContext || window.webkitAudioContext)();
+            analyser = actx.createAnalyser();
+            analyser.smoothingTimeConstant = 0.925;
+            analyser.fftSize = numBars * 2;
+            loadAudio();
+        }
+    }
+    function loadAudio() {
+        navigator.mediaDevices.getUserMedia({ audio: true })
+            .then(stream => {
+                microphone = actx.createMediaStreamSource(stream);
+                microphone.connect(analyser);
+                state = new Uint8Array(analyser.frequencyBinCount);
+
+                if (actx.state === "suspended") {
+                    actx.resume();
+                }
+                window.setInterval(() => {
+
+                    analyser.getByteFrequencyData(state)
+                }, 10);
             });
     }
 
-    document.addEventListener("DOMContentLoaded", init, false);
+    function draw() {
+        window.requestAnimationFrame(draw);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        let delta = Math.round(canvas.width / numBars);
+        let phi = Math.round(canvas.height / (2 * numBars));
+        ctx.lineWidth = delta - 2;
+
+        for (const s in state) {
+            ctx.strokeStyle = 'hsl(' + (256 - state[s]) + ',50%,50%)';
+            ctx.beginPath();
+            ctx.moveTo(
+                delta * s + delta / 2,
+                canvas.height
+            );
+            ctx.lineTo(
+                delta * s + delta / 2,
+                canvas.height + minimum - canvas.height * state[s] / 256
+            );
+            ctx.stroke();
+        }
+    }
 </script>]]></Content>
 </Module>
