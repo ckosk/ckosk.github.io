@@ -52,6 +52,19 @@
     const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
 
+    function hexToRgbA(hex){
+        var c;
+        if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
+            c= hex.substring(1).split('');
+            if(c.length== 3){
+                c= [c[0], c[0], c[1], c[1], c[2], c[2]];
+            }
+            c= '0x'+c.join('');
+            return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+',1)';
+        }
+        throw new Error('Bad Hex');
+    }
+
     window.onload = () => {
         window.onresize()
 
@@ -113,7 +126,7 @@
                 ctx.strokeStyle = 'hsl(' + (256 - state[s]) + ',50%,50%)';
             }
             else{
-                ctx.strokeStyle = "__UP_myBarColorPref__";
+                ctx.strokeStyle = hexToRgbA("__UP_myBarColorPref__");
             }
             ctx.beginPath();
             ctx.moveTo(
