@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-    <ModulePrefs title="Audio Visualizer" description="A gadget for visualizing audio" author="" background="transparent">
+    <ModulePrefs title="Audio Visualizer" description="A gadget for visualizing audio from the default device" author="" background="transparent">
         <UserPref name="numBars" display_name="Number of Bars" datatype="enum" default_value="64">
             <EnumValue value="32" display_value="32" />
             <EnumValue value="64" display_value="64" />
             <EnumValue value="128" display_value="128" />
         </UserPref>
+        <UserPref name="myDeviceID" display_name="Device ID (Blank=default)" datatype="string" default_value="" required="false" />
         <UserPref name="myBarColorPref" display_name="Bar Color" datatype="color" default_value="#FFFFFF" required="true" />
-        <UserPref name="myBackColorPref" display_name="Background Color" datatype="color" default_value="#FFFFFF" required="true" />
+        <UserPref name="myBackColorPref" display_name="Background Color" datatype="color" default_value="#000000" required="true" />
         <UserPref name="ForeColor" datatype="hidden" />
         <UserPref name="BackColor" datatype="hidden" />
         <UserPref name="rdW" display_name="Width" required="true" default_value="280" datatype="hidden" />
@@ -49,9 +50,26 @@
 <script type="text/javascript">
     var prefs = new gadgets.Prefs();
 
+    //list available media devices
+    if (!navigator.mediaDevices?.enumerateDevices) {
+        console.log("enumerateDevices() not supported.");
+    } else {
+        navigator.mediaDevices
+            .enumerateDevices()
+            .then((devices) => {
+            devices.forEach((device) => {
+                console.log(`${device.kind}: ${device.label} id = ${device.deviceId}`);
+            });
+        })
+        .catch((err) => {
+            console.error(`${err.name}: ${err.message}`);
+        });
+    }
+
     const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
 
+    //Android did not like hex, converting to rgba fixed issue
     function hexToRgbA(hex){
         var c;
         if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
@@ -67,7 +85,6 @@
 
     window.onload = () => {
         window.onresize()
-
         window.requestAnimationFrame(draw);
         setup();
     }
@@ -79,6 +96,7 @@
         ctx.scale(scale, scale);
     }
 
+    //this value need to be a power of 2, no lesser than 20 ex:(32, 64, 128, 256, 512, etc)
     const numBars = __UP_numBars__;
     const minimum = 20;
 
@@ -88,7 +106,7 @@
             state = [];
             for (let i = 0; i < numBars; i++)
                 state.push((128 - minimum / 2) * (1 + Math.sin(2 * Math.PI * i / numBars)));
-            actx = new (window.AudioContext || window.webkitAudioContext)();
+            actx = new(window.AudioContext || window.webkitAudioContext)();
             analyser = actx.createAnalyser();
             analyser.smoothingTimeConstant = 0.925;
             analyser.fftSize = numBars * 2;
@@ -97,17 +115,23 @@
     }
 
     function loadAudio() {
-        navigator.mediaDevices.getUserMedia({ audio: true })
+        navigator.mediaDevices.getUserMedia({
+                if ("__UP_myDeviceID__" == ""){
+                    audio: true
+                }
+                else {
+                    audio: { deviceId: "__UP_myDeviceID__" }
+                }
+            })
             .then(stream => {
-                microphone = actx.createMediaStreamSource(stream);
-                microphone.connect(analyser);
+                mic = actx.createMediaStreamSource(stream);
+                mic.connect(analyser);
                 state = new Uint8Array(analyser.frequencyBinCount);
 
                 if (actx.state === "suspended") {
                     actx.resume();
                 }
                 window.setInterval(() => {
-
                     analyser.getByteFrequencyData(state)
                 }, 10);
             });
@@ -122,10 +146,10 @@
         ctx.lineWidth = delta - 2;
 
         for (const s in state) {
-            if ("__UP_myBarColorPref__" == "#FFFFFF"){
+            //white is default/gradient
+            if ("__UP_myBarColorPref__" == "#FFFFFF") {
                 ctx.strokeStyle = 'hsl(' + (256 - state[s]) + ',50%,50%)';
-            }
-            else{
+            } else {
                 ctx.strokeStyle = hexToRgbA("__UP_myBarColorPref__");
             }
             ctx.beginPath();
