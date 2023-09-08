@@ -115,14 +115,8 @@
     }
 
     function loadAudio() {
-        navigator.mediaDevices.getUserMedia({
-                if ("__UP_myDeviceID__" == ""){
-                    audio: true
-                }
-                else {
-                    audio: { deviceId: "__UP_myDeviceID__" }
-                }
-            })
+        if ("__UP_myDeviceID__" == ""){
+            navigator.mediaDevices.getUserMedia({ audio: true })
             .then(stream => {
                 mic = actx.createMediaStreamSource(stream);
                 mic.connect(analyser);
@@ -135,6 +129,22 @@
                     analyser.getByteFrequencyData(state)
                 }, 10);
             });
+        }
+        else {
+            navigator.mediaDevices.getUserMedia({ audio: { deviceId: "__UP_myDeviceID__" } })
+            .then(stream => {
+                mic = actx.createMediaStreamSource(stream);
+                mic.connect(analyser);
+                state = new Uint8Array(analyser.frequencyBinCount);
+
+                if (actx.state === "suspended") {
+                    actx.resume();
+                }
+                window.setInterval(() => {
+                    analyser.getByteFrequencyData(state)
+                }, 10);
+            });
+        }
     }
 
     function draw() {
