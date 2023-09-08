@@ -49,7 +49,6 @@
 <script type="text/javascript">
     var prefs = new gadgets.Prefs();
 
-
     const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
 
@@ -83,6 +82,7 @@
             loadAudio();
         }
     }
+
     function loadAudio() {
         navigator.mediaDevices.getUserMedia({ audio: true })
             .then(stream => {
@@ -109,11 +109,11 @@
         ctx.lineWidth = delta - 2;
 
         for (const s in state) {
-            if (__UP_myBarColorPref__ == #FFFFFF){
+            if ("__UP_myBarColorPref__" == "#FFFFFF"){
                 ctx.strokeStyle = 'hsl(' + (256 - state[s]) + ',50%,50%)';
             }
             else{
-                ctx.strokeStyle = __UP_myBarColorPref__;
+                ctx.strokeStyle = "__UP_myBarColorPref__";
             }
             ctx.beginPath();
             ctx.moveTo(
