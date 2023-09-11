@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <title> CoordGuesser </title>
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<script src="coordTrack.js"></script>
+<link rel="stylesheet" href="coordStyle.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<body>
+    <div id="mask" class="hidden"></div>
+    <section id="modal" class="hidden">
+        <h1 id="popTitle">CoordGuesser</h1>
+        <p id="popCont">Impossible difficulty random guesser game
+            <br><br>On every page reload, a random set of page coordinates are generated. Can you locate and click them?<br><br>(Too hard? They're also printed to the console)
+        </p>
+    </section>
+    <span id="questionIcn" class="fa fa-question-circle" style="font-size:48px;color:white"></span>
+    <div class="container">
+        <div id="coords" class="center"></div>
+    </div>
+    <div class="bubble bubble-bottom-left" id="speechBubble">It's somewhere!</div>
+</body>
+
+</html>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
     <ModulePrefs title="Audio Visualizer" description="A gadget for visualizing audio" author="" background="transparent">
-        <UserPref name="numBars" display_name="Number of Bars" datatype="enum" default_value="64">
+        <UserPref name="numBars" display_name="Number of Bars" datatype="enum" default_value="32">
             <EnumValue value="32" display_value="32" />
             <EnumValue value="64" display_value="64" />
             <EnumValue value="128" display_value="128" />
