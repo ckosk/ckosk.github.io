@@ -22,6 +22,7 @@
 }
 
 .card .card_image {
+    text-align: center;
     width: inherit;
     height: inherit;
     border-radius: 40px;
@@ -105,4 +106,9 @@ li:hover~li p {
 
 .header{
     text-align: center;
+}
+
+#wikiLogo{
+    width: 80%; 
+    height: auto;
 }
