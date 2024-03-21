@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<aiml version="1.0">
+
+    <!--- Wake Phrase -->
+    <category>
+        <pattern>JESSICA ON</pattern>
+        <template>
+            <random>
+                <li>welcome</li>
+                <li>welcome-day-going</li>
+                <li>ondo-tour</li>
+                <li>demo-tour</li>
+            </random>
+        </template>
+    </category>
+
+    <!--- welcome Branch -->
+    <category>
+        <pattern>I DONT KNOW</pattern>
+        <that> WELCOME </that>
+        <template>ondo-tour</template>
+    </category>
+
+    <category>
+        <pattern>I DO NOT KNOW</pattern>
+        <that> WELCOME </that>
+        <template>ondo-tour</template>
+    </category>
+
+    <category>
+        <pattern>DONT KNOW</pattern>
+        <that> WELCOME </that>
+        <template>sales-call</template>
+    </category>
+
+    <!--- welcome-day-going Branch -->
+    <category>
+        <pattern> * </pattern>
+        <that> WELCOME DAY GOING </that>
+        <template>
+            <random>
+                <li>ondo-tour</li>
+                <li>sales-call</li>
+            </random>
+        </template>
+    </category>
+
+    <!--- ondo-tour Branch -->
+    <category>
+        <pattern>NO</pattern>
+        <that> ONDO TOUR </that>
+        <template>sales-call</template>
+    </category>
+
+    <category>
+        <pattern>YES</pattern>
+        <that> ONDO TOUR </that>
+        <template>interactive-tour</template>
+    </category>
+
+    <category>
+        <pattern>YEP</pattern>
+        <that> ONDO TOUR </that>
+        <template>interactive-tour</template>
+    </category>
+
+    <category>
+        <pattern>SURE</pattern>
+        <that> ONDO TOUR </that>
+        <template>interactive-tour</template>
+    </category>
+
+    <category>
+        <pattern>ALRIGHT</pattern>
+        <that> ONDO TOUR </that>
+        <template>interactive-tour</template>
+    </category>
+
+    <category>
+        <pattern>ALRIGHTY</pattern>
+        <that> ONDO TOUR </that>
+        <template>interactive-tour</template>
+    </category>
+
+    <!--- sales-call Branch -->
+    <category>
+        <pattern>NO</pattern>
+        <that> SALES CALL </that>
+        <template>scan-QR-Code</template>
+    </category>
+
+    <category>
+        <pattern>YES</pattern>
+        <that> SALES CALL </that>
+        <template>scan-QR-Code</template>
+    </category>
+
+    <category>
+        <pattern>YEP</pattern>
+        <that> SALES CALL </that>
+        <template>scan-QR-Code</template>
+    </category>
+
+    <category>
+        <pattern>SURE</pattern>
+        <that> SALES CALL </that>
+        <template>scan-QR-Code</template>
+    </category>
+
+    <category>
+        <pattern>ALRIGHT</pattern>
+        <that> SALES CALL </that>
+        <template>scan-QR-Code</template>
+    </category>
+
+    <category>
+        <pattern>ALRIGHTY</pattern>
+        <that> SALES CALL </that>
+        <template>scan-QR-Code</template>
+    </category>
+
+
+
+</aiml> 
