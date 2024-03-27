@@ -119,6 +119,313 @@
         <template>scan-QR-Code</template>
     </category>
 
+    <!--- what do you have / what is there Branch -->
+    <category>
+        <pattern>WHAT DO YOU HAVE</pattern>
+        <template>show menu</template>
+    </category>
+
+    <category>
+        <pattern>WHAT DO YOU HAVE TODAY</pattern>
+        <template>show menu</template>
+    </category>
+
+    <category>
+        <pattern>WHAT DO YOU HAVE FOR TODAY</pattern>
+        <template>show menu</template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS THERE TO EAT</pattern>
+        <template>show menu</template>
+    </category>
+
+    <category>
+        <pattern>WHATS TO EAT</pattern>
+        <template>show menu</template>
+    </category>
+
+    <category>
+        <pattern>WHATS YOU GOT</pattern>
+        <template>show menu</template>
+    </category>
+
+    <category>
+        <pattern>WHATS IN THERE</pattern>
+        <template>show menu</template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS IN THERE</pattern>
+        <template>show menu</template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS THERE</pattern>
+        <template>show menu</template>
+    </category>
+    
+    <category>
+        <pattern>WHAT IS THERE TODAY</pattern>
+        <template>show menu</template>
+    </category>
+
+    <category>
+        <pattern>WHATS THERE</pattern>
+        <template>show menu</template>
+    </category>
+
+    <category>
+        <pattern>WHATS THERE TO EAT</pattern>
+        <template>show menu</template>
+    </category>
+
+    <category>
+        <pattern>WHATS THERE TODAY</pattern>
+        <template>show menu</template>
+    </category>
+
+    <category>
+        <pattern>SHOW WHATS THERE</pattern>
+        <template>show menu</template>
+    </category>
+
+    <category>
+        <pattern>SHOW WHATS THERE TO EAT</pattern>
+        <template>show menu</template>
+    </category>
+
+    <category>
+        <pattern>SHOW WHATS THERE TODAY</pattern>
+        <template>show menu</template>
+    </category>
+
+    <category>
+        <pattern>SHOW ME WHAT YOU HAVE</pattern>
+        <template>show menu</template>
+    </category>
+
+    <category>
+        <pattern>SHOW ME WHAT YOU HAVE TODAY</pattern>
+        <template>show menu</template>
+    </category>
+
+    <category>
+        <pattern>SHOW ME WHAT YOU HAVE FOR TODAY</pattern>
+        <template>show menu</template>
+    </category>
+
+    <category>
+        <pattern>SHOW ME WHAT IS THERE TO EAT</pattern>
+        <template>show menu</template>
+    </category>
+
+    <category>
+        <pattern>SHOW ME WHATS TO EAT</pattern>
+        <template>show menu</template>
+    </category>
+
+    <category>
+        <pattern>SHOW ME WHAT YOU GOT</pattern>
+        <template>show menu</template>
+    </category>
+
+    <category>
+        <pattern>SHOW ME WHATS IN THERE</pattern>
+        <template>show menu</template>
+    </category>
+
+    <category>
+        <pattern>SHOW ME WHAT IS IN THERE</pattern>
+        <template>show menu</template>
+    </category>
+
+    <category>
+        <pattern>SHOW ME WHAT IS THERE</pattern>
+        <template>show menu</template>
+    </category>
+
+    <category>
+        <pattern>SHOW ME WHAT IS THERE TODAY</pattern>
+        <template>show menu</template>
+    </category>
+
+    <category>
+        <pattern>SHOW ME WHAT IS LEFT</pattern>
+        <template>show menu</template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS IN LOCKERS</pattern>
+        <template>show menu</template>
+    </category>
+
+    <!--- Cost / price Branch -->
+    <category>
+        <pattern>WHATS THE COST</pattern>
+        <template>meal cost</template>
+    </category>
+
+    <category>
+        <pattern>WHATS THE COST OF THE MEAL</pattern>
+        <template>meal cost</template>
+    </category>
+
+    <category>
+        <pattern>WHATS THE COST OF THE FOOD</pattern>
+        <template>meal cost</template>
+    </category>
+
+    <category>
+        <pattern>SHOW ME WHAT IS THE COST</pattern>
+        <template>meal cost</template>
+    </category>
+
+    <category>
+        <pattern>WHATS THE COST OF THE MEAL</pattern>
+        <template>meal cost</template>
+    </category>
+
+    <category>
+        <pattern>WHATS THE COST OF THE FOOD</pattern>
+        <template>meal cost</template>
+    </category>
+
+    <category>
+        <pattern>SHOW ME WHATS THE COST</pattern>
+        <template>meal cost</template>
+    </category>
+
+    <category>
+        <pattern>WHATS THE COST OF THE MEAL</pattern>
+        <template>meal cost</template>
+    </category>
+
+    <category>
+        <pattern>WHATS THE COST OF THE FOOD</pattern>
+        <template>meal cost</template>
+    </category>
+
+    <!--- Locker / Door number Branch -->
+    <category>
+        <pattern>WHAT IS IN DOOR NUMBER 1</pattern>
+        <template>locker_1</template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS IN LOCKER 1</pattern>
+        <template>locker_1</template>
+    </category>
+
+    <category>
+        <pattern>WHATS IN DOOR NUMBER 1</pattern>
+        <template>locker_1</template>
+    </category>
+
+    <category>
+        <pattern>WHATS IN LOCKER 1</pattern>
+        <template>locker_1</template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS IN DOOR NUMBER 2</pattern>
+        <template>locker_2</template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS IN LOCKER 2</pattern>
+        <template>locker_2</template>
+    </category>
+
+    <category>
+        <pattern>WHATS IN DOOR NUMBER 2</pattern>
+        <template>locker_2</template>
+    </category>
+
+    <category>
+        <pattern>WHATS IN LOCKER 2</pattern>
+        <template>locker_2</template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS IN DOOR NUMBER 3</pattern>
+        <template>locker_3</template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS IN LOCKER 3</pattern>
+        <template>locker_3</template>
+    </category>
+
+    <category>
+        <pattern>WHATS IN DOOR NUMBER 3</pattern>
+        <template>locker_3</template>
+    </category>
+
+    <category>
+        <pattern>WHATS IN LOCKER 3</pattern>
+        <template>locker_3</template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS IN DOOR NUMBER 4</pattern>
+        <template>locker_4</template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS IN LOCKER 4</pattern>
+        <template>locker_4</template>
+    </category>
+
+    <category>
+        <pattern>WHATS IN DOOR NUMBER 4</pattern>
+        <template>locker_4</template>
+    </category>
+
+    <category>
+        <pattern>WHATS IN LOCKER 4</pattern>
+        <template>locker_4</template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS IN DOOR NUMBER 5</pattern>
+        <template>locker_5</template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS IN LOCKER 5</pattern>
+        <template>locker_5</template>
+    </category>
+
+    <category>
+        <pattern>WHATS IN DOOR NUMBER 5</pattern>
+        <template>locker_5</template>
+    </category>
+
+    <category>
+        <pattern>WHATS IN LOCKER 5</pattern>
+        <template>locker_5</template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS IN DOOR NUMBER 6</pattern>
+        <template>locker_6</template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS IN LOCKER 6</pattern>
+        <template>locker_6</template>
+    </category>
+
+    <category>
+        <pattern>WHATS IN DOOR NUMBER 6</pattern>
+        <template>locker_6</template>
+    </category>
+
+    <category>
+        <pattern>WHATS IN LOCKER 6</pattern>
+        <template>locker_6</template>
+    </category>
 
 
 </aiml> 
