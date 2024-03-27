@@ -191,6 +191,11 @@
     </category>
 
     <category>
+        <pattern>SHOW WHAT YOU GOT</pattern>
+        <template>show menu</template>
+    </category>
+
+    <category>
         <pattern>SHOW WHATS THERE TO EAT</pattern>
         <template>show menu</template>
     </category>
@@ -278,6 +283,11 @@
 
     <category>
         <pattern>SHOW ME WHAT IS THE COST</pattern>
+        <template>meal cost</template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS THE COST</pattern>
         <template>meal cost</template>
     </category>
 
