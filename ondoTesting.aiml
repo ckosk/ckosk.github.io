@@ -437,5 +437,21 @@
         <template>locker_6</template>
     </category>
 
+    <!--- who is ONDO Branch -->
+    <category>
+        <pattern>WHO IS ONDO</pattern>
+        <template>ondo-intro</template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS ONDO</pattern>
+        <template>ondo-intro</template>
+    </category>
+
+    <category>
+        <pattern>TELL ME ABOUT ONDO</pattern>
+        <template>ondo-intro</template>
+    </category>
+
 
 </aiml> 
