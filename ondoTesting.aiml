@@ -191,6 +191,16 @@
     </category>
 
     <category>
+        <pattern>SHOW WHAT IS IN THE LOCKERS</pattern>
+        <template>show menu</template>
+    </category>
+
+    <category>
+        <pattern>SHOW WHATS IN THE LOCKERS</pattern>
+        <template>show menu</template>
+    </category>
+
+    <category>
         <pattern>SHOW WHAT YOU GOT</pattern>
         <template>show menu</template>
     </category>
@@ -452,6 +462,17 @@
         <pattern>TELL ME ABOUT ONDO</pattern>
         <template>ondo-intro</template>
     </category>
+
+    <category>
+        <pattern>WHO ARE YOU</pattern>
+        <template>ondo-intro</template>
+    </category>
+
+    <category>
+        <pattern>WHAT ARE YOU</pattern>
+        <template>ondo-intro</template>
+    </category>
+
 
 
 </aiml> 
