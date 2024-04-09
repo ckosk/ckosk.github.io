@@ -473,6 +473,125 @@
         <template>ondo-intro</template>
     </category>
 
+    <!--- Swearing Branch -->
+    <category>
+        <pattern>BITCH</pattern>
+        <template>swearing</template>
+    </category>
+
+    <category>
+        <pattern>FUCK YOU</pattern>
+        <template>swearing</template>
+    </category>
+
+    <category>
+        <pattern>FUCK YOU BITCH</pattern>
+        <template>swearing</template>
+    </category>
+
+    <!--- Often Check Expiration Branch -->
+    <category>
+        <pattern>HOW OFTEN DO YOU CHECK FOR EXPIRATION</pattern>
+        <template>often-check-expiration</template>
+    </category>
+
+    <category>
+        <pattern>HOW OFTEN DO YOU CHECK FOR EXPIRATION DATES</pattern>
+        <template>often-check-expiration</template>
+    </category>
+
+    <!--- Nutrition Facts Branch -->
+    <category>
+        <pattern>HOW MANY CALORIES ARE IN THAT</pattern>
+        <template>food-calories</template>
+    </category>
+    
+    <category>
+        <pattern>HOW MANY CALORIES ARE IN THERE</pattern>
+        <template>food-calories</template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS THE CALORIC COUNT</pattern>
+        <template>food-calories</template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS THE CALORIE COUNT</pattern>
+        <template>food-calories</template>
+    </category>
+
+    <category>
+        <pattern>TELL ME ABOUT THE CALORIES</pattern>
+        <template>food-calories</template>
+    </category>
+
+    <category>
+        <pattern>TELL ME ABOUT THE CALORIC COUNT</pattern>
+        <template>food-calories</template>
+    </category>
+
+    <category>
+        <pattern>IT IS FATTENING</pattern>
+        <template>food-calories</template>
+    </category>
+
+    <category>
+        <pattern>WHAT ABOUT FAT</pattern>
+        <template>food-calories</template>
+    </category>
+
+    <category>
+        <pattern>TELL ME ABOUT THE FAT CONTENT</pattern>
+        <template>food-calories</template>
+    </category>
+
+    <!--- About AI Branch -->
+    <category>
+        <pattern>WHAT AI DO YOU USE</pattern>
+        <template>about-AI</template>
+    </category>
+
+    <category>
+        <pattern>TELL ME ABOUT YOURSELF</pattern>
+        <template>about-AI</template>
+    </category>
+
+    <category>
+        <pattern>WHAT ARE YOU</pattern>
+        <template>about-AI</template>
+    </category>
+
+    <category>
+        <pattern>WHO ARE YOU</pattern>
+        <template>about-AI</template>
+    </category>
+
+    <category>
+        <pattern>ARE YOU AI</pattern>
+        <template>about-AI</template>
+    </category>
+
+    <category>
+        <pattern>WHAT AI ARE YOU</pattern>
+        <template>about-AI</template>
+    </category>
+
+    <!--- Age/Gender Branch -->
+    <category>
+        <pattern>CAN YOU DO AGE GENDER</pattern>
+        <template>about-age-gender</template>
+    </category>
+
+    <category>
+        <pattern>CAN YOU DO AGE AND GENDER</pattern>
+        <template>about-age-gender</template>
+    </category>
+
+    <category>
+        <pattern>CAN YOU DO AGE OR GENDER</pattern>
+        <template>about-age-gender</template>
+    </category>
 
 
 </aiml> 
