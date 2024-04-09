@@ -593,5 +593,21 @@
         <template>about-age-gender</template>
     </category>
 
+    <!--- Who is W13 Branch -->
+    <category>
+        <pattern>WHO IS W THIRTEEN</pattern>
+        <template>who-is-W13</template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS W THIRTEEN</pattern>
+        <template>who-is-W13</template>
+    </category>
+
+    <category>
+        <pattern>TELL ME ABOUT W THIRTEEN</pattern>
+        <template>who-is-W13</template>
+    </category>
+
 
 </aiml> 
