@@ -615,5 +615,36 @@
         <template>how-do-I-know-if-food-expired</template>
     </category>
 
+    <!--- Contact Info Branch -->
+    <category>
+        <pattern>TELL ME HOW TO GET THIS</pattern>
+        <template>get-contact-information</template>
+    </category>
+
+    <category>
+        <pattern>TELL ME HOW TO CONTACT</pattern>
+        <template>get-contact-information</template>
+    </category>
+
+    <category>
+        <pattern>TELL ME HOW I CAN GET MORE INFORMATION</pattern>
+        <template>get-contact-information</template>
+    </category>
+
+    <category>
+        <pattern>I NEED MORE INFORMATION</pattern>
+        <template>get-contact-information</template>
+    </category>
+
+    <category>
+        <pattern>MORE INFORMATION</pattern>
+        <template>get-contact-information</template>
+    </category>
+
+    <category>
+        <pattern>I NEED MORE</pattern>
+        <template>get-contact-information</template>
+    </category>
+
 
 </aiml> 
