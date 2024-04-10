@@ -609,5 +609,11 @@
         <template>who-is-W13</template>
     </category>
 
+    <!--- Food Expired Branch -->
+    <category>
+        <pattern>HOW DO I KNOW IF IT IS EXPIRED</pattern>
+        <template>how-do-I-know-if-food-expired</template>
+    </category>
+
 
 </aiml> 
