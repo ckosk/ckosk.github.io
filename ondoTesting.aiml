@@ -532,7 +532,7 @@
     </category>
 
     <category>
-        <pattern>IT IS FATTENING</pattern>
+        <pattern>IS IT FATTENING</pattern>
         <template>food-calories</template>
     </category>
 
