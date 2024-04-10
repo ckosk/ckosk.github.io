@@ -577,6 +577,16 @@
         <template>about-AI</template>
     </category>
 
+    <category>
+        <pattern>WHAT IS YOUR PURPOSE</pattern>
+        <template>what-is-your-purpose</template>
+    </category>
+
+    <category>
+        <pattern>WHY ARE YOU HERE</pattern>
+        <template>why-are-you-here</template>
+    </category>
+
     <!--- Age/Gender Branch -->
     <category>
         <pattern>CAN YOU DO AGE GENDER</pattern>
