@@ -656,5 +656,41 @@
         <template>get-contact-information</template>
     </category>
 
+    <!--- Analytics Branch -->
+    <category>
+        <pattern>DO YOU TRACK ANALYTICS</pattern>
+        <template>about-analytics</template>
+    </category>
+
+    <category>
+        <pattern>WHAT ABOUT ANALYTICS</pattern>
+        <template>about-analytics</template>
+    </category>
+
+    <category>
+        <pattern>SHOW ME ANALYTICS</pattern>
+        <template>about-analytics</template>
+    </category>
+
+    <category>
+        <pattern>SHOW ANALYTICS</pattern>
+        <template>about-analytics</template>
+    </category>
+
+    <category>
+        <pattern>WHAT ANALYTICS DO YOU KEEP</pattern>
+        <template>about-analytics</template>
+    </category>
+
+    <category>
+        <pattern>WHAT ANALYTICS CAN YOU DO</pattern>
+        <template>about-analytics</template>
+    </category>
+
+    <category>
+        <pattern>WHAT ANALYTICS ARE YOU TRACKING</pattern>
+        <template>about-analytics</template>
+    </category>
+
 
 </aiml> 
