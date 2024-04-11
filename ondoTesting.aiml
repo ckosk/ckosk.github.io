@@ -692,5 +692,21 @@
         <template>about-analytics</template>
     </category>
 
+    <!--- Love it Branch -->
+    <category>
+        <pattern>LOVING IT</pattern>
+        <template>love-it</template>
+    </category>
+
+    <category>
+        <pattern>LOVE IT</pattern>
+        <template>love-it</template>
+    </category>
+
+    <category>
+        <pattern>LOVEN IT</pattern>
+        <template>love-it</template>
+    </category>
+
 
 </aiml> 
