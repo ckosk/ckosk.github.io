@@ -708,5 +708,25 @@
         <template>love-it</template>
     </category>
 
+    <category>
+        <pattern>YOU SUCK</pattern>
+        <template>bot-sucks</template>
+    </category>
+
+    <category>
+        <pattern>IT SUCKS</pattern>
+        <template>bot-sucks</template>
+    </category>
+
+    <category>
+        <pattern>I DONT LIKE IT</pattern>
+        <template>donot-like-it</template>
+    </category>
+
+    <category>
+        <pattern>I DO NOT LIKE IT</pattern>
+        <template>donot-like-it</template>
+    </category>
+
 
 </aiml> 
