@@ -728,5 +728,20 @@
         <template>donot-like-it</template>
     </category>
 
+    <!--- Locker Cost Branch -->
+    <category>
+        <pattern>WHATS THE COST FOR THIS UNIT</pattern>
+        <template>locker-cost</template>
+    </category>
+
+    <category>
+        <pattern>WHATS THE COST FOR THIS</pattern>
+        <template>locker-cost</template>
+    </category>
+
+    <category>
+        <pattern>WHATS THE COST FOR THIS HARDWARE</pattern>
+        <template>locker-cost</template>
+    </category>
 
 </aiml> 
