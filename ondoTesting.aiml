@@ -500,6 +500,16 @@
         <template>often-check-expiration</template>
     </category>
 
+    <category>
+        <pattern>HOW DO I KNOW IF IT IS EXPIRED</pattern>
+        <template>how-do-I-know-if-food-expired</template>
+    </category>
+
+    <category>
+        <pattern>IS IT HOT</pattern>
+        <template>food-hot</template>
+    </category>
+
     <!--- Nutrition Facts Branch -->
     <category>
         <pattern>HOW MANY CALORIES ARE IN THAT</pattern>
@@ -617,12 +627,6 @@
     <category>
         <pattern>TELL ME ABOUT W THIRTEEN</pattern>
         <template>who-is-W13</template>
-    </category>
-
-    <!--- Food Expired Branch -->
-    <category>
-        <pattern>HOW DO I KNOW IF IT IS EXPIRED</pattern>
-        <template>how-do-I-know-if-food-expired</template>
     </category>
 
     <!--- Contact Info Branch -->
