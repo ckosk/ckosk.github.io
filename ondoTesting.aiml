@@ -660,6 +660,11 @@
         <template>get-contact-information</template>
     </category>
 
+    <category>
+        <pattern>I AM LOST</pattern>
+        <template>I-am-lost</template>
+    </category>
+
     <!--- Analytics Branch -->
     <category>
         <pattern>DO YOU TRACK ANALYTICS</pattern>
@@ -723,6 +728,11 @@
     </category>
 
     <category>
+        <pattern>I HATE YOU</pattern>
+        <template>I-hate-you</template>
+    </category>
+
+    <category>
         <pattern>I DONT LIKE IT</pattern>
         <template>donot-like-it</template>
     </category>
@@ -730,6 +740,26 @@
     <category>
         <pattern>I DO NOT LIKE IT</pattern>
         <template>donot-like-it</template>
+    </category>
+
+    <category>
+        <pattern>I LOVE YOU</pattern>
+        <template>I-love-you</template>
+    </category>
+
+    <category>
+        <pattern>I LIKE YOU</pattern>
+        <template>I-like-you</template>
+    </category>
+
+    <category>
+        <pattern>I LIKE THIS</pattern>
+        <template>like-it</template>
+    </category>
+
+    <category>
+        <pattern>I LIKE IT</pattern>
+        <template>like-it</template>
     </category>
 
     <!--- Locker Cost Branch -->
