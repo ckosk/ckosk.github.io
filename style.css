@@ -10,6 +10,14 @@ html {
 
 #colorPick {
   position: absolute;
-  bottom: 0;
-  right: 0;
+  background-color: gray;
+  bottom: 10;
+  right: 10;
+}
+
+i {
+  position: absolute;
+  background-color: gray;
+  top: 5;
+  right: 5;
 }
