@@ -665,6 +665,21 @@
         <template>I-am-lost</template>
     </category>
 
+    <category>
+        <pattern>TELL ME ABOUT IT</pattern>
+        <template>tell-me-about-this</template>
+    </category>
+
+    <category>
+        <pattern>TELL ME</pattern>
+        <template>tell-me-about-this</template>
+    </category>
+
+    <category>
+        <pattern>TELL ME ABOUT THIS</pattern>
+        <template>tell-me-about-this</template>
+    </category>
+
     <!--- Analytics Branch -->
     <category>
         <pattern>DO YOU TRACK ANALYTICS</pattern>
