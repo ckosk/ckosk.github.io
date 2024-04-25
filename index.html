@@ -9,7 +9,7 @@
 </head>
 <link rel="stylesheet" href="style.css">
 
-<a href="/mainland" ><i class="fa fa-home"></i></a>
+<a href="/mainland"><i class="fa fa-home"></i></a>
 <input type="color" id="colorPick" value="#000000">
 <canvas></canvas>
 
@@ -82,8 +82,9 @@
             p.x += p.dx;
             p.y += p.dy;
         });
-        
+
         ctx.strokeStyle = document.getElementById("colorPick").value;
+        document.getElementById("colorPick").style.backgroundColor = document.getElementById("colorPick").value;
         ctx.lineCap = "round";
         ctx.beginPath();
         ctx.moveTo(trail[0].x, trail[0].y);
@@ -97,7 +98,7 @@
         }
         ctx.lineTo(trail[trail.length - 1].x, trail[trail.length - 1].y);
         ctx.stroke();
-        
+
         window.requestAnimationFrame(update);
     }
 
