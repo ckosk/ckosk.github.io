@@ -139,7 +139,7 @@ h1 {
         transform: skew(-10deg);
         display: block;
         float: left;
-        text-shadow: #DE4831 2px 3px;
+        text-shadow: rgba(222, 72, 49, 1) 2px 3px;
         min-width: 10px;
         min-height: 10px;
         position: relative;
@@ -148,14 +148,14 @@ h1 {
 
 .title {
     &:nth-child(1) {
-        color: #ECAF3E;
+        color: rgba(236, 175, 62, 1);
     }
 
     &:nth-child(2) {
-        color: #91CDE5;
+        color: rgba(145, 205, 229, 1);
     }
 
     &:nth-child(3) {
-        color: #2D3162;
+        color: rgba(45, 49, 98, 1);
     }
 }
