@@ -21,9 +21,9 @@ html {
 i {
   position: absolute;
   background-color: transparent;
-  transform: scale(1.5);
-  top: 10;
-  right: 10;
+  transform: scale(2.5);
+  top: 18;
+  right: 18;
 }
 
 input[type="color"] {
