@@ -30,8 +30,9 @@
     <category>
         <pattern>DONT KNOW</pattern>
         <that> WELCOME </that>
-        <template>sales-call</template>
+        <template>ondo-tour</template>
     </category>
+
 
     <!--- welcome-day-going Branch -->
     <category>
@@ -80,6 +81,18 @@
         <pattern>ALRIGHTY</pattern>
         <that> ONDO TOUR </that>
         <template>interactive-tour</template>
+    </category>
+
+    <category>
+        <pattern>YES</pattern>
+        <that> DEMO TOUR </that>
+        <template>like-to-order-yes</template>
+    </category>
+
+    <category>
+        <pattern>NO</pattern>
+        <that> DEMO TOUR </that>
+        <template>like-to-order-no</template>
     </category>
 
     <!--- sales-call Branch -->
