@@ -1,0 +1,693 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<aiml version="1.0">
+
+    <!--- Wake Phrase -->
+    <category>
+        <pattern>JESSICA ON</pattern>
+        <template>
+            <random>
+                <li>welcome</li>
+            </random>
+        </template>
+    </category>
+
+    <!--- Feelings Branch -->
+    <category>
+        <pattern>I AM LOST</pattern>
+        <template>i-am-lost</template>
+    </category>
+
+    <category>
+        <pattern>I HATE YOU</pattern>
+        <template>i-hate-you</template>
+    </category>
+
+    <category>
+        <pattern>I LOVE YOU</pattern>
+        <template>i-love-you</template>
+    </category>
+
+    <category>
+        <pattern>I LIKE YOU</pattern>
+        <template>i-like-you</template>
+    </category>
+
+    <category>
+        <pattern>I LIKE THIS</pattern>
+        <template>like-it</template>
+    </category>
+
+    <category>
+        <pattern>I LIKE IT</pattern>
+        <template>like-it</template>
+    </category>
+
+    <category>
+        <pattern>I THINK ITS GREAT</pattern>
+        <template>it-is-great</template>
+    </category>
+
+    <category>
+        <pattern>I THINK IT IS GREAT</pattern>
+        <template>it-is-great</template>
+    </category>
+
+    <category>
+        <pattern>I THINK THIS IS GREAT</pattern>
+        <template>it-is-great</template>
+    </category>
+
+    <category>
+        <pattern>I THINK THIS IS OK</pattern>
+        <template>it-is-ok</template>
+    </category>
+
+    <category>
+        <pattern>YOU SUCK</pattern>
+        <template>bot-sucks</template>
+    </category>
+
+    <category>
+        <pattern>IT SUCKS</pattern>
+        <template>bot-sucks</template>
+    </category>
+
+    <category>
+        <pattern>I DONT LIKE IT</pattern>
+        <template>do-not-like-it</template>
+    </category>
+
+    <category>
+        <pattern>I DO NOT LIKE IT</pattern>
+        <template>do-not-like-it</template>
+    </category>
+
+    <category>
+        <pattern>LOVING IT</pattern>
+        <template>love-it</template>
+    </category>
+
+    <category>
+        <pattern>LOVE IT</pattern>
+        <template>love-it</template>
+    </category>
+
+    <category>
+        <pattern>LOVEN IT</pattern>
+        <template>love-it</template>
+    </category>
+
+    <category>
+        <pattern>HOW ARE YOU</pattern>
+        <template>how-are-you</template>
+    </category>
+
+    <category>
+        <pattern>HOW ARE YOU TODAY</pattern>
+        <template>how-are-you-today</template>
+    </category>
+
+    <!--- Why/Where Branch -->
+    <category>
+        <pattern>WHY ARE YOU HERE</pattern>
+        <template>why-are-you-here</template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS YOUR PURPOSE</pattern>
+        <template>what-is-your-purpose</template>
+    </category>
+
+    <category>
+        <pattern>WHO ARE YOU</pattern>
+        <template>who-are-you</template>
+    </category>
+
+    <category>
+        <pattern>WHAT ARE YOU</pattern>
+        <template>what-are-you</template>
+    </category>
+
+    <category>
+        <pattern>WHO MADE YOU</pattern>
+        <template>who-made-you</template>
+    </category>
+
+    <category>
+        <pattern>SHOW ME WHERE TO FIND ONDO</pattern>
+        <template>where-is-ondo</template>
+    </category>
+
+    <category>
+        <pattern>SHOW ME WHERE TO FIND THE COOLER</pattern>
+        <template>where-is-the-cooler</template>
+    </category>
+
+    <category>
+        <pattern>SHOW ME WHERE WAREHOUSE 13 IS</pattern>
+        <template>where-is-warehouse-13</template>
+    </category>
+
+    <category>
+        <pattern>WHERE IS THE ONDO AIR COOLER</pattern>
+        <template>where-is-ondo-air-cooler</template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS THE ONDO AIR COOLER</pattern>
+        <template>what-is-ondo-air-cooler</template>
+    </category>
+
+    <category>
+        <pattern>WHAT BOOTH IS ONDO IN</pattern>
+        <template>where-is-ondo</template>
+    </category>
+
+    <category>
+        <pattern>WHERE IS ONDO</pattern>
+        <template>where-is-ondo</template>
+    </category>
+
+    <category>
+        <pattern>WHERE IS THE FOOD LOCKER</pattern>
+        <template>where-is-the-food-locker</template>
+    </category>
+
+    <category>
+        <pattern>WHERE IS THE HEATED FOOD LOCKER</pattern>
+        <template>where-is-the-heated-food-locker</template>
+    </category>
+
+    <category>
+        <pattern>WHERE IS THE HEATED FOOD LOCKER</pattern>
+        <template>where-is-the-heated-food-locker</template>
+    </category>
+
+    <category>
+        <pattern>WHERE CAN I FIND ONDO</pattern>
+        <template>where-is-ondo</template>
+    </category>
+
+    <category>
+        <pattern>WHERE CAN I FIND THE FOOD LOCKER</pattern>
+        <template>where-is-ondo</template>
+    </category>
+
+    <category>
+        <pattern>WHAT TECHNOLOGY ARE YOU</pattern>
+        <template>what-technology-are-you</template>
+    </category>
+
+    <category>
+        <pattern>WHERE CAN I SEE IT</pattern>
+        <template>where-can-i-see-a-demo</template>
+    </category>
+
+    <category>
+        <pattern>WHERE CAN I SEE IT WORKING</pattern>
+        <template>where-can-i-see-a-demo</template>
+    </category>
+
+    <category>
+        <pattern>WHERE CAN I SEE IT WORK</pattern>
+        <template>where-can-i-see-a-demo</template>
+    </category>
+    
+    <category>
+        <pattern>WHERE CAN I SEE A DEMO</pattern>
+        <template>where-can-i-see-a-demo</template>
+    </category>
+
+    <category>
+        <pattern>WHERE CAN I SEE THE DEMO</pattern>
+        <template>where-can-i-see-a-demo</template>
+    </category>
+
+    <category>
+        <pattern>WHERE CAN I SEE THE DEMO</pattern>
+        <template>where-can-i-see-a-demo</template>
+    </category>
+
+    <category>
+        <pattern>WHAT DOES WAREHOUSE 13 DO</pattern>
+        <template>what-does-warehouse-13-do</template>
+    </category>
+
+    <category>
+        <pattern>WHO IS WAREHOUSE 13</pattern>
+        <template>who-is-warehouse-13</template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS WAREHOUSE 13</pattern>
+        <template>what-is-warehouse-13</template>
+    </category>
+
+    <category>
+        <pattern>WHO IS ONDO</pattern>
+        <template>who-is-ondo</template>
+    </category>
+
+    <category>
+        <pattern>TELL ME ABOUT ONDO</pattern>
+        <template>who-is-ondo</template>
+    </category>
+
+    <category>
+        <pattern>TELL ME ABOUT W THIRTEEN</pattern>
+        <template>who-is-w13</template>
+    </category>
+
+    <category>
+        <pattern>WHO IS W THIRTEEN</pattern>
+        <template>who-is-w13</template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS W THIRTEEN</pattern>
+        <template>who-is-w13</template>
+    </category>
+
+    <!--- Age/Gender Branch -->
+    <category>
+        <pattern>HOW OLD ARE YOU</pattern>
+        <template>veronica-how-old</template>
+    </category>
+
+    <category>
+        <pattern>HOW OLD AM I</pattern>
+        <template>what-is-my-age</template>
+    </category>
+
+    <category>
+        <pattern>WHAT SEX AM I</pattern>
+        <template>what-is-my-sex</template>
+    </category>
+    
+    <category>
+        <pattern>DO YOU KNOW MY AGE</pattern>
+        <template>what-is-my-age</template>
+    </category>
+
+    <category>
+        <pattern>DO YOU KNOW MY SEX</pattern>
+        <template>what-is-my-sex</template>
+    </category>
+
+    <category>
+        <pattern>CAN YOU DO AGE GENDER</pattern>
+        <template>veronica-about-age-gender</template>
+    </category>
+
+    <category>
+        <pattern>CAN YOU DO AGE AND GENDER</pattern>
+        <template>veronica-about-age-gender</template>
+    </category>
+
+    <category>
+        <pattern>CAN YOU DO AGE OR GENDER</pattern>
+        <template>veronica-about-age-gender</template>
+    </category>
+    
+    <!--- AI/Veronica Branch -->
+    <category>
+        <pattern>WHAT TYPE OF AI ARE YOU</pattern>
+        <template>veronica-about</template>
+    </category>
+
+    <category>
+        <pattern>ARE YOU AI</pattern>
+        <template>veronica-about</template>
+    </category>
+
+    <category>
+        <pattern>ARE YOU CHAT G P T</pattern>
+        <template>veronica-about</template>
+    </category>
+
+    <category>
+        <pattern>TELL ME ABOUT YOURSELF</pattern>
+        <template>veronica-about</template>
+    </category>
+
+    <category>
+        <pattern>CAN YOU WORK OFF LINE</pattern>
+        <template>veronica-offline</template>
+    </category>
+
+    <category>
+        <pattern>CAN YOU RUN OFF LINE</pattern>
+        <template>veronica-offline</template>
+    </category>
+
+    <category>
+        <pattern>HOW DO YOU WORK</pattern>
+        <template>veronica-how-do-you-work</template>
+    </category>
+
+    <category>
+        <pattern>HOW DO YOU OPERATE</pattern>
+        <template>veronica-how-do-you-work</template>
+    </category>
+
+    <category>
+        <pattern>WHAT MAKES YOU WORK</pattern>
+        <template>veronica-how-do-you-work</template>
+    </category>
+
+    <category>
+        <pattern>WHO IS YOUR CREATOR</pattern>
+        <template>veronica-who-made-you</template>
+    </category>
+
+    <category>
+        <pattern>WHO BUILT YOU</pattern>
+        <template>veronica-who-made-you</template>
+    </category>
+
+    <category>
+        <pattern>WHAT DO YOU COST</pattern>
+        <template>what-do-you-cost</template>
+    </category>
+
+    <!--- Contact Branch -->
+    <category>
+        <pattern>TELL ME ABOUT IT</pattern>
+        <template>tell-me-about-this</template>
+    </category>
+
+    <category>
+        <pattern>TELL ME</pattern>
+        <template>tell-me-about-this</template>
+    </category>
+
+    <category>
+        <pattern>TELL ME ABOUT THIS</pattern>
+        <template>tell-me-about-this</template>
+    </category>
+
+    <category>
+        <pattern>TELL ME HOW TO GET THIS</pattern>
+        <template>get-contact-information</template>
+    </category>
+
+    <category>
+        <pattern>TELL ME HOW TO CONTACT</pattern>
+        <template>get-contact-information</template>
+    </category>
+
+    <category>
+        <pattern>TELL ME HOW I CAN GET MORE INFORMATION</pattern>
+        <template>get-contact-information</template>
+    </category>
+
+    <category>
+        <pattern>I NEED MORE INFORMATION</pattern>
+        <template>get-contact-information</template>
+    </category>
+
+    <category>
+        <pattern>MORE INFORMATION</pattern>
+        <template>get-contact-information</template>
+    </category>
+
+    <category>
+        <pattern>I NEED MORE</pattern>
+        <template>get-contact-information</template>
+    </category>
+
+    <category>
+        <pattern>SHOW ME MORE</pattern>
+        <template>show-more</template>
+    </category>
+
+    <category>
+        <pattern>SHOW ME</pattern>
+        <template>show-more</template>
+    </category>
+
+    <category>
+        <pattern>SHOW ME IT</pattern>
+        <template>show-more</template>
+    </category>
+
+    <category>
+        <pattern>SHOW IT TO ME</pattern>
+        <template>show-more</template>
+    </category>
+
+    <category>
+        <pattern>TALK TO ME ABOUT IT</pattern>
+        <template>talk-to-me-about-it</template>
+    </category>
+
+    <category>
+        <pattern>TALK TO ME</pattern>
+        <template>talk-to-me-about-it</template>
+    </category>
+
+    <category>
+        <pattern>TELL ME ABOUT IT</pattern>
+        <template>talk-to-me-about-it</template>
+    </category>
+
+    <category>
+        <pattern>TELL ME</pattern>
+        <template>talk-to-me-about-it</template>
+    </category>
+
+    <category>
+        <pattern>TELL ME MORE</pattern>
+        <template>talk-to-me-about-it</template>
+    </category>
+
+    <category>
+        <pattern>SPILL YOUR GUTS</pattern>
+        <template>talk-to-me-about-it</template>
+    </category>
+
+    <category>
+        <pattern>SPILL IT</pattern>
+        <template>talk-to-me-about-it</template>
+    </category>
+
+    <category>
+        <pattern>TALK ABOUT IT</pattern>
+        <template>talk-to-me-about-it</template>
+    </category>
+
+    <category>
+        <pattern>TELL ME MORE</pattern>
+        <template>talk-to-me-about-it</template>
+    </category>
+
+    <category>
+        <pattern>CAN YOU EXPLAIN IT</pattern>
+        <template>explain-it</template>
+    </category>
+
+    <category>
+        <pattern>CAN YOU EXPLAIN THAT</pattern>
+        <template>explain-it</template>
+    </category>
+
+    <category>
+        <pattern>CAN YOU EXPLAIN</pattern>
+        <template>explain-it</template>
+    </category>
+
+    <category>
+        <pattern>EXPLAIN</pattern>
+        <template>explain-it</template>
+    </category>
+
+    <category>
+        <pattern>EXPLAIN IT</pattern>
+        <template>explain-it</template>
+    </category>
+
+    <category>
+        <pattern>CAN YOU EXPLAIN IT</pattern>
+        <template>explain-it</template>
+    </category>
+
+    <!--- Analytics Branch -->
+    <category>
+        <pattern>DO YOU TRACK ANALYTICS</pattern>
+        <template>about-analytics</template>
+    </category>
+
+    <category>
+        <pattern>WHAT ABOUT ANALYTICS</pattern>
+        <template>about-analytics</template>
+    </category>
+
+    <category>
+        <pattern>SHOW ME ANALYTICS</pattern>
+        <template>about-analytics</template>
+    </category>
+
+    <category>
+        <pattern>SHOW ANALYTICS</pattern>
+        <template>about-analytics</template>
+    </category>
+
+    <category>
+        <pattern>WHAT ANALYTICS DO YOU KEEP</pattern>
+        <template>about-analytics</template>
+    </category>
+
+    <category>
+        <pattern>WHAT ANALYTICS CAN YOU DO</pattern>
+        <template>about-analytics</template>
+    </category>
+
+    <category>
+        <pattern>WHAT ANALYTICS ARE TRACKING</pattern>
+        <template>about-analytics</template>
+    </category>
+
+    <!--- Swearing Branch -->
+    <category>
+        <pattern>FUCK YOU</pattern>
+        <template>swearing</template>
+    </category>
+
+    <category>
+        <pattern>FUCK YOU BITCH</pattern>
+        <template>swearing</template>
+    </category>
+
+    <category>
+        <pattern>BITCH</pattern>
+        <template>swearing</template>
+    </category>
+
+    <category>
+        <pattern>WHAT DO I DO</pattern>
+        <template>what-do-i-do</template>
+    </category>
+
+    <category>
+        <pattern>WHAT NOW</pattern>
+        <template>what-now</template>
+    </category>
+
+    <!--- Sensors Branch -->
+    <category>
+        <pattern>WHAT SENSORS DO YOU USE</pattern>
+        <template>about-sensors</template>
+    </category>
+
+    <category>
+        <pattern>WHAT ABOUT SENSORS</pattern>
+        <template>about-sensors</template>
+    </category>
+
+    <category>
+        <pattern>DO YOU USE SENSORS</pattern>
+        <template>about-sensors</template>
+    </category>
+
+    <category>
+        <pattern>TELL ME ABOUT YOUR SENSORS</pattern>
+        <template>about-sensors</template>
+    </category>
+
+    <category>
+        <pattern>TELL ME ABOUT SENSORS</pattern>
+        <template>about-sensors</template>
+    </category>
+
+    <category>
+        <pattern>TELL ME ABOUT THE SENSORS YOU USE</pattern>
+        <template>about-sensors</template>
+    </category>
+
+    <category>
+        <pattern>TELL ME ABOUT THE SENSORS YOU CAN USE</pattern>
+        <template>about-sensors</template>
+    </category>
+
+    <category>
+        <pattern>WHAT SENSORS DO YOU USE</pattern>
+        <template>about-sensors</template>
+    </category>
+
+    <category>
+        <pattern>WHAT SENSORS CAN YOU USE</pattern>
+        <template>about-sensors</template>
+    </category>
+
+    <category>
+        <pattern>WHAT ABOUT PRIVACY</pattern>
+        <template>about-privacy</template>
+    </category>
+
+    <!--- Adverbs Branch -->
+    <category>
+        <pattern>I DONT KNOW</pattern>
+        <template>i-do-not-know</template>
+    </category>
+
+    <category>
+        <pattern>I DO NOT KNOW</pattern>
+        <template>i-do-not-know</template>
+    </category>
+
+    <category>
+        <pattern>DONT KNOW</pattern>
+        <template>i-do-not-know</template>
+    </category>
+
+    <category>
+        <pattern>YES</pattern>
+        <template>yes</template>
+    </category>
+    
+    <category>
+        <pattern>YEP</pattern>
+        <template>yes</template>
+    </category>
+
+    <category>
+        <pattern>SURE</pattern>
+        <template>yes</template>
+    </category>
+
+    <category>
+        <pattern>OK</pattern>
+        <template>yes</template>
+    </category>
+
+    <category>
+        <pattern>NO</pattern>
+        <template>no</template>
+    </category>
+
+    <category>
+        <pattern>NOPE</pattern>
+        <template>no</template>
+    </category>
+
+    <category>
+        <pattern>ALRIGHT</pattern>
+        <template>yes</template>
+    </category>
+
+    <category>
+        <pattern>ALRIGHTY</pattern>
+        <template>yes</template>
+    </category>
+
+    <category>
+        <pattern>OK I GUESS</pattern>
+        <template>ok-i-guess</template>
+    </category>
+
+    <category>
+        <pattern>OK I THINK</pattern>
+        <template>ok-i-think</template>
+    </category>
+
+</aiml> 
