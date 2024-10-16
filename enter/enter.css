@@ -1,0 +1,131 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: black;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .background-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 10%, black 90%);
+    animation: pulse 6s infinite;
+    z-index: -1;
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  .background-effect::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05) 10px, black 10px, black 20px);
+    opacity: 0.3;
+    animation: glitch-lines 4s infinite alternate;
+  }
+  
+  @keyframes glitch-lines {
+    0% { transform: translate(0px, 0px); }
+    50% { transform: translate(10px, -10px); }
+    100% { transform: translate(-10px, 10px); }
+  }
+  
+  .password-container {
+    text-align: center;
+    z-index: 1;
+  }
+  
+  .input-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  
+  input[type="password"] {
+    width: 300px;
+    height: 50px;
+    font-size: 46px;
+    padding: 10px;
+    border: none;
+    background-color: black;
+    color: white;
+    text-align: center;
+    caret-color: transparent;
+    outline: none;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5), 0 0 2px rgba(255, 255, 255, 0.5);
+    animation: flicker 0.1s infinite;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .input-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 16px;
+    background-color: white;
+    z-index: 1;
+    animation: flicker-bar 0.1s infinite;
+  }
+  
+  @keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+      text-shadow: 0 0 4px rgba(255, 255, 255, 0.5), 0 0 2px rgba(255, 255, 255, 0.5);
+    }
+    20%, 24%, 55% {
+      text-shadow: none;
+    }
+  }
+  
+  @keyframes flicker-bar {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+    20%, 24%, 55% {
+      background-color: rgba(255, 255, 255, 0.4);
+    }
+  }
+  
+  input[type="password"]:focus {
+    animation: glitch 1s infinite alternate;
+  }
+  
+  @keyframes glitch {
+    0% {
+      text-shadow: -2px -2px 1px white, 2px 2px 1px black;
+    }
+    100% {
+      text-shadow: 2px 2px 1px white, -2px -2px 1px black;
+    }
+  }
+  
+  input[type="password"]:focus + .input-wrapper::after {
+    animation: glitch-bar 1s infinite alternate;
+  }
+  
+  @keyframes glitch-bar {
+    0% {
+      background-color: white;
+      transform: translateX(-2px);
+    }
+    100% {
+      background-color: rgba(255, 255, 255, 0.7);
+      transform: translateX(2px);
+    }
+  }
+  
